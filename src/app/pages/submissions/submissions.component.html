@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Data Collector</th>
+    <th>Time</th>
+  </tr>
+  <tr *ngFor="let user of dataList">
+    <th>{{user.fname}} </th>
+    <th>{{user.lname}} </th>
+    <th>{{user.surveyingUser}}</th>
+    <th>{{user.createdAt}}</th>
+  </tr>
+</table>
