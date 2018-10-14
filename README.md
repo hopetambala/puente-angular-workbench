@@ -24,8 +24,7 @@ cd THIS_PROJ
 npm install
 ```
 
-
-# Run
+## Run
 ```
 npm run start
 ```
@@ -49,7 +48,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 ```
 ng generate directive|service|etc /providers/componentName/componentName
 ```
-This will create a folder for the component in the providers directory with the .TS files inside that folder
+This will create a folder for the component in the providers directory with the correct files inside that folder
 
 # Known Issues
 - Need to set environmental variables for local development/production 
@@ -66,3 +65,5 @@ This will create a folder for the component in the providers directory with the 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+This project uses [Material Design](https://material.angular.io/)
