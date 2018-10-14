@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { QueryService} from '../../providers/query/query.service';
 
+import { DataSource } from '@angular/cdk/table';
+//import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-submissions',
   templateUrl: './submissions.component.html',
@@ -8,10 +11,14 @@ import { QueryService} from '../../providers/query/query.service';
 })
 export class SubmissionsComponent implements OnInit {
 
+  dataSource;
   dataList = [];
+  displayedColumns: string[] = ['fname', 'lname', 'user', 'createdAt'];
 
   constructor(private query:QueryService) { 
-    this.setup();
+    this.setup().then(()=>{
+      this.dataSource = this.dataList
+    })
   }
 
   ngOnInit() {
