@@ -26,7 +26,7 @@ npm install
 
 ## Run
 ```
-npm run start
+npm run start:local
 ```
 ## Build
 For debug build
