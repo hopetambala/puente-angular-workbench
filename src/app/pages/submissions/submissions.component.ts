@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { QueryService} from '../../providers/query/query.service';
 
-import { DataSource } from '@angular/cdk/table';
-//import { Observable } from 'rxjs/Observable';
+import { MatSort, MatPaginator, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-submissions',
@@ -15,9 +14,22 @@ export class SubmissionsComponent implements OnInit {
   dataList = [];
   displayedColumns: string[] = ['fname', 'lname', 'user', 'createdAt'];
 
+  /*
+    Pagination
+  */
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  /*
+    Sorting
+  */
+  @ViewChild(MatSort) sort: MatSort;
+
   constructor(private query:QueryService) { 
     this.setup().then(()=>{
-      this.dataSource = this.dataList
+      this.dataSource = new MatTableDataSource(this.dataList);
+      this.dataSource.paginator = this.paginator; 
+      this.dataSource.sort = this.sort;
     })
   }
 
@@ -34,5 +46,12 @@ export class SubmissionsComponent implements OnInit {
       }
       
     });
+  }
+
+  /*
+    Filtering
+  */
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
