@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ENV } from '../../../environments/environment.prod'
+import { environment } from '../../../environments/environment.prod'
 
 import { Parse } from 'parse';
 
@@ -7,9 +7,9 @@ import { Parse } from 'parse';
   providedIn: 'root'
 })
 export class ParseService {
-  private parseAppId: string = ENV.parseAppId;
-  private parseServerUrl: string = ENV.parseServerUrl;
-  private parseJavascriptKey: string = ENV.parseJavascriptKey;
+  private parseAppId: string = environment.parseAppId;
+  private parseServerUrl: string = environment.parseServerUrl;
+  private parseJavascriptKey: string = environment.parseJavascriptKey;
 
   constructor() { 
     this.parseInitialize();

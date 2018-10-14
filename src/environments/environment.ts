@@ -2,11 +2,11 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const ENV = {
-  production: true,
-  parseAppId: 'vBdTHqQU31IyLW5uYRDIWb8Ew8zCZGBzMqChugjr',
-  parseJavascriptKey: 'jFWiqliNRHXiH72J9kiotL8m0EuSdry1yFIiYlad',
-  parseServerUrl: 'https://parseapi.back4app.com/'
+export const environment = {
+  production: false,
+  parseAppId: '',
+  parseJavascriptKey: '',
+  parseServerUrl: ''
 };
 
 /*
