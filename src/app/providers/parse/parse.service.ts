@@ -16,11 +16,24 @@ export class ParseService {
     console.log('Initiated Parse');
   }
 
-  parseEnvironment () {
+  /**
+    * @example
+    * Returns a Parse Environment
+    * parseEnvironment()
+    *
+    * @returns a Parse Environment
+  */
+  parseEnvironment() {
     return Parse;
   }
 
-  //Initialize Parse Server
+  /**
+    * @example
+    * Authorize authentication into Parse-Server Backend
+    * parseInitialize()
+    *
+    * @returns
+  */
   public parseInitialize() {
     //Back4app
     Parse.initialize(this.parseAppId,this.parseJavascriptKey);
@@ -29,6 +42,15 @@ export class ParseService {
     Parse.serverURL = this.parseServerUrl;
   }
 
+  /**
+    * @example
+    * Creates front-end function to access Cloud Function
+    * runCloudFunction()
+    *
+    * @param {string} functionName  Name of Cloud Function
+    * @param {string} functionRequest  Paramers for Cloud Function
+    * @returns Cloud Function
+  */
   runCloudFunction(functionName:string, functionRequest:any){
     return Parse.Cloud.run(functionName,functionRequest);
   }

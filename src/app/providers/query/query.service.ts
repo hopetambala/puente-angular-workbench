@@ -10,7 +10,17 @@ export class QueryService {
     this.parse.parseInitialize();
   }
 
-
+  /**
+    * @example
+    * Returns a list of objects based on parameters 
+    * containedQuery(2000,SurveyData,organization,Puente)
+    *
+    * @param {number} Limit  Number of Queries
+    * @param {string} parseObject  Name of Cloud Class
+    * @param {string} parseColumn  Name of Cloud Class Column 
+    * @param {string} parseParamValuesArray Name of Parameter within Class Colum
+    * @returns list of objects
+  */
   public containedQuery(limit: number=1000, parseObject: string, parseColumn: string, parseParamValuesArray: any): Promise<any> {
     //This is Retrieving Results from Parse Server
     let Parse = this.parse.parseEnvironment();
@@ -42,6 +52,14 @@ export class QueryService {
     });
   }
 
+  /**
+    * @example
+    * Returns a list of objects 
+    * genericQuery(SurveyData)
+    *
+    * @param {string} parseObject  Name of Cloud Class
+    * @returns list of objects
+  */
   public genericQuery(parseObject: string): Promise<any> {
     //This is Retrieving Results from Parse Server
     let Parse = this.parse.parseEnvironment();
@@ -70,14 +88,36 @@ export class QueryService {
     });
   }
 
+  /**
+    * @example
+    * Returns a console.log of Hello
+    * hello()
+    *
+    * @returns console.log of hello
+  */
   hello(){
     return this.parse.runCloudFunction("hello",null);
   }
 
+  /**
+    * @example
+    * Returns a list of all objects in SurveyData (PatientDemographicsClass)
+    * containedQuery(2000,SurveyData,organization,Puente)
+    *
+    * @returns list of objects
+  */
   listAllPatients(){
     return this.parse.runCloudFunction("retrievePatientRecordsAll", null);
   }
 
+  /**
+    * @example
+    * Returns a list of objects based on organization 
+    * listPatientsByOrganization(Puente)
+    *
+    * @param {string} organization Name of Organization
+    * @returns list of objects
+  */
   listPatientsByOrganization(organization){
     return this.parse.runCloudFunction("retrievePatientRecordByOrgnization", {
       organization: organization
