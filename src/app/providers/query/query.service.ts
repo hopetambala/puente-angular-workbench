@@ -102,7 +102,7 @@ export class QueryService {
   /**
     * @example
     * Returns a list of all objects in SurveyData (PatientDemographicsClass)
-    * containedQuery(2000,SurveyData,organization,Puente)
+    * listAllPatients()
     *
     * @returns list of objects
   */
