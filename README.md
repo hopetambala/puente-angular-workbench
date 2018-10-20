@@ -5,7 +5,7 @@
 ![](https://img.shields.io/badge/parse_server-✓-blue.svg)
 
 ## About 
-This web application is meant to be the web platform used to manage data collected on the ionic mobile application [Puente Data Collection](https://puente-dr.com/data-collection/)
+This web application is meant to be the web platform used to manage data collected on the ionic mobile application [Puente Data Collection](https://puente-dr.com/data-collection/). The web application is hosted on heroku [here](https://puente-angular.herokuapp.com/).
 
 ## Angular Framework
 
