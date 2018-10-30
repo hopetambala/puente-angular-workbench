@@ -10,6 +10,38 @@ export class QueryService {
     this.parse.parseInitialize();
   }
 
+
+  public exactlyOneQuery(parseObject: string, parseColumn: string, parseParamValue: any): Promise<any>{
+    //This is Retrieving Results from Parse Server
+    let Parse = this.parse.parseEnvironment();
+
+    //Returns the resolve (the query) and if there's an error, rejects
+    //Returns array of objects
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        //Creates local object based on parseObject in Parse-Server
+        const Objekt = Parse.Object.extend(parseObject);
+
+        //Queries the parseObject class from Parse Server
+        let query = new Parse.Query(Objekt);
+
+        //Limiting Results based on a class
+        query.equalTo(parseColumn,parseParamValue);
+        //query.containedIn(parseColumn,parseParamValuesArray);
+
+        //Below searches what's in the surveyPoints array
+        query.first().then((surveyPoints) => {
+          resolve(surveyPoints);
+        }, (error) => {
+          //reject(error);
+          console.log(error)
+        });
+      }, 500);
+    });
+
+  }
+
+
   /**
     * @example
     * Returns a list of objects based on parameters 
@@ -74,7 +106,8 @@ export class QueryService {
         //Queries the SurveyData class from Parse Server
         let query = new Parse.Query(SurveyData);
         
-
+        query.notEqualTo("surveyingOrganization", "test");
+        
         //Limiting Results based on a class
         //query.equalTo(parseColumn);
 
