@@ -33,8 +33,8 @@ export class QueryService {
         query.first().then((surveyPoints) => {
           resolve(surveyPoints);
         }, (error) => {
-          //reject(error);
-          console.log(error)
+          reject(error);
+          //console.log(error)
         });
       }, 500);
     });
@@ -105,6 +105,9 @@ export class QueryService {
 
         //Queries the SurveyData class from Parse Server
         let query = new Parse.Query(SurveyData);
+
+        //You can limit the number of results by setting "limit"
+        query.limit(1000);
         
         query.notEqualTo("surveyingOrganization", "test");
         
