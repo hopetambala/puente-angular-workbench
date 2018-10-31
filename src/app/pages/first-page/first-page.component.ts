@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { QueryService} from '../../providers/query/query.service';
+import { reject } from 'q';
 
 @Component({
   selector: 'app-first-page',
@@ -8,12 +9,12 @@ import { QueryService} from '../../providers/query/query.service';
   styleUrls: ['./first-page.component.css']
 })
 export class FirstPageComponent implements OnInit {
-
-  objectIDs = []
+  dictsToExport = []
 
   constructor(private query:QueryService) { 
     this.setup().then(()=>{
-      this.match();
+      console.log(this.dictsToExport)
+      //this.match();
     })
   }
 
@@ -21,24 +22,32 @@ export class FirstPageComponent implements OnInit {
   }
 
   setup() {
-    return this.query.genericQuery('SurveyData').then((results) => {
-      for (var i = 0; i < results.length; i++){
-        var data = results[i];
+    return this.query.genericQuery('SurveyData').then((patientResults) => {
+      for (var i = 0; i < patientResults.length; i++){
+        var demographicObjects = patientResults[i];
         
+        this.query.exactlyOneQuery('HistoryEnvironmentalHealth','client',demographicObjects).then((environmentalHealthResults) =>{
+          if (typeof environmentalHealthResults === 'undefined'){
+            reject(environmentalHealthResults)
+          }
+          else {
+            this.dictsToExport.push({
+              patient:{
+                  firstName: environmentalHealthResults.get('client').get('fname'),
+                  lastName: environmentalHealthResults.get('client').get('lname'),
+                  sex: environmentalHealthResults.get('client').get('sex'),
+                  latrineAccess: environmentalHealthResults.get('latrineAccess'),
+                  waterAccess: environmentalHealthResults.get('waterAccess'),
+                  clinicAccess: environmentalHealthResults.get('clinicAccess')
+              },
+            });
+          }
+        })
         //Pushes objects into An Array 
-        this.objectIDs.push(data);
+        //this.objectIDs.push(data);
       }
       //console.log(this.objectIDs)
     });
-  }
-
-  match() {
-    for (var i=0; i < this.objectIDs.length; i++){
-      //console.log(this.objectIDs[i].id)
-      this.query.exactlyOneQuery('HistoryEnvironmentalHealth','client',this.objectIDs[i]).then((result) =>{
-        console.log(result)
-      })
-    }
   }
 
 }
