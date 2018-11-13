@@ -475,7 +475,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>[&#x27;fname&#x27;, &#x27;lname&#x27;, &#x27;user&#x27;, &#x27;createdAt&#x27;]</code>
+                            <i>Default value : </i><code>[&#x27;fname&#x27;, &#x27;lname&#x27;, &#x27;surveyingUser&#x27;, &#x27;createdAt&#x27;]</code>
                         </td>
                     </tr>
                         <tr>
@@ -585,7 +585,7 @@ export class SubmissionsComponent implements OnInit {
 
   dataSource;
   dataList &#x3D; [];
-  displayedColumns: string[] &#x3D; [&#x27;fname&#x27;, &#x27;lname&#x27;, &#x27;user&#x27;, &#x27;createdAt&#x27;];
+  displayedColumns: string[] &#x3D; [&#x27;fname&#x27;, &#x27;lname&#x27;, &#x27;surveyingUser&#x27;, &#x27;createdAt&#x27;];
 
   /*
     Pagination
@@ -650,7 +650,7 @@ export class SubmissionsComponent implements OnInit {
       &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.lname}} &lt;/td&gt;
     &lt;/ng-container&gt;
 
-    &lt;ng-container matColumnDef&#x3D;&quot;user&quot;&gt;
+    &lt;ng-container matColumnDef&#x3D;&quot;surveyingUser&quot;&gt;
       &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Surveying User &lt;/th&gt;
       &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.surveyingUser}} &lt;/td&gt;
     &lt;/ng-container&gt;
@@ -693,7 +693,7 @@ export class SubmissionsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="mat-elevation-z8">  <mat-form-field>    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">  </mat-form-field>  <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">    <ng-container matColumnDef="fname">      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>      <td mat-cell *matCellDef="let user"> {{user.fname}} </td>    </ng-container>    <ng-container matColumnDef="lname">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>      <td mat-cell *matCellDef="let user"> {{user.lname}} </td>    </ng-container>    <ng-container matColumnDef="user">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Surveying User </th>      <td mat-cell *matCellDef="let user"> {{user.surveyingUser}} </td>    </ng-container>    <ng-container matColumnDef="createdAt" >      <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>      <td mat-cell *matCellDef="let user"> {{user.createdAt}} </td>    </ng-container>    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>  </table>  <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="mat-elevation-z8">  <mat-form-field>    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">  </mat-form-field>  <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">    <ng-container matColumnDef="fname">      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>      <td mat-cell *matCellDef="let user"> {{user.fname}} </td>    </ng-container>    <ng-container matColumnDef="lname">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>      <td mat-cell *matCellDef="let user"> {{user.lname}} </td>    </ng-container>    <ng-container matColumnDef="surveyingUser">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Surveying User </th>      <td mat-cell *matCellDef="let user"> {{user.surveyingUser}} </td>    </ng-container>    <ng-container matColumnDef="createdAt" >      <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>      <td mat-cell *matCellDef="let user"> {{user.createdAt}} </td>    </ng-container>    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>  </table>  <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SubmissionsComponent'};

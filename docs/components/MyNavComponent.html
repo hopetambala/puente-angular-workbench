@@ -268,7 +268,7 @@ export class MyNavComponent {
     &lt;mat-nav-list&gt;
       &lt;a mat-list-item href&#x3D;&quot;/submissions&quot;&gt;Submissions&lt;/a&gt;
       &lt;a mat-list-item href&#x3D;&quot;/communityAnalysis&quot;&gt;Community Analysis&lt;/a&gt;
-      &lt;a mat-list-item href&#x3D;&quot;/first-page&quot;&gt;TestPage&lt;/a&gt;
+      &lt;a mat-list-item href&#x3D;&quot;/first-page&quot;&gt;Data Export&lt;/a&gt;
       &lt;!---a mat-list-item href&#x3D;&quot;/third-page&quot;&gt;Third Page&lt;/a--&gt;
     &lt;/mat-nav-list&gt;
   &lt;/mat-sidenav&gt;
@@ -315,7 +315,7 @@ export class MyNavComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav    #drawer    class="sidenav"    fixedInViewport="true"    [attr.role]="isHandset ? \'dialog\' : \'navigation\'"    [mode]="(isHandset | async)!.matches ? \'over\' : \'side\'"    [opened]="!(isHandset | async)!.matches">    <mat-toolbar color="primary" >Menu</mat-toolbar>    <mat-nav-list>      <a mat-list-item href="/submissions">Submissions</a>      <a mat-list-item href="/communityAnalysis">Community Analysis</a>      <a mat-list-item href="/first-page">TestPage</a>      <!---a mat-list-item href="/third-page">Third Page</a-->    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content>    <mat-toolbar color="primary">      <!--button        type="button"        aria-label="Toggle sidenav"        mat-icon-button        (click)="drawer.toggle()"        *ngIf="(isHandset | async)!.matches">        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>      </button-->      <button class="button"><h2 (click)="drawer.toggle()">Puente Angular</h2></button>    </mat-toolbar>    <router-outlet></router-outlet>  </mat-sidenav-content></mat-sidenav-container></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav    #drawer    class="sidenav"    fixedInViewport="true"    [attr.role]="isHandset ? \'dialog\' : \'navigation\'"    [mode]="(isHandset | async)!.matches ? \'over\' : \'side\'"    [opened]="!(isHandset | async)!.matches">    <mat-toolbar color="primary" >Menu</mat-toolbar>    <mat-nav-list>      <a mat-list-item href="/submissions">Submissions</a>      <a mat-list-item href="/communityAnalysis">Community Analysis</a>      <a mat-list-item href="/first-page">Data Export</a>      <!---a mat-list-item href="/third-page">Third Page</a-->    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content>    <mat-toolbar color="primary">      <!--button        type="button"        aria-label="Toggle sidenav"        mat-icon-button        (click)="drawer.toggle()"        *ngIf="(isHandset | async)!.matches">        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>      </button-->      <button class="button"><h2 (click)="drawer.toggle()">Puente Angular</h2></button>    </mat-toolbar>    <router-outlet></router-outlet>  </mat-sidenav-content></mat-sidenav-container></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MyNavComponent'};
