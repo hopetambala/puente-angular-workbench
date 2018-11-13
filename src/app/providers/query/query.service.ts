@@ -107,7 +107,7 @@ export class QueryService {
         let query = new Parse.Query(SurveyData);
 
         //You can limit the number of results by setting "limit"
-        query.limit(1000);
+        query.limit(2000);
         
         query.notEqualTo("surveyingOrganization", "test");
         
