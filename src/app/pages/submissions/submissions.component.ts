@@ -12,7 +12,7 @@ export class SubmissionsComponent implements OnInit {
 
   dataSource;
   dataList = [];
-  displayedColumns: string[] = ['fname', 'lname', 'user', 'createdAt'];
+  displayedColumns: string[] = ['fname', 'lname', 'surveyingUser', 'createdAt'];
 
   /*
     Pagination
