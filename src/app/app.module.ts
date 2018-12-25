@@ -10,12 +10,17 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { FirstPageComponent } from './pages/first-page/first-page.component';
 import { CommunityAnalysisComponent } from './pages/communityAnalysis/communityAnalysis.component';
 import { SubmissionsComponent } from './pages/submissions/submissions.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { LandingComponent } from './landing/landing.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const appRoutes: Routes = [
-  { path: '', component: SubmissionsComponent},
+  { path: '', component: HomeComponent},
   { path: 'submissions', component: SubmissionsComponent},
   { path: 'first-page', component: FirstPageComponent},
-  { path: 'communityAnalysis', component: CommunityAnalysisComponent}
+  { path: 'communityAnalysis', component: CommunityAnalysisComponent},
+  { path: 'sign-in', component: SignInComponent},
+  { path: 'home', component: HomeComponent}
 ];
 
 @NgModule({
@@ -24,7 +29,10 @@ const appRoutes: Routes = [
     MyNavComponent,
     FirstPageComponent,
     CommunityAnalysisComponent,
-    SubmissionsComponent
+    SubmissionsComponent,
+    SignInComponent,
+    LandingComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

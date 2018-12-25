@@ -114,6 +114,9 @@ export class QueryService {
         //Limiting Results based on a class
         //query.equalTo(parseColumn);
 
+        //I'm a hack
+        //query.equalTo('surveyingUser','candiany')
+
         //Below searches what's in the surveyPoints array
         query.find().then((surveyPoints) => {
           resolve(surveyPoints);

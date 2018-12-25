@@ -1,0 +1,49 @@
+// navigation left area
+@import "../../../theme.scss";
+.aside{
+    background: $brand-alternative;    
+    padding: 1em 1em 0em 1em;
+  
+    a{
+      color: #afb8c3;
+    }
+  
+    
+  }
+
+// main area
+.main{
+    padding: 2em 1em 0 1em;
+    a{
+      color: $brand-primary;
+    }
+}  
+
+p{
+  color: $brand-primary;
+}
+
+.heading{
+  word-wrap: break-word;
+  justify-content: center;
+}
+
+.justify{
+  justify-content: center;
+}
+
+.brand-primary{
+  background: $brand-primary;
+}
+
+.brand-secondary{
+  background: $brand-secondary;
+}
+
+.brand-alternative-secondary{
+  background: $brand-alternative-secondary;
+}
+
+.brand-alternative-tertiary{
+  background: $brand-alternative-tertiary;
+}

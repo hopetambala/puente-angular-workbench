@@ -6,7 +6,7 @@ import { reject } from 'q';
 @Component({
   selector: 'app-first-page',
   templateUrl: './first-page.component.html',
-  styleUrls: ['./first-page.component.css']
+  styleUrls: ['./first-page.component.scss']
 })
 export class FirstPageComponent implements OnInit {
   dictsToExport = []
@@ -70,6 +70,7 @@ export class FirstPageComponent implements OnInit {
 
   async getAllObjects() {
     await this.setup();
+    console.log(this.dictsToExport)
   }
   
   convertArrayOfObjectsToCSV(args) {  

@@ -1,31 +1,59 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    fixedInViewport="true"
-    [attr.role]="isHandset ? 'dialog' : 'navigation'"
-    [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
-    [opened]="!(isHandset | async)!.matches">
-    <mat-toolbar color="primary" >Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="/submissions">Submissions</a>
-      <a mat-list-item href="/communityAnalysis">Community Analysis</a>
-      <a mat-list-item href="/first-page">Data Export</a>
-      <!---a mat-list-item href="/third-page">Third Page</a-->
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <!--button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="(isHandset | async)!.matches">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button-->
-      <button class="button"><h2 (click)="drawer.toggle()">Puente Angular</h2></button>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<header class="hero is-dark theme-background">
+  <div class="hero-head">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        
+        <a class="navbar-item is--brand" routerLink="/home">
+          <img class="navbar-brand-logo is--brand resize" src="assets/brand/PUENTE_ICON.png" alt="Puente">
+        </a>
+        <!--a class="navbar-item is-tab is-hidden-mobile">Assess</a-->
+        <a class="navbar-item is-tab is-hidden-mobile">Explore</a>
+        
+        <button class="button navbar-burger" data-target="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+
+
+      <div class="navbar-menu navbar-end" id="navMenu">
+        <a class="navbar-item is-tab is-hidden-tablet" routerLink="/home">Home</a>
+        <a class="navbar-item is-tab is-hidden-tablet">Explore</a>
+        <a class="navbar-item nav-tag">              
+          <span class="icon is-small">
+            <i class="fa fa-envelope-o"></i>
+          </span>
+          <span class="tag is-primary tag-notif">6</span>
+        </a>  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">              
+            <figure class="image is-32x32" style="margin-right:.5em;">
+              <img src="https://avatars1.githubusercontent.com/u/7221389?v=4&s=32">
+            </figure>
+            Username
+          </a>
+        
+          <div class="navbar-dropdown is-right">              
+              <a class="navbar-item">
+                <span class="icon is-small">
+                  <i class="fa fa-user-o"></i>
+                </span>
+                Profile
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item" routerLink="/sign-in">
+                <span class="icon is-small">
+                  <i class="fa fa-power-off"></i>
+                </span>
+                Logout
+              </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<router-outlet></router-outlet>

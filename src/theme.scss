@@ -1,2 +1,44 @@
 @import '~@angular/material/theming';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @include mat-core();
+
+
+$brand-primary:#f8af1e;
+$brand-secondary:#FFFCA1;
+
+//$brand-alternative:rgb(56, 32, 47); //original
+$brand-alternative:rgb(20, 12, 17);
+$brand-alternative-secondary:#FFD6C7;
+
+$brand-alternative-tertiary:#D8FFD6;
+
+
+
+$red: #cd2f0b;
+$blue: #1e63f8;
+$orange: #f8841e;
+$green: #0b4806;
+$purple: #7315ae;
+$black: #000;
+$grey: rgb(94, 92, 92);
+$white:white;
+
+.theme-background{
+  //background: $brand-secondary;  /* fallback for old browsers */
+  //background: -webkit-linear-gradient(to bottom, #FFB014, #FFFCA1);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, $brand-alternative, $brand-alternative); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  div div a {
+    color: $brand-primary;
+  }
+}
+.theme-gradient-background{
+  //background: map-get($colors, brand-secondary);  /* fallback for old browsers */
+  background: $brand-secondary;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #FFB014, #FFFCA1);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #FFB014, #FFFCA1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+html { 
+  background: linear-gradient(to bottom, lighten($brand-alternative,02%), lighten($brand-alternative,02%));
+}
+

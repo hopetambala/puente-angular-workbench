@@ -6,7 +6,7 @@ import { MatSort, MatPaginator, MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-submissions',
   templateUrl: './submissions.component.html',
-  styleUrls: ['./submissions.component.css']
+  styleUrls: ['./submissions.component.scss']
 })
 export class SubmissionsComponent implements OnInit {
 

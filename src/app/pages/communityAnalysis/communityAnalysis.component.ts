@@ -5,7 +5,7 @@ import { QueryService } from '../../providers/query/query.service';
 @Component({
   selector: 'app-communityAnalysis',
   templateUrl: './communityAnalysis.component.html',
-  styleUrls: ['./communityAnalysis.component.css']
+  styleUrls: ['./communityAnalysis.component.scss']
 })
 export class CommunityAnalysisComponent implements OnInit {
 
