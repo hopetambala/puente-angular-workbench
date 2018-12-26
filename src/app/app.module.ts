@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ChartsModule } from 'ng2-charts';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     LayoutModule,
