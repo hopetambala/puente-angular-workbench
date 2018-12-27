@@ -16,9 +16,6 @@ import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './pages/home/home.component';
 
 
-import { BarEducationComponent } from './components/charts/bar-education/bar-education.component';
-import { DoughnutComponent } from './components/charts/doughnut/doughnut.component';
-
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'submissions', component: SubmissionsComponent},
@@ -38,8 +35,7 @@ const appRoutes: Routes = [
     SignInComponent,
     LandingComponent,
     HomeComponent,
-    BarEducationComponent,
-    DoughnutComponent
+
   ],
   imports: [
     BrowserModule,
