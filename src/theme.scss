@@ -42,3 +42,18 @@ html {
   background: linear-gradient(to bottom, lighten($brand-alternative,02%), lighten($brand-alternative,02%));
 }
 
+.brand-primary{
+  background: $brand-primary;
+}
+
+.brand-secondary{
+  background: $brand-secondary;
+}
+
+.brand-alternative-secondary{
+  background: $brand-alternative-secondary;
+}
+
+.brand-alternative-tertiary{
+  background: $brand-alternative-tertiary;
+}
