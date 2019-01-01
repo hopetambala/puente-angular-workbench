@@ -1,0 +1,22 @@
+@import '../../../theme.scss';
+
+main{
+    // padding: 1em 2em 1em 1em;
+    padding: 1em 2em 1em 1em;
+    a{
+        color: $brand-primary;
+    }
+    padding-right: 5px;
+}
+
+#map{
+    height: 1000px;
+    width: 100%;
+    padding-right: 0px;
+}
+
+.submissions{
+    //padding: 1em 2em 1em 1em;
+    padding-left:0px;
+    padding-right: 0px;
+}

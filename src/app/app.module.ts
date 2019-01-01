@@ -14,6 +14,7 @@ import { SubmissionsComponent } from './pages/submissions/submissions.component'
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MapComponent } from './pages/map/map.component';
 
 
 const appRoutes: Routes = [
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
   { path: 'first-page', component: FirstPageComponent},
   { path: 'communityAnalysis', component: CommunityAnalysisComponent},
   { path: 'sign-in', component: SignInComponent},
-  { path: 'home', component: HomeComponent}
+  { path: 'home', component: HomeComponent},
+  { path: 'map',component: MapComponent}
 ];
 
 @NgModule({
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
     SignInComponent,
     LandingComponent,
     HomeComponent,
+    MapComponent,
 
   ],
   imports: [
