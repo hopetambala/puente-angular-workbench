@@ -1,28 +1,29 @@
 // navigation left area
 @import "../../../theme.scss";
-.aside{
-    background: $brand-alternative;    
-    padding: 1em 1em 0em 1em;
-  
-    a{
-      color: #afb8c3;
-    }
-  
-    
-  }
+
 
 // main area
 .main{
-    padding: 2em 1em 0 1em;
+   // padding: 1em 2em 1em 1em;
     a{
       color: $brand-primary;
     }
-}  
+}
+
+main{
+  padding: 1em 2em 1em 1em;
+}
 
 p{
   color: $brand-primary;
 }
 
+.row{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
 .heading{
   word-wrap: break-word;
   justify-content: center;
@@ -32,18 +33,19 @@ p{
   justify-content: center;
 }
 
-.brand-primary{
-  background: $brand-primary;
+.column{
+  //padding: 1em;
 }
 
-.brand-secondary{
-  background: $brand-secondary;
+.charts{
+  //height: 100px;
 }
 
-.brand-alternative-secondary{
-  background: $brand-alternative-secondary;
+.chart1{
+  background: lighten($brand-secondary,0);
 }
 
-.brand-alternative-tertiary{
-  background: $brand-alternative-tertiary;
+.chart2{
+  height: 450px;
+  background: lighten($brand-alternative-secondary,0);
 }
