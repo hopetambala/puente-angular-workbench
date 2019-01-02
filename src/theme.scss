@@ -4,11 +4,12 @@
 
 
 $brand-primary:#f8af1e;
-$brand-secondary:#FFFCA1;
+$brand-secondary:#FFC34C;
 
 //$brand-alternative:rgb(56, 32, 47); //original
-$brand-alternative:rgb(20, 12, 17);
+$brand-alternative:#120701;
 $brand-alternative-secondary:#FFD6C7;
+$brand-alternative-secondary-strong:#FF4400;
 
 $brand-alternative-tertiary:#D8FFD6;
 
@@ -38,12 +39,20 @@ $white:white;
   background: linear-gradient(to bottom, #FFB014, #FFFCA1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+
+/*
+COLOR THEMEING
+*/
 html { 
   background: linear-gradient(to bottom, lighten($brand-alternative,02%), lighten($brand-alternative,02%));
 }
 
 .brand-primary{
   background: $brand-primary;
+}
+.brand-alternative{
+  color: white;
+  background: $brand-alternative;
 }
 
 .brand-secondary{
@@ -56,4 +65,26 @@ html {
 
 .brand-alternative-tertiary{
   background: $brand-alternative-tertiary;
+}
+
+
+//THEMING FOR ASIDE
+.aside{
+  background: $brand-alternative;    
+  //padding: 1em 1em 1em 1em;
+  padding-left: 20px;
+  padding-bottom: 500px;
+
+  p{
+      color: $brand-primary;
+  }
+  
+}
+
+div{
+  word-wrap: break;
+  //font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  //font-family: "Roboto", "Georgia", sans-serif;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace; 
 }

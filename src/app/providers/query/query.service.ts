@@ -10,6 +10,48 @@ export class QueryService {
     this.parse.parseInitialize();
   }
 
+  /*
+
+  */
+  async countQuery(organization, parseModel:string,parseColumn: string, parseParamValue: any): Promise<any> {
+    //This is Retrieving Results from Parse Server
+    let Parse = this.parse.parseEnvironment();
+
+    //Returns the resolve (the query) and if there's an error, rejects
+    //Returns array of objects
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        //Creates local object based on "SurveyData" Object in Parse-Server
+        const Model = Parse.Object.extend(parseModel);
+
+        //Queries the SurveyData class from Parse Server
+        let query = new Parse.Query(Model);
+
+        //You can limit the number of results by setting "limit"
+        query.limit(2000);
+
+        //Limiting Results based on a class
+        query.equalTo(parseColumn,parseParamValue);
+        //query.equalTo('surveyingUser',username);
+        query.equalTo('surveyingOrganization',organization);
+        
+        //query.notEqualTo("surveyingOrganization", "test");
+        
+        //Limiting Results based on a class
+        //query.equalTo(parseColumn);
+
+        //I'm a hack
+        //query.equalTo('surveyingUser','candiany')
+
+        //Below searches what's in the surveyPoints array
+        query.count().then((surveyPoints) => {
+          resolve(surveyPoints);
+        }, (error) => {
+          reject(error);
+        });
+      }, 500);
+    });
+  }
 
   public exactlyOneQuery(parseObject: string, parseColumn: string, parseParamValue: any): Promise<any>{
     //This is Retrieving Results from Parse Server
@@ -40,7 +82,6 @@ export class QueryService {
     });
 
   }
-
 
   /**
     * @example
