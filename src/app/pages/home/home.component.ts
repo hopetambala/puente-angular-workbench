@@ -14,7 +14,7 @@ declare var Chart;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements OnInit {
   allTheData = []
   chart1Data = []
 
@@ -60,49 +60,29 @@ export class HomeComponent implements AfterViewInit {
   public barChartLegend:boolean = true;
   
   public barChartData:any[] = [
+    {data:[],label:'A'},
+    {data:[],label:'B'}
   ]; 
   
   constructor(public queryC:QueryCustomService,
     public query:QueryService,
     public helper:ProcessorsService) {
-      this.loadData()
-      this.createGraph()
-      this.dataProcessing();
-  }
-
-
-  //Broken
-  //Order Not Guaranteed
-  //Make an array of key-value pairs
-  loadData(){
-    let maleArray = []
-    let femaleArray = []
-    for(var i=0; i<this.barChartLabels.length; i++){
-      this.queryC.count_sex_education_by_organization('Puente',this.barChartLabels[i],'Male').then((count)=>{
-        maleArray.push(count)
+      //this.loadData()
+      this.dataProcessing().then((results)=>{
+        console.log(results)
+        this.barChartLabels = ['lessThanprimary','primary','someHighSchool','highschool','someCollege','college','null']
+        this.barChartType = 'bar';
+        this.barChartLegend = true;
+        this.barChartData = [
+        {data: results[0], label: this.barChartLegendLabels[0]}, //Males
+        {data: results[1], label: this.barChartLegendLabels[1]}] //Females
       })
-    }
-    this.chart1Data.push(maleArray)
-
-    for(var i=0; i<this.barChartLabels.length; i++){
-      this.queryC.count_sex_education_by_organization('Puente',this.barChartLabels[i],'Female').then((count)=>{
-        femaleArray.push(count)
-      })
-    }
-    this.chart1Data.push(femaleArray)
+      
+      
+      
   }
 
-  //Store Labels into Graph
-  createGraph(){
-    this.barChartLabels = ['lessThanprimary','primary','someHighSchool','highschool','someCollege','college']
-    this.barChartType = 'bar';
-    this.barChartLegend = true;
-    this.barChartData = [
-    {data: this.chart1Data[0], label: this.barChartLegendLabels[0]}, //Males
-    {data: this.chart1Data[1], label: this.barChartLegendLabels[1]} //Females
-  ]; 
-    
-  }
+ 
     
   // chart events
   public chartClicked(e:any):void {
@@ -116,12 +96,14 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit() {
     
   }
+  ngOnInit() {
+  }
 
   ///////////////////////////////
   ///       Data Stuff        ///
   ///////////////////////////////
   public dataProcessing(){
-    this.queryC.retrieveAll_patientid_info_by_organization('Puente').then((results)=>{
+    return this.queryC.retrieveAll_patientid_info_by_organization('Puente').then((results)=>{
     //this.query.listAllPatients().then((results)=>{
       
       this.helper.sortKeysBy() //calls underscore custom mixin
@@ -138,7 +120,6 @@ export class HomeComponent implements AfterViewInit {
       this.dashboardData.occupation_highest_name =(occupationSortedArray1[3])[0] // Occupation highest number
       this.dashboardData.occupation_highest = (occupationSortedArray1[3])[1] // Occupation highest number
 
-
       /*
         Surveying User
       */
@@ -147,7 +128,6 @@ export class HomeComponent implements AfterViewInit {
       let userSortedArray = this.helper.object_to_array_of_objects(userSortedObject)
       //console.log(userSortedArray.reverse()) //prints the users with most collected surveys from most to least
 
-
       /*
         Surveying Organization
       */
@@ -155,7 +135,6 @@ export class HomeComponent implements AfterViewInit {
       let OrganizationsSortedObject = _.sortKeysBy(surveyingOrganizationsObject, function (value, key) { return value; });
       let OrganizationsSortedArray = this.helper.object_to_array_of_objects(OrganizationsSortedObject)
       //console.log(OrganizationsSortedArray.reverse()) //prints the organizations with most collected surveys  from most to least
-
 
       /*
         Population
@@ -166,7 +145,6 @@ export class HomeComponent implements AfterViewInit {
       this.dashboardData.number_of_residents_male=residentObject.Male;  //stores value for male key
       //this.dashboardData.number_of_residents = this.dashboardData.number_of_residents_female + this.dashboardData.number_of_residents_male
       
-
       /*
         Ages
       */
@@ -189,44 +167,49 @@ export class HomeComponent implements AfterViewInit {
         }
       })
       let agesSortedObject = _.sortKeysBy(agesCount, function (value, key) { return value; });
-      console.log(agesSortedObject)
-      //var age = this.moment.diff(dob, 'years');
-      //console.log('Age is: ' + age);
+      //console.log(agesSortedObject)
+      
+      /*
+        Education
+      */
+      return this.data_education(results)
+      
     }) 
   }
 
-  //Not in USe
   public data_education(results){
-  let educationLevelObject = _.countBy(results, function(person) { return person.get('educationLevel')}); //gets a count of all unique users and is an object
+    /*
+      Count of Education
+    */
+    let educationLevelObject = _.countBy(results, function(person) { return person.get('educationLevel')}); //gets a count of all unique users and is an object
     let educationLevelSortedObject = _.sortKeysBy(educationLevelObject, function (value, key) { return value; });
     let educationLevelSortedArray = this.helper.object_to_array_of_objects(educationLevelSortedObject)
     this.dashboardData.educationLevelArray= educationLevelSortedArray.reverse()
     //console.log(educationLevelSortedArray.reverse())
 
 
-
-    //let zip = _.groupBy(results, function(person) { return person.get('educationLevel') +'_'+ person.get('sex') });
-    let zip = _.groupBy(results, function(person) { return person.get('educationLevel') +','+ person.get('sex')});
-    console.log(zip)
-    
-    let zip2:any[] = this.helper.object_to_array_of_objects(zip)
-    let educationMaleFemale = []
-    for(let i=0; i<zip2.length; i++){
-      var arr = [zip2[i][0],zip2[i][1].length]
-      educationMaleFemale.push(arr)
-    }
-    //console.log(educationMaleFemale)
     /*
-    for(let k=0;this.barChartLabels.length;k++){
-      for(let i=0;i<educationMaleFemale.length;i++){
-        if(educationMaleFemale[i][0].includes('Male') && educationMaleFemale[i][0].includes(this.barChartLabels[k]) ){
-          console.log(educationMaleFemale[i][0] +':'+ 'Male' + this.barChartLabels[k])
-        }
-        else if(educationMaleFemale[i][0].includes('Female') && educationMaleFemale[i][0].includes(this.barChartLabels[k])){
-          console.log(educationMaleFemale[i][0] +':'+ 'Female' + this.barChartLabels[k])
-        }
-      }
-    }*/
+      Count of Education based on sex
+      
+    var l = results.reduce(function(result, person){
+      if(!result.hasOwnProperty(person.get('educationLevel'))){
+        result[person.get('educationLevel')] = { Female:0, Male:0 };
+      }    
+      result[person.get('educationLevel')][person.get('sex')]++;
+      return result;
+    }, {}); */
+
+    var m = results.reduce(function(result, person){
+      if(!result.hasOwnProperty(person.get('sex'))){
+        result[person.get('sex')] = { lessThanprimary:0, primary:0,someHighSchool:0,highschool:0,someCollege:0,college:0, null:0 };
+      }    
+      result[person.get('sex')][person.get('educationLevel')]++;
+      return result;
+    }, {});
+    
+    return [Object.values(m.Male),Object.values(m.Female)]
+    console.log(this.chart1Data)
+    //console.log(this.helper.object_to_array_of_objects(m))
   }
       
     
