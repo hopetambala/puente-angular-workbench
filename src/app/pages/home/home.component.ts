@@ -160,23 +160,25 @@ export class HomeComponent implements AfterViewInit {
       let zip = _.groupBy(results, function(person) { return person.get('educationLevel') +','+ person.get('sex')});
       console.log(zip)
       
-      let zip2 = this.helper.object_to_array_of_objects(zip)
+      let zip2:any[] = this.helper.object_to_array_of_objects(zip)
       let educationMaleFemale = []
       for(let i=0; i<zip2.length; i++){
-        var arr = [zip2[i][0],zip2[i][1]]
+        var arr = [zip2[i][0],zip2[i][1].length]
         educationMaleFemale.push(arr)
       }
-      console.log(educationMaleFemale)
-      /*
+      //console.log(educationMaleFemale)
+      
       for(let k=0;this.barChartLabels.length;k++){
-        for(let j=0;j<this.barChartLegendLabels.length;j++){
-          for(let i=0;i<educationMaleFemale.length;i++){
-            if(educationMaleFemale[i][0].includes(this.barChartLegendLabels[j]) && educationMaleFemale[i][0].includes(this.barChartLabels[k]) ){
-              console.log(educationMaleFemale[i][0] +':'+ this.barChartLegendLabels[j] + this.barChartLabels[k])
-            }
+        for(let i=0;i<educationMaleFemale.length;i++){
+          if(educationMaleFemale[i][0].includes('Male') && educationMaleFemale[i][0].includes(this.barChartLabels[k]) ){
+            console.log(educationMaleFemale[i][0] +':'+ 'Male' + this.barChartLabels[k])
+          }
+          else if(educationMaleFemale[i][0].includes('Female') && educationMaleFemale[i][0].includes(this.barChartLabels[k])){
+            console.log(educationMaleFemale[i][0] +':'+ 'Female' + this.barChartLabels[k])
           }
         }
-      }*/
+      }
+    }
       
       /*
       for(let j=0;j<this.barChartLegendLabels.length;j++){
@@ -191,4 +193,3 @@ export class HomeComponent implements AfterViewInit {
   }
   
 
-}
