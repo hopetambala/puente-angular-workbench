@@ -62,28 +62,28 @@
 
       <!--Row 1-->
       <div class="columns is-multiline">
-          <div class="column tile">
-              <div class="box notification is-info brand-primary">
-                <div class="heading">Residents</div>
-                <div class="title">{{dashboardData.number_of_residents}} collected</div>
-                <div class="level">
-                  <div class="level-item">
-                    <div class="">
-                      <div class="heading">Male</div>
-                      <div class="title is-5">{{dashboardData.number_of_residents_male}}</div>
-                    </div>
+        <div class="column tile">
+            <div class="box notification is-info brand-primary">
+              <div class="heading">Residents</div>
+              <div class="title">{{dashboardData.number_of_residents}} collected</div>
+              <div class="level">
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Male</div>
+                    <div class="title is-5">{{dashboardData.number_of_residents_male}}</div>
                   </div>
-                  <div class="level-item">
-                    <div class="">
-                      <div class="heading">Female</div>
-                      <div class="title is-5">{{dashboardData.number_of_residents_female}}</div>
-                    </div>
+                </div>
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Female</div>
+                    <div class="title is-5">{{dashboardData.number_of_residents_female}}</div>
                   </div>
                 </div>
               </div>
-          </div>
+            </div>
+        </div>
         <div class="column tile">
-          <div class="box notification is-warning brand-secondary">
+          <div class="box notification is-warning brand-primary">
             <div class="heading">Ages</div>
             <div class="title">{{dashboardData.age_average}}yrs (Average)</div>
             <div class="level">
@@ -109,7 +109,7 @@
           </div>
         </div>
         <div class="column tile">
-          <div class="box notification is-warning brand-alternative-tertiary">
+          <div class="box notification is-warning brand-primary">
             <div class="heading">Occupation</div>
             <div class="title">{{dashboardData.occupation_highest_name}}: {{dashboardData.occupation_highest}} &uarr;</div>
             <div class="level">
@@ -135,7 +135,7 @@
           </div>
         </div>
         <div class="column tile">
-            <div class="box notification is-warning brand-alternative-secondary">
+            <div class="box notification is-warning brand-primary">
               <div class="heading">Surveyor</div>
               <div class="title">Renely: 60% &uarr;</div>
               <div class="level">
@@ -165,8 +165,8 @@
       <!--Row 2-->
       <!--Bar Chart for Education-->
       <div class="columns is-multiline charts">
-        <div class="column is-9 is-fullheight tile">
-          <canvas #chart1 class="chart1" style="height:450px;" baseChart
+        <div class="column is-9 is-fullheight tile ">
+          <canvas #chart1 *ngIf="barChartData" class="box brand-alternative-secondary" style="height:450px;" baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
           [options]="barChartOptions"
@@ -175,6 +175,32 @@
           (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
           </canvas>
+        </div>
+        <div class="column tile">
+          <canvas baseChart class="box brand-alternative-secondary " style="width: 100%; height: 100%;padding:1mm;"
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+          <!--div class="box notification is-info brand-primary">
+              <div class="heading">Residents</div>
+              <div class="title">{{dashboardData.number_of_residents}} collected</div>
+              <div class="level">
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Male</div>
+                    <div class="title is-5">{{dashboardData.number_of_residents_male}}</div>
+                  </div>
+                </div>
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Female</div>
+                    <div class="title is-5">{{dashboardData.number_of_residents_female}}</div>
+                  </div>
+                </div>
+              </div>
+          </div-->
         </div>
       </div>
       <!--div>
