@@ -15,8 +15,9 @@ declare var Chart;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  allTheData = []
-  chart1Data = []
+  username:string
+  organization:string
+
 
   dashboardData = {
     number_of_residents:0,
@@ -48,13 +49,12 @@ export class HomeComponent implements OnInit {
     surveyor_highest4:0,
 
     educationLevelArray:null,
-
-
   }
 
-  
-
-  public barChartLabels:string[] = ['lessThanprimary','primary','someHighSchool','highschool','someCollege','college']
+  /*
+    Barchart 
+  */
+  public barChartLabels:string[] = ['Less Than Primary','Primary','Some High School','High School','Some College','College']
   public barChartLegendLabels:string[] = ['Male','Female']
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
@@ -63,27 +63,28 @@ export class HomeComponent implements OnInit {
     {data:[],label:'A'},
     {data:[],label:'B'}
   ]; 
+
+  /*
+    Pie 
+  */
+  public pieChartType:string = 'pie';
+  public pieChartLabels:string[] = ['Some College','Null',  'College' ,'Primary', "Highschool", 'Some High School','Less Than Primary']
+  public pieChartData:number[] = [1, 1, 1,1,1,1,1];
   
   constructor(public queryC:QueryCustomService,
     public query:QueryService,
     public helper:ProcessorsService) {
-      //this.loadData()
       this.dataProcessing().then((results)=>{
         console.log(results)
-        this.barChartLabels = ['lessThanprimary','primary','someHighSchool','highschool','someCollege','college','null']
         this.barChartType = 'bar';
         this.barChartLegend = true;
         this.barChartData = [
         {data: results[0], label: this.barChartLegendLabels[0]}, //Males
         {data: results[1], label: this.barChartLegendLabels[1]}] //Females
-      })
-      
-      
-      
-  }
 
- 
-    
+        //this.pieChartData= [300, 500, 100];
+      })  
+  }
   // chart events
   public chartClicked(e:any):void {
     console.log(e);
@@ -105,7 +106,6 @@ export class HomeComponent implements OnInit {
   public dataProcessing(){
     return this.queryC.retrieveAll_patientid_info_by_organization('Puente').then((results)=>{
     //this.query.listAllPatients().then((results)=>{
-      
       this.helper.sortKeysBy() //calls underscore custom mixin
       
       /*
@@ -140,10 +140,9 @@ export class HomeComponent implements OnInit {
         Population
       */
       let residentObject = this.helper.count_based_on_object_keys(results,'sex') //gets a count of all unique users and is an object
-      //console.log(residentObject) //prints number of residents
       this.dashboardData.number_of_residents_female=residentObject.Female; //stores value for female key
       this.dashboardData.number_of_residents_male=residentObject.Male;  //stores value for male key
-      //this.dashboardData.number_of_residents = this.dashboardData.number_of_residents_female + this.dashboardData.number_of_residents_male
+      this.dashboardData.number_of_residents = this.dashboardData.number_of_residents_female + this.dashboardData.number_of_residents_male
       
       /*
         Ages
@@ -186,6 +185,10 @@ export class HomeComponent implements OnInit {
     let educationLevelSortedArray = this.helper.object_to_array_of_objects(educationLevelSortedObject)
     this.dashboardData.educationLevelArray= educationLevelSortedArray.reverse()
     //console.log(educationLevelSortedArray.reverse())
+    //console.log(Object(educationLevelSortedObject))
+    //console.log(Object.values(educationLevelSortedObject))
+    this.pieChartData=Object.values(educationLevelSortedObject)
+    this.pieChartLabels=Object.keys(educationLevelSortedObject)
 
 
     /*
@@ -207,9 +210,7 @@ export class HomeComponent implements OnInit {
       return result;
     }, {});
     
-    return [Object.values(m.Male),Object.values(m.Female)]
-    console.log(this.chart1Data)
-    //console.log(this.helper.object_to_array_of_objects(m))
+    return [Object.values(m.Male),Object.values(m.Female)] //returns an array of objects of education counts versus female/male
   }
       
     
