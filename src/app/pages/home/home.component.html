@@ -8,32 +8,22 @@
           General
         </p>
         <ul class="menu-list">
-          <li><a class="is-active" href="#"><span class="icon is-small"><i class="fa fa-tachometer"></i></span> Dashboard</a></li>
+          <li><a class="is-active" href="#">Dashboard</a></li>
+          <li><a class="" href="/submissions">Submissions</a></li>
         </ul>
         <p class="menu-label">
           Environmental
         </p>
         <ul class="menu-list">
-          <li><a href="/bulma-admin-dashboard-template/forms.html"><span class="icon is-small"><i class="fa fa-pencil-square-o"></i></span> Forms</a></li>
-          <li><a href="/bulma-admin-dashboard-template/ui-elements.html"><span class="icon is-small"><i class="fa fa-desktop"></i></span> UI Elements</a></li>
-          <li><a href="/bulma-admin-dashboard-template/tables.html"><span class="icon is-small"><i class="fa fa-table"></i></span> Tables</a></li>
-          <li><a href="/bulma-admin-dashboard-template/presentations.html"><span class="icon is-small"><i class="fa fa-bar-chart"></i></span> Presentations</a></li>
-
-          <li>
-            <a class=""><i class="fa fa-cog"></i> Settings</a>
-            <ul>
-              <li><a>Members</a></li>
-              <li><a>Plugins</a></li>
-              <li><a>Add a member</a></li>
-            </ul>
-          </li>
+          <li><a class="" href="/dash-env">Tables and Charts</a></li>
+          <li><a href="/env-export">Data Export</a></li>
         </ul>
-        <p class="menu-label">
+        <!--p class="menu-label">
           Health
         </p>
         <p class="menu-label">
           Medical
-        </p>
+        </p-->
       </nav>
     </aside>
 
@@ -54,7 +44,7 @@
         <div class="level-right">
           <div class="level-item">
             <button type="button" class="button is-small">
-              March 8, 2017 - April 6, 2017
+              March 8, 2017 - January 6, 2019
             </button>
           </div>
         </div>
@@ -111,24 +101,24 @@
         <div class="column tile">
           <div class="box notification is-warning brand-primary">
             <div class="heading">Occupation</div>
-            <div class="title">{{dashboardData.occupation_highest_name}}: {{dashboardData.occupation_highest}} &uarr;</div>
+            <div class="title">{{dashboardData.occupation_highest_name}}:<br> {{dashboardData.occupation_highest}} &uarr;</div>
             <div class="level">
               <div class="level-item">
                 <div class="">
-                  <div class="heading" style="word-break: break-all;">Job</div>
-                  <div class="title is-5">30%</div>
+                  <div class="heading" style="word-break: break-all;">{{dashboardData.occupation_highest_name2}}</div>
+                  <div class="title is-5">{{dashboardData.occupation_highest2}}</div>
                 </div>
               </div>
               <div class="level-item">
                 <div class="">
-                  <div class="heading">Job</div>
-                  <div class="title is-5">30%</div>
+                  <div class="heading">{{dashboardData.occupation_highest_name3}}</div>
+                  <div class="title is-5">{{dashboardData.occupation_highest3}}</div>
                 </div>
               </div>
               <div class="level-item">
                 <div class="">
-                  <div class="heading">Job</div>
-                  <div class="title is-5">30%</div>
+                  <div class="heading">{{dashboardData.occupation_highest_name4}}</div>
+                  <div class="title is-5">{{dashboardData.occupation_highest4}}</div>
                 </div>
               </div>
             </div>
@@ -137,24 +127,24 @@
         <div class="column tile">
             <div class="box notification is-warning brand-primary">
               <div class="heading">Surveyor</div>
-              <div class="title">Renely: 60% &uarr;</div>
+              <div class="title">{{dashboardData.surveyor_highest_name}}:<br> {{dashboardData.surveyor_highest}} &uarr;</div>
               <div class="level">
                 <div class="level-item">
                   <div class="">
-                    <div class="heading">Rodrigo</div>
-                    <div class="title is-5">20%</div>
+                    <div class="heading">{{dashboardData.surveyor_highest_name2}}</div>
+                    <div class="title is-fullwidth">{{dashboardData.surveyor_highest2}}</div>
                   </div>
                 </div>
                 <div class="level-item">
                   <div class="">
-                    <div class="heading">Rose</div>
-                    <div class="title is-5">10%</div>
+                    <div class="heading">{{dashboardData.surveyor_highest_name3}}</div>
+                    <div class="title is-fullwidth">{{dashboardData.surveyor_highest3}}</div>
                   </div>
                 </div>
                 <div class="level-item">
                   <div class="">
-                    <div class="heading">Josh</div>
-                    <div class="title is-5">10%</div>
+                    <div class="heading">{{dashboardData.surveyor_highest_name4}}</div>
+                    <div class="title is-fullwidth">{{dashboardData.surveyor_highest4}}</div>
                   </div>
                 </div>
               </div>
@@ -165,7 +155,7 @@
       <!--Row 2-->
       <!--Bar Chart for Education-->
       <div class="columns is-multiline charts">
-        <div class="column is-9 is-fullheight tile ">
+        <div class="column is-two-thirds is-fullheight tile ">
           <canvas #chart1 *ngIf="barChartData" class="box brand-alternative-secondary" style="height:450px;" baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
