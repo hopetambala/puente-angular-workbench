@@ -8,6 +8,16 @@ export class ProcessorsService {
 
   constructor() { }
   
+  /**
+    * @example
+    * Like _.sortBy(), but on keys instead of values, returning an object, not an array. Defaults to alphanumeric sort.
+    * (Simply adds the mixin to the underscore library)
+    * sortKeysBy()
+    * ->
+    * _.sortKeysBy(object) //this function is now usable
+    *
+    * @returns Object
+  */
   public sortKeysBy(){
     _.mixin({
       'sortKeysBy': function (obj, comparator) {
@@ -22,6 +32,14 @@ export class ProcessorsService {
     });
   }
 
+  /**
+    * @example
+    * Returns an array of a given objects own enumerable property [key, value] pairs, in the same order as that provided
+    * object_to_array_of_objects(obj)
+    *
+    * @param {any} objects  List of Objects with Keys
+    * @returns Array of keys
+  */  
   public object_to_array_of_objects(obj){
     return Object.entries(obj)
   }
