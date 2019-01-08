@@ -90,7 +90,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>my-nav.component.css</code></td>
+                <td class="col-md-9"><code>my-nav.component.scss</code></td>
             </tr>
 
 
@@ -244,7 +244,7 @@ import { Observable } from &#x27;rxjs&#x27;;
 @Component({
   selector: &#x27;my-nav&#x27;,
   templateUrl: &#x27;./my-nav.component.html&#x27;,
-  styleUrls: [&#x27;./my-nav.component.css&#x27;]
+  styleUrls: [&#x27;./my-nav.component.scss&#x27;]
 })
 export class MyNavComponent {
   isHandset: Observable&lt;BreakpointState&gt; &#x3D; this.breakpointObserver.observe(Breakpoints.Handset);
@@ -256,37 +256,65 @@ export class MyNavComponent {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;mat-sidenav-container class&#x3D;&quot;sidenav-container&quot;&gt;
-  &lt;mat-sidenav
-    #drawer
-    class&#x3D;&quot;sidenav&quot;
-    fixedInViewport&#x3D;&quot;true&quot;
-    [attr.role]&#x3D;&quot;isHandset ? &#x27;dialog&#x27; : &#x27;navigation&#x27;&quot;
-    [mode]&#x3D;&quot;(isHandset | async)!.matches ? &#x27;over&#x27; : &#x27;side&#x27;&quot;
-    [opened]&#x3D;&quot;!(isHandset | async)!.matches&quot;&gt;
-    &lt;mat-toolbar color&#x3D;&quot;primary&quot; &gt;Menu&lt;/mat-toolbar&gt;
-    &lt;mat-nav-list&gt;
-      &lt;a mat-list-item href&#x3D;&quot;/submissions&quot;&gt;Submissions&lt;/a&gt;
-      &lt;a mat-list-item href&#x3D;&quot;/communityAnalysis&quot;&gt;Community Analysis&lt;/a&gt;
-      &lt;a mat-list-item href&#x3D;&quot;/first-page&quot;&gt;Data Export&lt;/a&gt;
-      &lt;!---a mat-list-item href&#x3D;&quot;/third-page&quot;&gt;Third Page&lt;/a--&gt;
-    &lt;/mat-nav-list&gt;
-  &lt;/mat-sidenav&gt;
-  &lt;mat-sidenav-content&gt;
-    &lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;
-      &lt;!--button
-        type&#x3D;&quot;button&quot;
-        aria-label&#x3D;&quot;Toggle sidenav&quot;
-        mat-icon-button
-        (click)&#x3D;&quot;drawer.toggle()&quot;
-        *ngIf&#x3D;&quot;(isHandset | async)!.matches&quot;&gt;
-        &lt;mat-icon aria-label&#x3D;&quot;Side nav toggle icon&quot;&gt;menu&lt;/mat-icon&gt;
-      &lt;/button--&gt;
-      &lt;button class&#x3D;&quot;button&quot;&gt;&lt;h2 (click)&#x3D;&quot;drawer.toggle()&quot;&gt;Puente Angular&lt;/h2&gt;&lt;/button&gt;
-    &lt;/mat-toolbar&gt;
-    &lt;router-outlet&gt;&lt;/router-outlet&gt;
-  &lt;/mat-sidenav-content&gt;
-&lt;/mat-sidenav-container&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;header class&#x3D;&quot;hero is-dark theme-background&quot;&gt;
+  &lt;div class&#x3D;&quot;hero-head&quot;&gt;
+    &lt;nav class&#x3D;&quot;navbar&quot; role&#x3D;&quot;navigation&quot; aria-label&#x3D;&quot;main navigation&quot;&gt;
+      &lt;div class&#x3D;&quot;navbar-brand&quot;&gt;
+        
+        &lt;a class&#x3D;&quot;navbar-item is--brand&quot; routerLink&#x3D;&quot;/home&quot;&gt;
+          &lt;img class&#x3D;&quot;navbar-brand-logo is--brand resize&quot; src&#x3D;&quot;assets/brand/PUENTE_ICON.png&quot; alt&#x3D;&quot;Puente&quot;&gt;
+        &lt;/a&gt;
+        &lt;!--a class&#x3D;&quot;navbar-item is-tab is-hidden-mobile&quot;&gt;Assess&lt;/a--&gt;
+        &lt;a class&#x3D;&quot;navbar-item is-tab is-hidden-mobile&quot; routerLink&#x3D;&quot;/map&quot;&gt;Explore&lt;/a&gt;
+        
+        &lt;button class&#x3D;&quot;button navbar-burger&quot; data-target&#x3D;&quot;navMenu&quot;&gt;
+          &lt;span&gt;&lt;/span&gt;
+          &lt;span&gt;&lt;/span&gt;
+          &lt;span&gt;&lt;/span&gt;
+        &lt;/button&gt;
+
+      &lt;/div&gt;
+
+
+      &lt;div class&#x3D;&quot;navbar-menu navbar-end&quot; id&#x3D;&quot;navMenu&quot;&gt;
+        &lt;a class&#x3D;&quot;navbar-item is-tab is-hidden-tablet&quot; routerLink&#x3D;&quot;/home&quot;&gt;Home&lt;/a&gt;
+        &lt;a class&#x3D;&quot;navbar-item is-tab is-hidden-tablet&quot; routerLink&#x3D;&quot;/map&quot;&gt;Explore&lt;/a&gt;
+        &lt;a class&#x3D;&quot;navbar-item nav-tag&quot;&gt;              
+          &lt;span class&#x3D;&quot;icon is-small&quot;&gt;
+            &lt;i class&#x3D;&quot;fa fa-envelope-o&quot;&gt;&lt;/i&gt;
+          &lt;/span&gt;
+          &lt;span class&#x3D;&quot;tag is-primary tag-notif&quot;&gt;6&lt;/span&gt;
+        &lt;/a&gt;  
+        &lt;div class&#x3D;&quot;navbar-item has-dropdown is-hoverable&quot;&gt;
+          &lt;a class&#x3D;&quot;navbar-link&quot;&gt;              
+            &lt;figure class&#x3D;&quot;image is-32x32&quot; style&#x3D;&quot;margin-right:.5em;&quot;&gt;
+              &lt;img src&#x3D;&quot;https://avatars1.githubusercontent.com/u/7221389?v&#x3D;4&amp;s&#x3D;32&quot;&gt;
+            &lt;/figure&gt;
+            Username
+          &lt;/a&gt;
+        
+          &lt;div class&#x3D;&quot;navbar-dropdown is-right&quot;&gt;              
+              &lt;a class&#x3D;&quot;navbar-item&quot;&gt;
+                &lt;span class&#x3D;&quot;icon is-small&quot;&gt;
+                  &lt;i class&#x3D;&quot;fa fa-user-o&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                Profile
+              &lt;/a&gt;
+              &lt;hr class&#x3D;&quot;navbar-divider&quot;&gt;
+              &lt;a class&#x3D;&quot;navbar-item&quot; routerLink&#x3D;&quot;/sign-in&quot;&gt;
+                &lt;span class&#x3D;&quot;icon is-small&quot;&gt;
+                  &lt;i class&#x3D;&quot;fa fa-power-off&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+                Logout
+              &lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
 </code></pre>
     </div>
 
@@ -315,8 +343,8 @@ export class MyNavComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav    #drawer    class="sidenav"    fixedInViewport="true"    [attr.role]="isHandset ? \'dialog\' : \'navigation\'"    [mode]="(isHandset | async)!.matches ? \'over\' : \'side\'"    [opened]="!(isHandset | async)!.matches">    <mat-toolbar color="primary" >Menu</mat-toolbar>    <mat-nav-list>      <a mat-list-item href="/submissions">Submissions</a>      <a mat-list-item href="/communityAnalysis">Community Analysis</a>      <a mat-list-item href="/first-page">Data Export</a>      <!---a mat-list-item href="/third-page">Third Page</a-->    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content>    <mat-toolbar color="primary">      <!--button        type="button"        aria-label="Toggle sidenav"        mat-icon-button        (click)="drawer.toggle()"        *ngIf="(isHandset | async)!.matches">        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>      </button-->      <button class="button"><h2 (click)="drawer.toggle()">Puente Angular</h2></button>    </mat-toolbar>    <router-outlet></router-outlet>  </mat-sidenav-content></mat-sidenav-container></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
+        var COMPONENT_TEMPLATE = '<div><header class="hero is-dark theme-background">  <div class="hero-head">    <nav class="navbar" role="navigation" aria-label="main navigation">      <div class="navbar-brand">                <a class="navbar-item is--brand" routerLink="/home">          <img class="navbar-brand-logo is--brand resize" src="assets/brand/PUENTE_ICON.png" alt="Puente">        </a>        <!--a class="navbar-item is-tab is-hidden-mobile">Assess</a-->        <a class="navbar-item is-tab is-hidden-mobile" routerLink="/map">Explore</a>                <button class="button navbar-burger" data-target="navMenu">          <span></span>          <span></span>          <span></span>        </button>      </div>      <div class="navbar-menu navbar-end" id="navMenu">        <a class="navbar-item is-tab is-hidden-tablet" routerLink="/home">Home</a>        <a class="navbar-item is-tab is-hidden-tablet" routerLink="/map">Explore</a>        <a class="navbar-item nav-tag">                        <span class="icon is-small">            <i class="fa fa-envelope-o"></i>          </span>          <span class="tag is-primary tag-notif">6</span>        </a>          <div class="navbar-item has-dropdown is-hoverable">          <a class="navbar-link">                          <figure class="image is-32x32" style="margin-right:.5em;">              <img src="https://avatars1.githubusercontent.com/u/7221389?v=4&s=32">            </figure>            Username          </a>                  <div class="navbar-dropdown is-right">                            <a class="navbar-item">                <span class="icon is-small">                  <i class="fa fa-user-o"></i>                </span>                Profile              </a>              <hr class="navbar-divider">              <a class="navbar-item" routerLink="/sign-in">                <span class="icon is-small">                  <i class="fa fa-power-off"></i>                </span>                Logout              </a>          </div>        </div>      </div>    </nav>  </div></header><router-outlet></router-outlet></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'LandingComponent', 'selector': 'app-landing'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MyNavComponent'};
 </script>

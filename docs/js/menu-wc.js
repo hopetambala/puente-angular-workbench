@@ -57,13 +57,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                    ${ isNormalMode ? 'data-target="#components-links-module-AppModule-be5992dcd0488395f0a338c2e9b01c93"' : 'data-target="#xs-components-links-module-AppModule-be5992dcd0488395f0a338c2e9b01c93"' }>
+                                    ${ isNormalMode ? 'data-target="#components-links-module-AppModule-e55b367af7ab45803b2131fcba6404ea"' : 'data-target="#xs-components-links-module-AppModule-e55b367af7ab45803b2131fcba6404ea"' }>
                                     <span class="icon ion-md-cog"></span>
                                     <span>Components</span>
                                     <span class="icon ion-ios-arrow-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                    ${ isNormalMode ? 'id="components-links-module-AppModule-be5992dcd0488395f0a338c2e9b01c93"' : 'id="xs-components-links-module-AppModule-be5992dcd0488395f0a338c2e9b01c93"' }>
+                                    ${ isNormalMode ? 'id="components-links-module-AppModule-e55b367af7ab45803b2131fcba6404ea"' : 'id="xs-components-links-module-AppModule-e55b367af7ab45803b2131fcba6404ea"' }>
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
                                         </li>
@@ -74,7 +74,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <a href="components/FirstPageComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">FirstPageComponent</a>
                                         </li>
                                         <li class="link">
+                                            <a href="components/HomeComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">HomeComponent</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="components/HomeEnvComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">HomeEnvComponent</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="components/LandingComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">LandingComponent</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="components/MapComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">MapComponent</a>
+                                        </li>
+                                        <li class="link">
                                             <a href="components/MyNavComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">MyNavComponent</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="components/SignInComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">SignInComponent</a>
                                         </li>
                                         <li class="link">
                                             <a href="components/SubmissionsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">SubmissionsComponent</a>
@@ -95,6 +110,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                     ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                             <li class="link">
                                 <a href="injectables/ParseService.html" data-type="entity-link">ParseService</a>
+                            </li>
+                            <li class="link">
+                                <a href="injectables/ProcessorsService.html" data-type="entity-link">ProcessorsService</a>
+                            </li>
+                            <li class="link">
+                                <a href="injectables/QueryCustomService.html" data-type="entity-link">QueryCustomService</a>
                             </li>
                             <li class="link">
                                 <a href="injectables/QueryService.html" data-type="entity-link">QueryService</a>

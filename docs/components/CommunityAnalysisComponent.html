@@ -96,7 +96,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>communityAnalysis.component.css</code></td>
+                <td class="col-md-9"><code>communityAnalysis.component.scss</code></td>
             </tr>
 
 
@@ -825,7 +825,7 @@ import { QueryService } from &#x27;../../providers/query/query.service&#x27;;
 @Component({
   selector: &#x27;app-communityAnalysis&#x27;,
   templateUrl: &#x27;./communityAnalysis.component.html&#x27;,
-  styleUrls: [&#x27;./communityAnalysis.component.css&#x27;]
+  styleUrls: [&#x27;./communityAnalysis.component.scss&#x27;]
 })
 export class CommunityAnalysisComponent implements OnInit {
 
@@ -944,6 +944,13 @@ export class CommunityAnalysisComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">
+&lt;nav class&#x3D;&quot;breadcrumb is-small&quot; aria-label&#x3D;&quot;breadcrumbs&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class&#x3D;&quot;is-active&quot;&gt;&lt;a href&#x3D;&quot;#&quot; aria-current&#x3D;&quot;page&quot;&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
 &lt;h1&gt;
   Number of Community IDs Checked: {{ numberOfIds }}
 &lt;/h1&gt;
@@ -953,7 +960,7 @@ export class CommunityAnalysisComponent implements OnInit {
 &lt;/h4&gt;
 
 
-&lt;table&gt;
+&lt;table class&#x3D;&quot;table&quot;&gt;
   &lt;!--Latrine Access--&gt;
   &lt;thead&gt;
     &lt;h4&gt;Latrine Access&lt;/h4&gt;
@@ -985,7 +992,7 @@ export class CommunityAnalysisComponent implements OnInit {
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;table&gt;
+&lt;table class&#x3D;&quot;table&quot;&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Average Trash Per week&lt;/th&gt;
@@ -1005,7 +1012,7 @@ export class CommunityAnalysisComponent implements OnInit {
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;table&gt;
+&lt;table class&#x3D;&quot;table&quot;&gt;
   &lt;tr&gt;
     &lt;th&gt;UserID&lt;/th&gt;
     &lt;th&gt;Latrine Access&lt;/th&gt;
@@ -1053,8 +1060,8 @@ export class CommunityAnalysisComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1>  Number of Community IDs Checked: {{ numberOfIds }}</h1><h4>    Number of Matching Records in Environmental History Form: {{ numberofMatchingIds }}</h4><table>  <!--Latrine Access-->  <thead>    <h4>Latrine Access</h4>    <tr>      <th>Yes</th>      <th>No</th>    </tr>  </thead>  <tbody>    <tr>      <th>{{latrineAccessYes}}</th>      <th>{{latrineAccessNo}}</th>    </tr>  </tbody>  <!--Roof and Floor-->  <thead>    <h4>Poor Roof and Floor Conditions</h4>    <tr>      <th>Bad Roof</th>      <th>Dirt Floor</th>    </tr>  </thead>  <tbody>    <tr>      <th>{{poorRoofCondition}}</th>      <th>{{poorFloorCondition}}</th>    </tr>  </tbody></table><table>  <thead>    <tr>      <th>Average Trash Per week</th>      <th>Trash Once a Week</th>      <th>Trash Twice a week</th>      <th>Trash Thrice or More a week</th>    </tr>  </thead>  <tbody>    <tr>      <th>{{trashAverage}}</th>      <th>{{trash1aweek}}</th>      <th>{{trash2aweek}}</th>      <th>{{trash3omore}}</th>    </tr>  </tbody></table><table>  <tr>    <th>UserID</th>    <th>Latrine Access</th>    <th>Floor Condition</th>    <th>Roof Condition</th>    <th>Clinic Access</th>    <th>Water Access</th>    <th>Times/Week Trash Collected</th>      </tr>  <tr *ngFor="let user of arrayOfMatchEnvFiles">    <th>{{ user.id }} </th>    <th>{{ user.get(\'latrineAccess\') }} </th>    <th>{{ user.get(\'conditionoFloorinyourhouse\') }} </th>    <th>{{ user.get(\'conditionoRoofinyourhouse\') }} </th>    <th>{{ user.get(\'clinicAccess\') }} </th>    <th>{{ user.get(\'waterAccess\') }} </th>    <th>{{ user.get(\'timesperweektrashcollected\') }} </th>  </tr></table></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
+        var COMPONENT_TEMPLATE = '<div><nav class="breadcrumb is-small" aria-label="breadcrumbs">  <ul>    <li><a href="#">Home</a></li>    <li class="is-active"><a href="#" aria-current="page">Dashboard</a></li>  </ul></nav><h1>  Number of Community IDs Checked: {{ numberOfIds }}</h1><h4>    Number of Matching Records in Environmental History Form: {{ numberofMatchingIds }}</h4><table class="table">  <!--Latrine Access-->  <thead>    <h4>Latrine Access</h4>    <tr>      <th>Yes</th>      <th>No</th>    </tr>  </thead>  <tbody>    <tr>      <th>{{latrineAccessYes}}</th>      <th>{{latrineAccessNo}}</th>    </tr>  </tbody>  <!--Roof and Floor-->  <thead>    <h4>Poor Roof and Floor Conditions</h4>    <tr>      <th>Bad Roof</th>      <th>Dirt Floor</th>    </tr>  </thead>  <tbody>    <tr>      <th>{{poorRoofCondition}}</th>      <th>{{poorFloorCondition}}</th>    </tr>  </tbody></table><table class="table">  <thead>    <tr>      <th>Average Trash Per week</th>      <th>Trash Once a Week</th>      <th>Trash Twice a week</th>      <th>Trash Thrice or More a week</th>    </tr>  </thead>  <tbody>    <tr>      <th>{{trashAverage}}</th>      <th>{{trash1aweek}}</th>      <th>{{trash2aweek}}</th>      <th>{{trash3omore}}</th>    </tr>  </tbody></table><table class="table">  <tr>    <th>UserID</th>    <th>Latrine Access</th>    <th>Floor Condition</th>    <th>Roof Condition</th>    <th>Clinic Access</th>    <th>Water Access</th>    <th>Times/Week Trash Collected</th>      </tr>  <tr *ngFor="let user of arrayOfMatchEnvFiles">    <th>{{ user.id }} </th>    <th>{{ user.get(\'latrineAccess\') }} </th>    <th>{{ user.get(\'conditionoFloorinyourhouse\') }} </th>    <th>{{ user.get(\'conditionoRoofinyourhouse\') }} </th>    <th>{{ user.get(\'clinicAccess\') }} </th>    <th>{{ user.get(\'waterAccess\') }} </th>    <th>{{ user.get(\'timesperweektrashcollected\') }} </th>  </tr></table></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'LandingComponent', 'selector': 'app-landing'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CommunityAnalysisComponent'};
 </script>

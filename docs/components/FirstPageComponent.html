@@ -96,7 +96,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>first-page.component.css</code></td>
+                <td class="col-md-9"><code>first-page.component.scss</code></td>
             </tr>
 
 
@@ -246,7 +246,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:73</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:76</a></div>
                             </td>
                         </tr>
 
@@ -311,7 +311,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:107</a></div>
                             </td>
                         </tr>
 
@@ -378,7 +378,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:69</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:71</a></div>
                             </td>
                         </tr>
 
@@ -541,7 +541,7 @@ import { reject } from &#x27;q&#x27;;
 @Component({
   selector: &#x27;app-first-page&#x27;,
   templateUrl: &#x27;./first-page.component.html&#x27;,
-  styleUrls: [&#x27;./first-page.component.css&#x27;]
+  styleUrls: [&#x27;./first-page.component.scss&#x27;]
 })
 export class FirstPageComponent implements OnInit {
   dictsToExport &#x3D; []
@@ -589,6 +589,8 @@ export class FirstPageComponent implements OnInit {
                   conditionOfRoof: environmentalHealthResults.get(&#x27;conditionoRoofinyourhouse&#x27;),
                   organizationWhoOwnsData: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;surveyingOrganization&#x27;),
                   dataCollector: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;surveyingUser&#x27;),
+                  latitude: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;latitude&#x27;),
+                  longitude: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;longitude&#x27;),
                   
               //},
             });
@@ -603,6 +605,7 @@ export class FirstPageComponent implements OnInit {
 
   async getAllObjects() {
     await this.setup();
+    console.log(this.dictsToExport)
   }
   
   convertArrayOfObjectsToCSV(args) {  
@@ -706,7 +709,7 @@ export class FirstPageComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><!--mat-card class="example-card">  <mat-card-header>    <div mat-card-avatar class="example-header-image"></div>    <mat-card-title>Patient First Name</mat-card-title>    <mat-card-subtitle>Patient Last Name</mat-card-subtitle>  </mat-card-header>  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">  <mat-card-content>    <p>      All ze patient Info    </p>  </mat-card-content>  <mat-card-actions-->    <button mat-button color=\'primary\' (click)=\'downloadCSV({ filename: "puente_export.csv" })\'>Button to do Export</button>    <!--button mat-button>Button to do something weird</button-->  <!--/mat-card-actions></mat-card--></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'LandingComponent', 'selector': 'app-landing'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FirstPageComponent'};
 </script>
