@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
     public query:QueryService,
     public helper:ProcessorsService) {
       this.dataProcessing().then((results)=>{
-        console.log(results)
+        //console.log(results)//returns data for barchart
         this.barChartType = 'bar';
         this.barChartLegend = true;
         this.barChartData = [
@@ -115,18 +115,33 @@ export class HomeComponent implements OnInit {
       let occupationSortedObject = _.sortKeysBy(occupationsObject,function(value,key) {return value;});
       let occupationSortedArray = this.helper.object_to_array_of_objects(occupationSortedObject)
       //console.log(occupationSortedArray.reverse())
-      let occupationSortedArray1 = _.last(occupationSortedArray,4)
-      //console.log((occupationSortedArray1[0])[1])
-      this.dashboardData.occupation_highest_name =(occupationSortedArray1[3])[0] // Occupation highest number
-      this.dashboardData.occupation_highest = (occupationSortedArray1[3])[1] // Occupation highest number
+      let occupationSortedArray1 = (_.last(occupationSortedArray,4)).reverse() //returns last 4 then reverses the order
+      console.log((occupationSortedArray1))
+      this.dashboardData.occupation_highest_name =(occupationSortedArray1[0])[0] // Occupation highest number
+      this.dashboardData.occupation_highest = (occupationSortedArray1[0])[1] // Occupation highest number
+      this.dashboardData.occupation_highest_name2 =(occupationSortedArray1[1])[0] // Occupation 2highest number
+      this.dashboardData.occupation_highest2 = (occupationSortedArray1[1])[1] // Occupation 2highest number
+      this.dashboardData.occupation_highest_name3 =(occupationSortedArray1[2])[0] // Occupation 3highest number
+      this.dashboardData.occupation_highest3 = (occupationSortedArray1[2])[1] // Occupation 3highest number
+      this.dashboardData.occupation_highest_name4 =(occupationSortedArray1[3])[0] // Occupation highest number
+      this.dashboardData.occupation_highest4 = (occupationSortedArray1[3])[1] // Occupation highest number
 
       /*
         Surveying User
       */
-      let surveyingUsersObject = _.countBy(results, function(person) { return person.get('surveyingUser')}); //gets a count of all unique users and is an object
+      let surveyingUsersObject = this.helper.count_based_on_object_keys(results,'surveyingUser'); //gets a count of all unique users and is an object
       let userSortedObject = _.sortKeysBy(surveyingUsersObject, function (value, key) { return value; });
       let userSortedArray = this.helper.object_to_array_of_objects(userSortedObject)
-      //console.log(userSortedArray.reverse()) //prints the users with most collected surveys from most to least
+      let userSortedArray1 = (_.last(userSortedArray,4)).reverse()
+      //console.log(userSortedArray1) //prints the users with most collected surveys from most to least
+      this.dashboardData.surveyor_highest_name =(userSortedArray1[0])[0] // Occupation highest number
+      this.dashboardData.surveyor_highest = (userSortedArray1[0])[1] // Occupation highest number
+      this.dashboardData.surveyor_highest_name2 =(userSortedArray1[1])[0] // Occupation 2highest number
+      this.dashboardData.surveyor_highest2 = (userSortedArray1[1])[1] // Occupation 2highest number
+      this.dashboardData.surveyor_highest_name3 =(userSortedArray1[2])[0] // Occupation 3highest number
+      this.dashboardData.surveyor_highest3 = (userSortedArray1[2])[1] // Occupation 3highest number
+      this.dashboardData.surveyor_highest_name4 =(userSortedArray1[3])[0] // Occupation highest number
+      this.dashboardData.surveyor_highest4 = (userSortedArray1[3])[1] // Occupation highest number
 
       /*
         Surveying Organization
@@ -166,7 +181,7 @@ export class HomeComponent implements OnInit {
         }
       })
       let agesSortedObject = _.sortKeysBy(agesCount, function (value, key) { return value; });
-      //console.log(agesSortedObject)
+      console.log(agesSortedObject)
       
       /*
         Education
