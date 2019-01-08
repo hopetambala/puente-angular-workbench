@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
     number_of_residents_male:0,
     number_of_residents_female:0,
 
+
     age_average:0,
     age_under5:0,
     age_under18:0,
@@ -181,7 +182,14 @@ export class HomeComponent implements OnInit {
         }
       })
       let agesSortedObject = _.sortKeysBy(agesCount, function (value, key) { return value; });
-      console.log(agesSortedObject)
+      this.dashboardData.age_under5=agesSortedObject.lessThan5
+      this.dashboardData.age_under18=agesSortedObject.lessThan18
+      this.dashboardData.age_under40=agesSortedObject.lessThan40
+
+      let agesRemovedNan = _.without(ages, NaN);
+      let agesAverage = _.reduce(agesRemovedNan, function(memo, num) { return memo + num; }, 0) / (ages.length === 0 ? 1 : ages.length);
+      
+      this.dashboardData.age_average = parseFloat(agesAverage.toFixed(2))
       
       /*
         Education

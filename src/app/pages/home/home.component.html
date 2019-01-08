@@ -30,24 +30,24 @@
       <!--Row 1-->
       <div class="columns is-multiline">
         <div class="column tile">
-            <div class="box notification is-info brand-primary">
-              <div class="heading">Residents</div>
-              <div class="title">{{dashboardData.number_of_residents}} collected</div>
-              <div class="level">
-                <div class="level-item">
-                  <div class="">
-                    <div class="heading">Male</div>
-                    <div class="title is-5">{{dashboardData.number_of_residents_male}}</div>
-                  </div>
+          <div class="box notification is-info brand-primary">
+            <div class="heading">Residents</div>
+            <div class="title">{{dashboardData.number_of_residents}} collected</div>
+            <div class="level">
+              <div class="level-item">
+                <div class="">
+                  <div class="heading">Male</div>
+                  <div class="title is-5">{{dashboardData.number_of_residents_male}}</div>
                 </div>
-                <div class="level-item">
-                  <div class="">
-                    <div class="heading">Female</div>
-                    <div class="title is-5">{{dashboardData.number_of_residents_female}}</div>
-                  </div>
+              </div>
+              <div class="level-item">
+                <div class="">
+                  <div class="heading">Female</div>
+                  <div class="title is-5">{{dashboardData.number_of_residents_female}}</div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
         <div class="column tile">
           <div class="box notification is-warning brand-primary">
@@ -132,7 +132,7 @@
       <!--Row 2-->
       <!--Bar Chart for Education-->
       <div class="columns is-multiline charts">
-        <div class="column is-fullheight tile ">
+        <div class="column tile is-fullheight is-8">
           <canvas #chart1 *ngIf="barChartData" class="box brand-alternative-secondary" style="height:450px;" baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
@@ -143,7 +143,7 @@
           (chartClick)="chartClicked($event)">
           </canvas>
         </div>
-        <div class="column tile is-3" style='padding: 1%;'>
+        <div class="column tile is-fullheight is-4" style='padding: 1%;'>
           <canvas baseChart class="box brand-alternative-secondary " style="width: 100%; height: 100%;padding:1mm;"
           [data]="pieChartData"
           [labels]="pieChartLabels"
@@ -170,9 +170,6 @@
           </div-->
         </div>
       </div>
-      <!--div>
-        <button (click)="update()">Update</button>
-      </div-->
     </main>
 
   </div>
