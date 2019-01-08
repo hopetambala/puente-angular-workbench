@@ -15,16 +15,20 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MapComponent } from './pages/map/map.component';
+import { HomeEnvComponent } from './pages/home-env/home-env.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
+  { path: 'dash-env', component: HomeEnvComponent},
+  { path: 'env-export',component:FirstPageComponent},
   { path: 'submissions', component: SubmissionsComponent},
   { path: 'first-page', component: FirstPageComponent},
   { path: 'communityAnalysis', component: CommunityAnalysisComponent},
   { path: 'sign-in', component: SignInComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'map',component: MapComponent}
+  { path: 'map',component: MapComponent},
+  { path: 'submissions', component:SubmissionsComponent}
 ];
 
 @NgModule({
@@ -38,6 +42,7 @@ const appRoutes: Routes = [
     LandingComponent,
     HomeComponent,
     MapComponent,
+    HomeEnvComponent,
 
   ],
   imports: [
