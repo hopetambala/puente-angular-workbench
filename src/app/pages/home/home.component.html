@@ -2,30 +2,7 @@
   <div class="columns is-fullheight"> 
     <!--Aside-->
     <!--Navigation--> 
-    <aside class="aside column is-2" style='margin:5px'>
-      <nav class="menu">
-        <p class="menu-label">
-          General
-        </p>
-        <ul class="menu-list">
-          <li><a class="is-active" href="#">Dashboard</a></li>
-          <li><a class="" href="/submissions">Submissions</a></li>
-        </ul>
-        <p class="menu-label">
-          Environmental
-        </p>
-        <ul class="menu-list">
-          <li><a class="" href="/dash-env">Tables and Charts</a></li>
-          <li><a href="/env-export">Data Export</a></li>
-        </ul>
-        <!--p class="menu-label">
-          Health
-        </p>
-        <p class="menu-label">
-          Medical
-        </p-->
-      </nav>
-    </aside>
+    <app-my-aside class='is-1'></app-my-aside>
 
     <main class="column main" style='margin:10px'>
       <nav class="breadcrumb is-small" aria-label="breadcrumbs">
@@ -155,7 +132,7 @@
       <!--Row 2-->
       <!--Bar Chart for Education-->
       <div class="columns is-multiline charts">
-        <div class="column is-two-thirds is-fullheight tile ">
+        <div class="column is-fullheight tile ">
           <canvas #chart1 *ngIf="barChartData" class="box brand-alternative-secondary" style="height:450px;" baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
@@ -166,7 +143,7 @@
           (chartClick)="chartClicked($event)">
           </canvas>
         </div>
-        <div class="column tile">
+        <div class="column tile is-3" style='padding: 1%;'>
           <canvas baseChart class="box brand-alternative-secondary " style="width: 100%; height: 100%;padding:1mm;"
           [data]="pieChartData"
           [labels]="pieChartLabels"
