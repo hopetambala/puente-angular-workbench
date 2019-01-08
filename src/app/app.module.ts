@@ -12,10 +12,10 @@ import { FirstPageComponent } from './pages/first-page/first-page.component';
 import { CommunityAnalysisComponent } from './pages/communityAnalysis/communityAnalysis.component';
 import { SubmissionsComponent } from './pages/submissions/submissions.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MapComponent } from './pages/map/map.component';
 import { HomeEnvComponent } from './pages/home-env/home-env.component';
+import { MyAsideComponent } from './my-aside/my-aside.component';
 
 
 const appRoutes: Routes = [
@@ -39,10 +39,10 @@ const appRoutes: Routes = [
     CommunityAnalysisComponent,
     SubmissionsComponent,
     SignInComponent,
-    LandingComponent,
     HomeComponent,
     MapComponent,
     HomeEnvComponent,
+    MyAsideComponent,
 
   ],
   imports: [
