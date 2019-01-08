@@ -1,34 +1,85 @@
-<div class="mat-elevation-z8">
+<div class="wrapper">
+    <div class="columns is-fullheight"> 
+      <!--Aside-->
+      <!--Navigation--> 
+      <aside class="aside column is-2" style='margin:5px'>
+        <nav class="menu">
+          <p class="menu-label">
+            General
+          </p>
+          <ul class="menu-list">
+            <li><a class="" href="#">Dashboard</a></li>
+            <li><a class="is-active" href="/submissions">Submissions</a></li>
+          </ul>
+          <p class="menu-label">
+            Environmental
+          </p>
+          <ul class="menu-list">
+            <li><a class="" href="/dash-env">Tables and Charts</a></li>
+            <li><a href="/env-export">Data Export</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <!--Main-->
+      <main class="column main" style='margin:10px'>
+        <nav class="breadcrumb is-small" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li class=""><a href="#" aria-current="page">Dashboard</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Submissions</a></li>
+          </ul>
+        </nav>
+  
+        <div class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <div class="title has-text-primary"><p>Submissions</p></div>
+            </div>
+          </div>
+          <div class="level-right">
+            <div class="level-item">
+              <button type="button" class="button is-small">
+                March 8, 2017 - January 6, 2019
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--Submissions-->
+        <div class="mat-elevation-z8 submissions">
 
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-
-  <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
-    <ng-container matColumnDef="fname">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
-      <td mat-cell *matCellDef="let user"> {{user.fname}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lname">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
-      <td mat-cell *matCellDef="let user"> {{user.lname}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="surveyingUser">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Surveying User </th>
-      <td mat-cell *matCellDef="let user"> {{user.surveyingUser}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="createdAt" >
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
-      <td mat-cell *matCellDef="let user"> {{user.createdAt}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
-</div>
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          
+            <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+          
+              <ng-container matColumnDef="fname">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+                <td mat-cell *matCellDef="let user"> {{user.fname}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="lname">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+                <td mat-cell *matCellDef="let user"> {{user.lname}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="surveyingUser">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Surveying User </th>
+                <td mat-cell *matCellDef="let user"> {{user.surveyingUser}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="createdAt" >
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
+                <td mat-cell *matCellDef="let user"> {{user.createdAt}} </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
+        </div>
+      </main>
+  
+    </div>
+  </div>

@@ -1,13 +1,14 @@
 @import "../../../theme.scss";
 
 
-div {
+.submissions {
     border-radius: 20px;
-    padding-top: 20px;
+    //padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
     padding-left: 20px;
-    color: $brand-primary;
+    //color: $brand-primary;
+    margin-top: 0%;
     
 }
 
@@ -16,8 +17,57 @@ table {
     
 }
 
-
+.mat-input-element{
+    color:$brand-primary;
+}
 .mat-form-field {
     font-size: 14px;
     width: 100%;
-  }
+    color: $brand-primary;
+}
+
+// main area
+.main{
+   // padding: 1em 2em 1em 1em;
+    a{
+      color: $brand-primary;
+    }
+}
+
+main{
+  padding: 1em 2em 1em 1em;
+}
+
+p{
+  color: $brand-primary;
+}
+
+.row{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.heading,.title{
+  text-align: center;
+  justify-content: center;
+  word-wrap: break-word;
+}
+
+.justify{
+  justify-content: center;
+}
+
+
+.chart1{
+  background: lighten($brand-secondary,0);
+}
+
+.chart2{
+  height: 450px;
+  background: lighten($brand-alternative-secondary,0);
+}
+
+.level-item{
+  margin:1%;
+}
