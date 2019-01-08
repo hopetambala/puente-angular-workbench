@@ -1,0 +1,22 @@
+// navigation left area
+@import "../../theme.scss";
+
+p{
+  color: $brand-primary;
+}
+
+.row{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.heading,.title{
+  text-align: center;
+  justify-content: center;
+  word-wrap: break-word;
+}
+
+.justify{
+  justify-content: center;
+}
