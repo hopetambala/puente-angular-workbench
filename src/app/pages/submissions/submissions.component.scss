@@ -1,16 +1,29 @@
 @import "../../../theme.scss";
 
+/* When the input is not focused */
+mat-form-field.mat-form-field {
+    background-color: $brand-secondary;
+    padding-bottom: 0%;
+    font-size: 16px;
+}
+
+  
 
 .submissions {
-    border-radius: 20px;
+    border-radius: 10px; /* 5px rounded corners */
     //padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
     padding-left: 20px;
-    //color: $brand-primary;
+    color: $brand-primary;
     margin-top: 0%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
     
 }
+.submissions:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
 
 table {
     width: 100%;

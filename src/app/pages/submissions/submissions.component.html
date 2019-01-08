@@ -2,24 +2,7 @@
     <div class="columns is-fullheight"> 
       <!--Aside-->
       <!--Navigation--> 
-      <aside class="aside column is-2" style='margin:5px'>
-        <nav class="menu">
-          <p class="menu-label">
-            General
-          </p>
-          <ul class="menu-list">
-            <li><a class="" href="#">Dashboard</a></li>
-            <li><a class="is-active" href="/submissions">Submissions</a></li>
-          </ul>
-          <p class="menu-label">
-            Environmental
-          </p>
-          <ul class="menu-list">
-            <li><a class="" href="/dash-env">Tables and Charts</a></li>
-            <li><a href="/env-export">Data Export</a></li>
-          </ul>
-        </nav>
-      </aside>
+      <app-my-aside class="is-fullheight"></app-my-aside>
       <!--Main-->
       <main class="column main" style='margin:10px'>
         <nav class="breadcrumb is-small" aria-label="breadcrumbs">
@@ -47,8 +30,8 @@
         <!--Submissions-->
         <div class="mat-elevation-z8 submissions">
 
-            <mat-form-field>
-              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            <mat-form-field >
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" style="color:white">
             </mat-form-field>
           
             <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
