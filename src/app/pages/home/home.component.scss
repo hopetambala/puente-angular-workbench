@@ -24,9 +24,10 @@ p{
   display: -ms-flexbox;
   display:         flex;
 }
-.heading{
-  word-wrap: break-word;
+.heading,.title{
+  text-align: center;
   justify-content: center;
+  word-wrap: break-word;
 }
 
 .justify{
@@ -41,4 +42,8 @@ p{
 .chart2{
   height: 450px;
   background: lighten($brand-alternative-secondary,0);
+}
+
+.level-item{
+  margin:1%;
 }
