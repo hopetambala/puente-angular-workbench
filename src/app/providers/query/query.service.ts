@@ -133,7 +133,7 @@ export class QueryService {
     * @param {string} parseObject  Name of Cloud Class
     * @returns list of objects
   */
-  public genericQuery(parseObject: string): Promise<any> {
+  public genericQuery(parseObject: string, usersName: string): Promise<any> {
     //This is Retrieving Results from Parse Server
     let Parse = this.parse.parseEnvironment();
 
@@ -156,7 +156,7 @@ export class QueryService {
         //query.equalTo(parseColumn);
 
         //I'm a hack
-        //query.equalTo('surveyingUser','candiany')
+        query.equalTo('surveyingUser',usersName);
 
         //Below searches what's in the surveyPoints array
         query.find().then((surveyPoints) => {
