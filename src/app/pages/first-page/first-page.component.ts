@@ -25,7 +25,7 @@ export class FirstPageComponent implements OnInit {
     * @returns list of objects
   */
   async setup() {
-    return this.query.genericQuery('SurveyData','Jmrcom').then((patientResults) => {
+    return this.query.genericQuery('SurveyData','Puente').then((patientResults) => {
       for (var i = 0; i < patientResults.length; i++){
         let demographicObject = patientResults[i];
         //console.log(demographicObject)
