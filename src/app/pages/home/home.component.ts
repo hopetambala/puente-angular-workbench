@@ -73,11 +73,15 @@ export class HomeComponent implements OnInit {
   public pieChartLabels:string[] = ['Some College','Null',  'College' ,'Primary', "Highschool", 'Some High School','Less Than Primary']
   public pieChartData:number[] = [1, 1, 1,1,1,1,1];
   
+  //Time
+  today: number = Date.now();
   constructor(public queryC:QueryCustomService,
     public query:QueryService,
     public helper:ProcessorsService,
     public auth:AuthService,
     private nav:NavbarService) {
+
+      
 
         this.auth.authenticated();
 
