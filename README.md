@@ -61,6 +61,9 @@ This will create a folder for the component in the providers directory with the 
 - Open pull request with improvements
 - Spread the word
 - Reach out to me directly at <EMAIL-ADDRESS>
+  
+# Documentation
+https://hopetambala.github.io/puente-angular-workbench/
 
 ## Further help
 
