@@ -20,8 +20,6 @@ declare var Chart;
 export class HomeComponent implements OnInit {
   username:string
   organization:string
-
-
   dashboardData = {
     number_of_residents:0,
     number_of_residents_male:0,
@@ -81,18 +79,22 @@ export class HomeComponent implements OnInit {
     public auth:AuthService,
     private nav:NavbarService) {
 
+        this.auth.authenticated();
 
-      this.auth.authenticated();
-      this.dataProcessing().then((results)=>{
-        //console.log(results)//returns data for barchart
-        this.barChartType = 'bar';
-        this.barChartLegend = true;
-        this.barChartData = [
-        {data: results[0], label: this.barChartLegendLabels[0]}, //Males
-        {data: results[1], label: this.barChartLegendLabels[1]}] //Females
+        this.username = this.auth.currentUser().name
+        this.organization = this.auth.currentUser().organization
+        
+        this.dataProcessing().then((results)=>{
+          //console.log(results)//returns data for barchart
+          this.barChartType = 'bar';
+          this.barChartLegend = true;
+          this.barChartData = [
+          {data: results[0], label: this.barChartLegendLabels[0]}, //Males
+          {data: results[1], label: this.barChartLegendLabels[1]}] //Females
 
-        //this.pieChartData= [300, 500, 100];
-      })  
+          //this.pieChartData= [300, 500, 100];
+        })
+      
   }
   // chart events
   public chartClicked(e:any):void {
@@ -114,7 +116,7 @@ export class HomeComponent implements OnInit {
   ///       Data Stuff        ///
   ///////////////////////////////
   public dataProcessing(){
-    return this.queryC.retrieveAll_patientid_info_by_organization('Puente').then((results)=>{
+    return this.queryC.retrieveAll_patientid_info_by_organization(this.auth.currentUser().organization).then((results)=>{
     //this.query.listAllPatients().then((results)=>{
       this.helper.sortKeysBy() //calls underscore custom mixin
       
