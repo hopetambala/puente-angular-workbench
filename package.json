@@ -43,6 +43,7 @@
     "rxjs": "^6.0.0",
     "typescript": "~2.7.2",
     "underscore": "^1.9.1",
+    "uglify-es": "^3.2.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
