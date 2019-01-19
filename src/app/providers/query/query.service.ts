@@ -133,7 +133,7 @@ export class QueryService {
     * @param {string} parseObject  Name of Cloud Class
     * @returns list of objects
   */
-  public genericQuery(parseObject: string, usersName: string): Promise<any> {
+  public genericQuery(parseObject: string, parseColumn: string): Promise<any> {
     //This is Retrieving Results from Parse Server
     let Parse = this.parse.parseEnvironment();
 
@@ -150,13 +150,13 @@ export class QueryService {
         //You can limit the number of results by setting "limit"
         query.limit(2000);
         
-        query.notEqualTo("surveyingOrganization", "test");
+        //query.notEqualTo("surveyingOrganization", "test");
         
         //Limiting Results based on a class
-        //query.equalTo(parseColumn);
+        query.equalTo('surveyingOrganization',parseColumn);
 
         //I'm a hack
-        query.equalTo('surveyingUser',usersName);
+        //query.equalTo('surveyingUser',usersName);
 
         //Below searches what's in the surveyPoints array
         query.find().then((surveyPoints) => {
