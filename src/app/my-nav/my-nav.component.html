@@ -1,4 +1,4 @@
-<header class="hero is-dark theme-background">
+<header class="hero is-dark theme-background" *ngIf="nav.visible">
   <div class="hero-head">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
@@ -7,13 +7,13 @@
           <img class="navbar-brand-logo is--brand resize" src="assets/brand/PUENTE_ICON.png" alt="Puente">
         </a>
         <!--a class="navbar-item is-tab is-hidden-mobile">Assess</a-->
-        <a class="navbar-item is-tab is-hidden-mobile" routerLink="/map">Explore</a>
+        <a class="navbar-item is-tab" routerLink="/map">Explore</a>
         
-        <button class="button navbar-burger" data-target="navMenu">
+        <!--button class="button navbar-burger" data-target="navMenu">
           <span></span>
           <span></span>
           <span></span>
-        </button>
+        </button>-->
 
       </div>
 
