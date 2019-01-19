@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../providers/auth/auth.service';
 import { QueryService} from '../../providers/query/query.service';
 import { NavbarService } from '../../providers/navbar/navbar.service';
+import { DataExportService } from '../../providers/data-export/data-export.service';
 import { async } from 'q';
 
 @Component({
@@ -16,22 +17,22 @@ export class FirstPageComponent implements OnInit {
 
   constructor(private query:QueryService, 
     private auth:AuthService,
-    private nav:NavbarService) { 
+    private nav:NavbarService,
+    private data:DataExportService) { 
     this.nav.show();
-    this.getAllObjects()
+    //this.getAllObjects()
+
+    
   }
 
-  ngOnInit() {
-    this.auth.authenticated()
+  async ngOnInit() {
+    await this.auth.authenticated()
+    await this.testSetup();
   }
 
   /**
-    * @example
-    * Returns a list of objects that is pushed to this classes list
-    * setup()
-    *
-    * @returns list of objects
-  */
+    
+ 
   async setup() {
     return this.query.genericQuery('SurveyData',this.organization).then((patientResults) => {
       for (var i = 0; i < patientResults.length; i++){
@@ -184,5 +185,23 @@ export class FirstPageComponent implements OnInit {
     link.setAttribute('href', data);
     link.setAttribute('download', filename);
     link.click();
+  }
+   */
+
+  testSetup(){
+    this.data.setup(this.organization,'EnvForm').then((results)=>{
+      this.dictsToExport = results
+    })
+    /*
+    this.data.setup(this.organization,'EnvForm').then((results)=>{
+      console.log(results)
+      this.dictsToExport = results;
+    }) */
+    
+  }
+
+  testDownload(){
+    console.log(this.dictsToExport)
+    this.data.downloadCSV({ filename: "puente_export.csv" },this.dictsToExport)
   }
 }
