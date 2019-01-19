@@ -11,7 +11,14 @@
     </p>
   </mat-card-content>
   <mat-card-actions-->
-    <button mat-button color='primary' (click)='downloadCSV({ filename: "puente_export.csv" })'>Button to do Export</button>
+<div class="wrapper">
+  <div class="columns is-fullheight"> 
+    <app-my-aside class='is-1'></app-my-aside>
+    <div>
+      <button mat-button color='primary' (click)='downloadCSV({ filename: "puente_export.csv" })'>Button to do Export</button>
+    </div>
+  </div>
+</div>
     <!--button mat-button>Button to do something weird</button-->
   <!--/mat-card-actions>
 </mat-card-->
