@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+
+//Providers
+import { AuthService } from '../app/providers/auth/auth.service';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,7 +23,7 @@ import { MyAsideComponent } from './my-aside/my-aside.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: SignInComponent},
   { path: 'dash-env', component: HomeEnvComponent},
   { path: 'env-export',component:FirstPageComponent},
   { path: 'submissions', component: SubmissionsComponent},
@@ -28,7 +32,8 @@ const appRoutes: Routes = [
   { path: 'sign-in', component: SignInComponent},
   { path: 'home', component: HomeComponent},
   { path: 'map',component: MapComponent},
-  { path: 'submissions', component:SubmissionsComponent}
+  { path: 'submissions', component:SubmissionsComponent},
+  
 ];
 
 @NgModule({
@@ -49,6 +54,7 @@ const appRoutes: Routes = [
     BrowserModule,
     ChartsModule,
     BrowserAnimationsModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes),
     LayoutModule,
     MatToolbarModule,
@@ -63,7 +69,9 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
