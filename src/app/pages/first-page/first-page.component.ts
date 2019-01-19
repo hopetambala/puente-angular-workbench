@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../../providers/auth/auth.service';
 import { QueryService} from '../../providers/query/query.service';
+import { NavbarService } from '../../providers/navbar/navbar.service';
+import { async } from 'q';
 
 @Component({
   selector: 'app-first-page',
@@ -9,12 +12,17 @@ import { QueryService} from '../../providers/query/query.service';
 })
 export class FirstPageComponent implements OnInit {
   dictsToExport = []
+  organization = this.auth.currentUser().organization
 
-  constructor(private query:QueryService) { 
+  constructor(private query:QueryService, 
+    private auth:AuthService,
+    private nav:NavbarService) { 
+    this.nav.show();
     this.getAllObjects()
   }
 
   ngOnInit() {
+    this.auth.authenticated()
   }
 
   /**
@@ -25,14 +33,13 @@ export class FirstPageComponent implements OnInit {
     * @returns list of objects
   */
   async setup() {
-    return this.query.genericQuery('SurveyData','Puente').then((patientResults) => {
+    return this.query.genericQuery('SurveyData',this.organization).then((patientResults) => {
       for (var i = 0; i < patientResults.length; i++){
         let demographicObject = patientResults[i];
-        //console.log(demographicObject)
+        console.log(demographicObject)
         
         this.setupQuery(demographicObject)
       }
-      //console.log(this.objectIDs)
     });
   }
 
@@ -124,18 +131,9 @@ export class FirstPageComponent implements OnInit {
 
   async getAllObjects() {
     await this.setup();
-
-    let options = {
-      header:false
-    }
-    //let data = this.dictsToExport
-    //const csv = this.papa.unparse(data,options);
-    //this.papaDownload(csv)
     console.log(this.dictsToExport)
-    //console.log(csv)
   }
   
-  //Old stuff
   convertArrayOfObjectsToCSV(args) {  
     var result, ctr, keys, columnDelimiter, lineDelimiter, data;
 
