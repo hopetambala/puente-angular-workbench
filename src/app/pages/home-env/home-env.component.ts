@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { NavbarService} from '../../providers/navbar/navbar.service';
+
 @Component({
   selector: 'app-home-env',
   templateUrl: './home-env.component.html',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeEnvComponent implements OnInit {
 
-  constructor() { }
+  constructor(private nav:NavbarService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
 }
