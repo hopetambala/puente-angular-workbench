@@ -1,6 +1,9 @@
 import { Component,OnInit,AfterViewInit, ViewChild } from '@angular/core';
-import { QueryCustomService} from '../../providers/query-custom/query-custom.service'
-import { QueryService } from '../../providers/query/query.service'
+
+import { NavbarService } from '../../providers/navbar/navbar.service';
+import { QueryCustomService} from '../../providers/query-custom/query-custom.service';
+import { QueryService } from '../../providers/query/query.service';
+import { AuthService } from '../../providers/auth/auth.service';
 
 import { _ } from 'underscore'
 
@@ -74,7 +77,12 @@ export class HomeComponent implements OnInit {
   
   constructor(public queryC:QueryCustomService,
     public query:QueryService,
-    public helper:ProcessorsService) {
+    public helper:ProcessorsService,
+    public auth:AuthService,
+    private nav:NavbarService) {
+
+
+      this.auth.authenticated();
       this.dataProcessing().then((results)=>{
         //console.log(results)//returns data for barchart
         this.barChartType = 'bar';
@@ -99,6 +107,7 @@ export class HomeComponent implements OnInit {
     
   }
   ngOnInit() {
+    this.nav.show();
   }
 
   ///////////////////////////////
