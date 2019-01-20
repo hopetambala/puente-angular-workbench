@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -50,6 +47,9 @@
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -96,7 +96,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>submissions.component.scss</code></td>
+                <td class="col-md-9"><code>./submissions.component.scss</code></td>
             </tr>
 
 
@@ -105,6 +105,12 @@
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./submissions.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -514,7 +520,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(MatPaginator)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -553,7 +563,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(MatSort)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -632,40 +646,168 @@ export class SubmissionsComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;mat-elevation-z8&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;wrapper&quot;&gt;
+    &lt;div class&#x3D;&quot;columns is-fullheight&quot;&gt; 
+      &lt;!--Aside--&gt;
+      &lt;!--Navigation--&gt; 
+      &lt;app-my-aside class&#x3D;&quot;is-fullheight&quot;&gt;&lt;/app-my-aside&gt;
+      &lt;!--Main--&gt;
+      &lt;main class&#x3D;&quot;column main&quot; style&#x3D;&#x27;margin:10px&#x27;&gt;
+        &lt;nav class&#x3D;&quot;breadcrumb is-small&quot; aria-label&#x3D;&quot;breadcrumbs&quot;&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li class&#x3D;&quot;&quot;&gt;&lt;a href&#x3D;&quot;#&quot; aria-current&#x3D;&quot;page&quot;&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+            &lt;li class&#x3D;&quot;is-active&quot;&gt;&lt;a href&#x3D;&quot;#&quot; aria-current&#x3D;&quot;page&quot;&gt;Submissions&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+  
+        &lt;div class&#x3D;&quot;level&quot;&gt;
+          &lt;div class&#x3D;&quot;level-left&quot;&gt;
+            &lt;div class&#x3D;&quot;level-item&quot;&gt;
+              &lt;div class&#x3D;&quot;title has-text-primary&quot;&gt;&lt;p&gt;Submissions&lt;/p&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;level-right&quot;&gt;
+            &lt;div class&#x3D;&quot;level-item&quot;&gt;
+              &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;button is-small&quot;&gt;
+                March 8, 2017 - January 6, 2019
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!--Submissions--&gt;
+        &lt;div class&#x3D;&quot;mat-elevation-z8 submissions&quot;&gt;
 
-  &lt;mat-form-field&gt;
-    &lt;input matInput (keyup)&#x3D;&quot;applyFilter($event.target.value)&quot; placeholder&#x3D;&quot;Filter&quot;&gt;
-  &lt;/mat-form-field&gt;
+            &lt;mat-form-field &gt;
+              &lt;input matInput (keyup)&#x3D;&quot;applyFilter($event.target.value)&quot; placeholder&#x3D;&quot;Filter&quot; style&#x3D;&quot;color:white&quot;&gt;
+            &lt;/mat-form-field&gt;
+          
+            &lt;table mat-table #table [dataSource]&#x3D;&quot;dataSource&quot; matSort class&#x3D;&quot;mat-elevation-z8&quot;&gt;
+          
+              &lt;ng-container matColumnDef&#x3D;&quot;fname&quot;&gt;
+                &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; First Name &lt;/th&gt;
+                &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.fname}} &lt;/td&gt;
+              &lt;/ng-container&gt;
+          
+              &lt;ng-container matColumnDef&#x3D;&quot;lname&quot;&gt;
+                &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Last Name &lt;/th&gt;
+                &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.lname}} &lt;/td&gt;
+              &lt;/ng-container&gt;
+          
+              &lt;ng-container matColumnDef&#x3D;&quot;surveyingUser&quot;&gt;
+                &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Surveying User &lt;/th&gt;
+                &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.surveyingUser}} &lt;/td&gt;
+              &lt;/ng-container&gt;
+          
+              &lt;ng-container matColumnDef&#x3D;&quot;createdAt&quot; &gt;
+                &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Time &lt;/th&gt;
+                &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.createdAt}} &lt;/td&gt;
+              &lt;/ng-container&gt;
+          
+              &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+              &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;&lt;/tr&gt;
+            &lt;/table&gt;
+          
+            &lt;mat-paginator [pageSizeOptions]&#x3D;&quot;[25, 50, 100]&quot; showFirstLastButtons&gt;&lt;/mat-paginator&gt;
+        &lt;/div&gt;
+      &lt;/main&gt;
+  
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+    </div>
 
-  &lt;table mat-table #table [dataSource]&#x3D;&quot;dataSource&quot; matSort class&#x3D;&quot;mat-elevation-z8&quot;&gt;
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./submissions.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;../../../theme.scss&quot;;
 
-    &lt;ng-container matColumnDef&#x3D;&quot;fname&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; First Name &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.fname}} &lt;/td&gt;
-    &lt;/ng-container&gt;
+/* When the input is not focused */
+mat-form-field.mat-form-field {
+    background-color: $brand-secondary;
+    padding-bottom: 0%;
+    font-size: 16px;
+}
 
-    &lt;ng-container matColumnDef&#x3D;&quot;lname&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Last Name &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.lname}} &lt;/td&gt;
-    &lt;/ng-container&gt;
+  
 
-    &lt;ng-container matColumnDef&#x3D;&quot;surveyingUser&quot;&gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Surveying User &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.surveyingUser}} &lt;/td&gt;
-    &lt;/ng-container&gt;
+.submissions {
+    border-radius: 10px; /* 5px rounded corners */
+    //padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    color: $brand-primary;
+    margin-top: 0%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    
+}
+.submissions:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
 
-    &lt;ng-container matColumnDef&#x3D;&quot;createdAt&quot; &gt;
-      &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt; Time &lt;/th&gt;
-      &lt;td mat-cell *matCellDef&#x3D;&quot;let user&quot;&gt; {{user.createdAt}} &lt;/td&gt;
-    &lt;/ng-container&gt;
+table {
+    width: 100%;
+    
+}
 
-    &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
-    &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;&lt;/tr&gt;
-  &lt;/table&gt;
+.mat-input-element{
+    color:$brand-primary;
+}
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+    color: $brand-primary;
+}
 
-  &lt;mat-paginator [pageSizeOptions]&#x3D;&quot;[25, 50, 100]&quot; showFirstLastButtons&gt;&lt;/mat-paginator&gt;
-&lt;/div&gt;</code></pre>
+// main area
+.main{
+   // padding: 1em 2em 1em 1em;
+    a{
+      color: $brand-primary;
+    }
+}
+
+main{
+  padding: 1em 2em 1em 1em;
+}
+
+p{
+  color: $brand-primary;
+}
+
+.row{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.heading,.title{
+  text-align: center;
+  justify-content: center;
+  word-wrap: break-word;
+}
+
+.justify{
+  justify-content: center;
+}
+
+
+.chart1{
+  background: lighten($brand-secondary,0);
+}
+
+.chart2{
+  height: 450px;
+  background: lighten($brand-alternative-secondary,0);
+}
+
+.level-item{
+  margin:1%;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -693,8 +835,8 @@ export class SubmissionsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="mat-elevation-z8">  <mat-form-field>    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">  </mat-form-field>  <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">    <ng-container matColumnDef="fname">      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>      <td mat-cell *matCellDef="let user"> {{user.fname}} </td>    </ng-container>    <ng-container matColumnDef="lname">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>      <td mat-cell *matCellDef="let user"> {{user.lname}} </td>    </ng-container>    <ng-container matColumnDef="surveyingUser">      <th mat-header-cell *matHeaderCellDef mat-sort-header> Surveying User </th>      <td mat-cell *matCellDef="let user"> {{user.surveyingUser}} </td>    </ng-container>    <ng-container matColumnDef="createdAt" >      <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>      <td mat-cell *matCellDef="let user"> {{user.createdAt}} </td>    </ng-container>    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>  </table>  <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'LandingComponent', 'selector': 'app-landing'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
+        var COMPONENT_TEMPLATE = '<div><div class="wrapper">    <div class="columns is-fullheight">       <!--Aside-->      <!--Navigation-->       <app-my-aside class="is-fullheight"></app-my-aside>      <!--Main-->      <main class="column main" style=\'margin:10px\'>        <nav class="breadcrumb is-small" aria-label="breadcrumbs">          <ul>            <li><a href="#">Home</a></li>            <li class=""><a href="#" aria-current="page">Dashboard</a></li>            <li class="is-active"><a href="#" aria-current="page">Submissions</a></li>          </ul>        </nav>          <div class="level">          <div class="level-left">            <div class="level-item">              <div class="title has-text-primary"><p>Submissions</p></div>            </div>          </div>          <div class="level-right">            <div class="level-item">              <button type="button" class="button is-small">                March 8, 2017 - January 6, 2019              </button>            </div>          </div>        </div>        <!--Submissions-->        <div class="mat-elevation-z8 submissions">            <mat-form-field >              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" style="color:white">            </mat-form-field>                      <table mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">                        <ng-container matColumnDef="fname">                <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>                <td mat-cell *matCellDef="let user"> {{user.fname}} </td>              </ng-container>                        <ng-container matColumnDef="lname">                <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>                <td mat-cell *matCellDef="let user"> {{user.lname}} </td>              </ng-container>                        <ng-container matColumnDef="surveyingUser">                <th mat-header-cell *matHeaderCellDef mat-sort-header> Surveying User </th>                <td mat-cell *matCellDef="let user"> {{user.surveyingUser}} </td>              </ng-container>                        <ng-container matColumnDef="createdAt" >                <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>                <td mat-cell *matCellDef="let user"> {{user.createdAt}} </td>              </ng-container>                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>            </table>                      <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>        </div>      </main>      </div>  </div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyAsideComponent', 'selector': 'app-my-aside'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SubmissionsComponent'};
 </script>
@@ -735,7 +877,9 @@ export class SubmissionsComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

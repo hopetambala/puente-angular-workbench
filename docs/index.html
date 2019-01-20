@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -68,6 +65,8 @@ npm install</code></pre></div><h2 id="run">Run</h2>
 <li>Spread the word</li>
 <li>Reach out to me directly at <EMAIL-ADDRESS></li>
 </ul>
+<h1 id="documentation">Documentation</h1>
+<p><a href="https://hopetambala.github.io/puente-angular-workbench/">https://hopetambala.github.io/puente-angular-workbench/</a></p>
 <h2 id="further-help">Further help</h2>
 <p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
 <p>This project uses <a href="https://material.angular.io/">Material Design</a></p>
@@ -111,7 +110,9 @@ npm install</code></pre></div><h2 id="run">Run</h2>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <script src="./js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

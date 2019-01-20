@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -50,6 +47,9 @@
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -96,7 +96,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>home-env.component.scss</code></td>
+                <td class="col-md-9"><code>./home-env.component.scss</code></td>
             </tr>
 
 
@@ -105,6 +105,12 @@
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./home-env.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -145,15 +151,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(nav: <a href="../injectables/NavbarService.html">NavbarService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/pages/home-env/home-env.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/pages/home-env/home-env.component.ts:10</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>nav</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/NavbarService.html" target="_self" >NavbarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -189,7 +225,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/home-env/home-env.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/home-env/home-env.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -214,6 +250,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
+import { NavbarService} from &#x27;../../providers/navbar/navbar.service&#x27;;
+
 @Component({
   selector: &#x27;app-home-env&#x27;,
   templateUrl: &#x27;./home-env.component.html&#x27;,
@@ -221,9 +259,10 @@
 })
 export class HomeEnvComponent implements OnInit {
 
-  constructor() { }
+  constructor(private nav:NavbarService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
 }
@@ -235,29 +274,7 @@ export class HomeEnvComponent implements OnInit {
     &lt;div class&#x3D;&quot;columns is-fullheight&quot;&gt; 
       &lt;!--Aside--&gt;
       &lt;!--Navigation--&gt; 
-      &lt;aside class&#x3D;&quot;aside column is-2&quot; style&#x3D;&#x27;margin:5px&#x27;&gt;
-        &lt;nav class&#x3D;&quot;menu&quot;&gt;
-          &lt;p class&#x3D;&quot;menu-label&quot;&gt;
-            General
-          &lt;/p&gt;
-          &lt;ul class&#x3D;&quot;menu-list&quot;&gt;
-            &lt;li&gt;&lt;a class&#x3D;&quot;&quot; href&#x3D;&quot;#&quot;&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-          &lt;p class&#x3D;&quot;menu-label&quot;&gt;
-            Environmental
-          &lt;/p&gt;
-          &lt;ul class&#x3D;&quot;menu-list&quot;&gt;
-            &lt;li&gt;&lt;a class&#x3D;&quot;is-active&quot; href&#x3D;&quot;#&quot;&gt;Tables and Charts&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href&#x3D;&quot;/env-export&quot;&gt;Data Export&lt;/a&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-          &lt;!--p class&#x3D;&quot;menu-label&quot;&gt;
-            Health
-          &lt;/p&gt;
-          &lt;p class&#x3D;&quot;menu-label&quot;&gt;
-            Medical
-          &lt;/p--&gt;
-        &lt;/nav&gt;
-      &lt;/aside&gt;
+      &lt;app-my-aside class&#x3D;&quot;is-fullheight&quot;&gt;&lt;/app-my-aside&gt;
   
       &lt;main class&#x3D;&quot;column main&quot; style&#x3D;&#x27;margin:10px&#x27;&gt;
         &lt;nav class&#x3D;&quot;breadcrumb is-small&quot; aria-label&#x3D;&quot;breadcrumbs&quot;&gt;
@@ -284,7 +301,7 @@ export class HomeEnvComponent implements OnInit {
         &lt;/div&gt;
   
         &lt;!--Row 1--&gt;
-        &lt;div class&#x3D;&quot;columns is-multiline&quot;&gt;
+        &lt;!--div class&#x3D;&quot;columns is-multiline&quot;&gt;
           &lt;div class&#x3D;&quot;column tile&quot;&gt;
               &lt;div class&#x3D;&quot;box notification is-info brand-primary&quot;&gt;
                 &lt;div class&#x3D;&quot;heading&quot;&gt;Residents&lt;/div&gt;
@@ -383,7 +400,7 @@ export class HomeEnvComponent implements OnInit {
                 &lt;/div&gt;
               &lt;/div&gt;
           &lt;/div&gt;
-        &lt;/div&gt;
+        &lt;/div--&gt;
         
         &lt;!--Row 2--&gt;
         &lt;!--Bar Chart for XXX--&gt;
@@ -411,7 +428,14 @@ export class HomeEnvComponent implements OnInit {
       &lt;/main&gt;
   
     &lt;/div&gt;
-  &lt;/div&gt;</code></pre>
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./home-env.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -439,8 +463,8 @@ export class HomeEnvComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="wrapper">    <div class="columns is-fullheight">       <!--Aside-->      <!--Navigation-->       <aside class="aside column is-2" style=\'margin:5px\'>        <nav class="menu">          <p class="menu-label">            General          </p>          <ul class="menu-list">            <li><a class="" href="#">Dashboard</a></li>          </ul>          <p class="menu-label">            Environmental          </p>          <ul class="menu-list">            <li><a class="is-active" href="#">Tables and Charts</a></li>            <li><a href="/env-export">Data Export</a></li>          </ul>          <!--p class="menu-label">            Health          </p>          <p class="menu-label">            Medical          </p-->        </nav>      </aside>        <main class="column main" style=\'margin:10px\'>        <nav class="breadcrumb is-small" aria-label="breadcrumbs">          <ul>            <li><a href="#">Home</a></li>            <li class=""><a href="/dash-env" aria-current="page">Environmental Data</a></li>            <li class="is-active"><a href="/dash-env" aria-current="page">Tables and Charts</a></li>          </ul>        </nav>          <div class="level">          <div class="level-left">            <div class="level-item">              <div class="title has-text-primary"><p>Dashboard</p></div>            </div>          </div>          <div class="level-right">            <div class="level-item">              <button type="button" class="button is-small">                March 8, 2017 - January 6, 2019              </button>            </div>          </div>        </div>          <!--Row 1-->        <div class="columns is-multiline">          <div class="column tile">              <div class="box notification is-info brand-primary">                <div class="heading">Residents</div>                <div class="title">{{dashboardData.number_of_residents}} collected</div>                <div class="level">                  <div class="level-item">                    <div class="">                      <div class="heading">Male</div>                      <div class="title is-5">{{dashboardData.number_of_residents_male}}</div>                    </div>                  </div>                  <div class="level-item">                    <div class="">                      <div class="heading">Female</div>                      <div class="title is-5">{{dashboardData.number_of_residents_female}}</div>                    </div>                  </div>                </div>              </div>          </div>          <div class="column tile">            <div class="box notification is-warning brand-primary">              <div class="heading">Ages</div>              <div class="title">{{dashboardData.age_average}}yrs (Average)</div>              <div class="level">                <div class="level-item">                  <div class="">                    <div class="heading">Age ~5</div>                    <div class="title is-5">{{dashboardData.age_under5}}</div>                  </div>                </div>                <div class="level-item">                  <div class="">                    <div class="heading">~18</div>                    <div class="title is-5">{{dashboardData.age_under18}}</div>                  </div>                </div>                <div class="level-item">                  <div class="">                    <div class="heading">~40</div>                    <div class="title is-5">{{dashboardData.age_under40}}</div>                  </div>                </div>              </div>            </div>          </div>          <div class="column tile">            <div class="box notification is-warning brand-primary">              <div class="heading">Occupation</div>              <div class="title">{{dashboardData.occupation_highest_name}}: {{dashboardData.occupation_highest}} &uarr;</div>              <div class="level">                <div class="level-item">                  <div class="">                    <div class="heading" style="word-break: break-all;">Job</div>                    <div class="title is-5">30%</div>                  </div>                </div>                <div class="level-item">                  <div class="">                    <div class="heading">Job</div>                    <div class="title is-5">30%</div>                  </div>                </div>                <div class="level-item">                  <div class="">                    <div class="heading">Job</div>                    <div class="title is-5">30%</div>                  </div>                </div>              </div>            </div>          </div>          <div class="column tile">              <div class="box notification is-warning brand-primary">                <div class="heading">Surveyor</div>                <div class="title">Renely: 60% &uarr;</div>                <div class="level">                  <div class="level-item">                    <div class="">                      <div class="heading">Rodrigo</div>                      <div class="title is-5">20%</div>                    </div>                  </div>                  <div class="level-item">                    <div class="">                      <div class="heading">Rose</div>                      <div class="title is-5">10%</div>                    </div>                  </div>                  <div class="level-item">                    <div class="">                      <div class="heading">Josh</div>                      <div class="title is-5">10%</div>                    </div>                  </div>                </div>              </div>          </div>        </div>                <!--Row 2-->        <!--Bar Chart for XXX-->        <!--div class="columns is-multiline charts">          <div class="column is-9 is-fullheight tile ">            <canvas #chart1 *ngIf="barChartData" class="box brand-alternative-secondary" style="height:450px;" baseChart            [datasets]="barChartData"            [labels]="barChartLabels"            [options]="barChartOptions"            [legend]="barChartLegend"            [chartType]="barChartType"            (chartHover)="chartHovered($event)"            (chartClick)="chartClicked($event)">            </canvas>          </div>          <div class="column tile">            <canvas baseChart class="box brand-alternative-secondary " style="width: 100%; height: 100%;padding:1mm;"            [data]="pieChartData"            [labels]="pieChartLabels"            [chartType]="pieChartType"            (chartHover)="chartHovered($event)"            (chartClick)="chartClicked($event)"></canvas>          </div>        </div-->      </main>      </div>  </div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'LandingComponent', 'selector': 'app-landing'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
+        var COMPONENT_TEMPLATE = '<div><div class="wrapper">    <div class="columns is-fullheight">       <!--Aside-->      <!--Navigation-->       <app-my-aside class="is-fullheight"></app-my-aside>        <main class="column main" style=\'margin:10px\'>        <nav class="breadcrumb is-small" aria-label="breadcrumbs">          <ul>            <li><a href="#">Home</a></li>            <li class=""><a href="/dash-env" aria-current="page">Environmental Data</a></li>            <li class="is-active"><a href="/dash-env" aria-current="page">Tables and Charts</a></li>          </ul>        </nav>          <div class="level">          <div class="level-left">            <div class="level-item">              <div class="title has-text-primary"><p>Dashboard</p></div>            </div>          </div>          <div class="level-right">            <div class="level-item">              <button type="button" class="button is-small">                March 8, 2017 - January 6, 2019              </button>            </div>          </div>        </div>          <!--Row 1-->        <!--div class="columns is-multiline">          <div class="column tile">              <div class="box notification is-info brand-primary">                <div class="heading">Residents</div>                <div class="title">{{dashboardData.number_of_residents}} collected</div>                <div class="level">                  <div class="level-item">                    <div class="">                      <div class="heading">Male</div>                      <div class="title is-5">{{dashboardData.number_of_residents_male}}</div>                    </div>                  </div>                  <div class="level-item">                    <div class="">                      <div class="heading">Female</div>                      <div class="title is-5">{{dashboardData.number_of_residents_female}}</div>                    </div>                  </div>                </div>              </div>          </div>          <div class="column tile">            <div class="box notification is-warning brand-primary">              <div class="heading">Ages</div>              <div class="title">{{dashboardData.age_average}}yrs (Average)</div>              <div class="level">                <div class="level-item">                  <div class="">                    <div class="heading">Age ~5</div>                    <div class="title is-5">{{dashboardData.age_under5}}</div>                  </div>                </div>                <div class="level-item">                  <div class="">                    <div class="heading">~18</div>                    <div class="title is-5">{{dashboardData.age_under18}}</div>                  </div>                </div>                <div class="level-item">                  <div class="">                    <div class="heading">~40</div>                    <div class="title is-5">{{dashboardData.age_under40}}</div>                  </div>                </div>              </div>            </div>          </div>          <div class="column tile">            <div class="box notification is-warning brand-primary">              <div class="heading">Occupation</div>              <div class="title">{{dashboardData.occupation_highest_name}}: {{dashboardData.occupation_highest}} &uarr;</div>              <div class="level">                <div class="level-item">                  <div class="">                    <div class="heading" style="word-break: break-all;">Job</div>                    <div class="title is-5">30%</div>                  </div>                </div>                <div class="level-item">                  <div class="">                    <div class="heading">Job</div>                    <div class="title is-5">30%</div>                  </div>                </div>                <div class="level-item">                  <div class="">                    <div class="heading">Job</div>                    <div class="title is-5">30%</div>                  </div>                </div>              </div>            </div>          </div>          <div class="column tile">              <div class="box notification is-warning brand-primary">                <div class="heading">Surveyor</div>                <div class="title">Renely: 60% &uarr;</div>                <div class="level">                  <div class="level-item">                    <div class="">                      <div class="heading">Rodrigo</div>                      <div class="title is-5">20%</div>                    </div>                  </div>                  <div class="level-item">                    <div class="">                      <div class="heading">Rose</div>                      <div class="title is-5">10%</div>                    </div>                  </div>                  <div class="level-item">                    <div class="">                      <div class="heading">Josh</div>                      <div class="title is-5">10%</div>                    </div>                  </div>                </div>              </div>          </div>        </div-->                <!--Row 2-->        <!--Bar Chart for XXX-->        <!--div class="columns is-multiline charts">          <div class="column is-9 is-fullheight tile ">            <canvas #chart1 *ngIf="barChartData" class="box brand-alternative-secondary" style="height:450px;" baseChart            [datasets]="barChartData"            [labels]="barChartLabels"            [options]="barChartOptions"            [legend]="barChartLegend"            [chartType]="barChartType"            (chartHover)="chartHovered($event)"            (chartClick)="chartClicked($event)">            </canvas>          </div>          <div class="column tile">            <canvas baseChart class="box brand-alternative-secondary " style="width: 100%; height: 100%;padding:1mm;"            [data]="pieChartData"            [labels]="pieChartLabels"            [chartType]="pieChartType"            (chartHover)="chartHovered($event)"            (chartClick)="chartClicked($event)"></canvas>          </div>        </div-->      </main>      </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyAsideComponent', 'selector': 'app-my-aside'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeEnvComponent'};
 </script>
@@ -481,7 +505,9 @@ export class HomeEnvComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

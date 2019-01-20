@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -50,6 +47,9 @@
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -96,7 +96,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>communityAnalysis.component.scss</code></td>
+                <td class="col-md-9"><code>./communityAnalysis.component.scss</code></td>
             </tr>
 
 
@@ -105,6 +105,12 @@
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./communityAnalysis.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -1035,6 +1041,13 @@ export class CommunityAnalysisComponent implements OnInit {
 &lt;/table&gt;</code></pre>
     </div>
 
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./communityAnalysis.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
@@ -1061,7 +1074,7 @@ export class CommunityAnalysisComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><nav class="breadcrumb is-small" aria-label="breadcrumbs">  <ul>    <li><a href="#">Home</a></li>    <li class="is-active"><a href="#" aria-current="page">Dashboard</a></li>  </ul></nav><h1>  Number of Community IDs Checked: {{ numberOfIds }}</h1><h4>    Number of Matching Records in Environmental History Form: {{ numberofMatchingIds }}</h4><table class="table">  <!--Latrine Access-->  <thead>    <h4>Latrine Access</h4>    <tr>      <th>Yes</th>      <th>No</th>    </tr>  </thead>  <tbody>    <tr>      <th>{{latrineAccessYes}}</th>      <th>{{latrineAccessNo}}</th>    </tr>  </tbody>  <!--Roof and Floor-->  <thead>    <h4>Poor Roof and Floor Conditions</h4>    <tr>      <th>Bad Roof</th>      <th>Dirt Floor</th>    </tr>  </thead>  <tbody>    <tr>      <th>{{poorRoofCondition}}</th>      <th>{{poorFloorCondition}}</th>    </tr>  </tbody></table><table class="table">  <thead>    <tr>      <th>Average Trash Per week</th>      <th>Trash Once a Week</th>      <th>Trash Twice a week</th>      <th>Trash Thrice or More a week</th>    </tr>  </thead>  <tbody>    <tr>      <th>{{trashAverage}}</th>      <th>{{trash1aweek}}</th>      <th>{{trash2aweek}}</th>      <th>{{trash3omore}}</th>    </tr>  </tbody></table><table class="table">  <tr>    <th>UserID</th>    <th>Latrine Access</th>    <th>Floor Condition</th>    <th>Roof Condition</th>    <th>Clinic Access</th>    <th>Water Access</th>    <th>Times/Week Trash Collected</th>      </tr>  <tr *ngFor="let user of arrayOfMatchEnvFiles">    <th>{{ user.id }} </th>    <th>{{ user.get(\'latrineAccess\') }} </th>    <th>{{ user.get(\'conditionoFloorinyourhouse\') }} </th>    <th>{{ user.get(\'conditionoRoofinyourhouse\') }} </th>    <th>{{ user.get(\'clinicAccess\') }} </th>    <th>{{ user.get(\'waterAccess\') }} </th>    <th>{{ user.get(\'timesperweektrashcollected\') }} </th>  </tr></table></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'LandingComponent', 'selector': 'app-landing'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyAsideComponent', 'selector': 'app-my-aside'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CommunityAnalysisComponent'};
 </script>
@@ -1102,7 +1115,9 @@ export class CommunityAnalysisComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

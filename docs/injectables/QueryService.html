@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -323,7 +320,7 @@ containedQuery(2000,SurveyData,organization,Puente)</code></pre>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>countQuery(organization: , parseModel: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parseColumn: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parseParamValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <code>countQuery(organization, parseModel: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parseColumn: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parseParamValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
@@ -524,7 +521,7 @@ containedQuery(2000,SurveyData,organization,Puente)</code></pre>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>genericQuery(parseObject: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        <code>genericQuery(parseObject: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parseColumn: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
@@ -565,6 +562,20 @@ containedQuery(2000,SurveyData,organization,Puente)</code></pre>
                                                         <td>
                                                                 <code><p>Name of Cloud Class</p>
 </code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>parseColumn</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -702,7 +713,7 @@ listAllPatients()</code></pre>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>listPatientsByOrganization(organization: )</code>
+<code>listPatientsByOrganization(organization)</code>
                     </td>
                 </tr>
 
@@ -905,7 +916,7 @@ export class QueryService {
     * @param {string} parseObject  Name of Cloud Class
     * @returns list of objects
   */
-  public genericQuery(parseObject: string): Promise&lt;any&gt; {
+  public genericQuery(parseObject: string, parseColumn: string): Promise&lt;any&gt; {
     //This is Retrieving Results from Parse Server
     let Parse &#x3D; this.parse.parseEnvironment();
 
@@ -922,13 +933,13 @@ export class QueryService {
         //You can limit the number of results by setting &quot;limit&quot;
         query.limit(2000);
         
-        query.notEqualTo(&quot;surveyingOrganization&quot;, &quot;test&quot;);
+        //query.notEqualTo(&quot;surveyingOrganization&quot;, &quot;test&quot;);
         
         //Limiting Results based on a class
-        //query.equalTo(parseColumn);
+        query.equalTo(&#x27;surveyingOrganization&#x27;,parseColumn);
 
         //I&#x27;m a hack
-        //query.equalTo(&#x27;surveyingUser&#x27;,&#x27;candiany&#x27;)
+        //query.equalTo(&#x27;surveyingUser&#x27;,usersName);
 
         //Below searches what&#x27;s in the surveyPoints array
         query.find().then((surveyPoints) &#x3D;&gt; {
@@ -1015,7 +1026,9 @@ export class QueryService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -18,8 +18,8 @@ export class MyNavComponent implements OnInit {
   username = this.auth.currentUser().name;
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private nav:NavbarService,
-    private auth:AuthService) {
+    public nav:NavbarService,
+    public auth:AuthService) {
 
         //this.username = String(this.auth.currentUser().name)
       }

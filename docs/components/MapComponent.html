@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -50,6 +47,9 @@
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -96,7 +96,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>map.component.scss</code></td>
+                <td class="col-md-9"><code>./map.component.scss</code></td>
             </tr>
 
 
@@ -105,6 +105,12 @@
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./map.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -245,10 +251,8 @@ export class MapComponent implements OnInit {
             Map Tools
           &lt;/p&gt;
           &lt;ul class&#x3D;&quot;menu-list&quot;&gt;
-            &lt;li&gt;&lt;a href&#x3D;&quot;/bulma-admin-dashboard-template/forms.html&quot;&gt;&lt;span class&#x3D;&quot;icon is-small&quot;&gt;&lt;i class&#x3D;&quot;fa fa-pencil-square-o&quot;&gt;&lt;/i&gt;&lt;/span&gt; Forms&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href&#x3D;&quot;/bulma-admin-dashboard-template/ui-elements.html&quot;&gt;&lt;span class&#x3D;&quot;icon is-small&quot;&gt;&lt;i class&#x3D;&quot;fa fa-desktop&quot;&gt;&lt;/i&gt;&lt;/span&gt; UI Elements&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href&#x3D;&quot;/bulma-admin-dashboard-template/tables.html&quot;&gt;&lt;span class&#x3D;&quot;icon is-small&quot;&gt;&lt;i class&#x3D;&quot;fa fa-table&quot;&gt;&lt;/i&gt;&lt;/span&gt; Tables&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href&#x3D;&quot;/bulma-admin-dashboard-template/presentations.html&quot;&gt;&lt;span class&#x3D;&quot;icon is-small&quot;&gt;&lt;i class&#x3D;&quot;fa fa-bar-chart&quot;&gt;&lt;/i&gt;&lt;/span&gt; Presentations&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href&#x3D;&quot;/&quot;&gt;Assets&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href&#x3D;&quot;/&quot;&gt;Community Member&lt;/a&gt;&lt;/li&gt;
           &lt;/ul&gt;
         &lt;/nav&gt;
     &lt;/aside&gt;
@@ -289,6 +293,34 @@ export class MapComponent implements OnInit {
 </code></pre>
     </div>
 
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./map.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;../../../theme.scss&#x27;;
+
+main{
+    // padding: 1em 2em 1em 1em;
+    padding: 1em 2em 1em 1em;
+    a{
+        color: $brand-primary;
+    }
+    padding-right: 5px;
+}
+
+#map{
+    height: 1000px;
+    width: 100%;
+    padding-right: 0px;
+}
+
+.submissions{
+    //padding: 1em 2em 1em 1em;
+    padding-left:0px;
+    padding-right: 0px;
+}</code></pre>
+    </div>
+
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
@@ -314,8 +346,8 @@ export class MapComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class=\'wrapper\'>  <div class="columns is-fullheight">    <aside class="column is-2 aside" style=\'margin:5px\'>        <nav class="menu">          <p class="menu-label">            Map Tools          </p>          <ul class="menu-list">            <li><a href="/bulma-admin-dashboard-template/forms.html"><span class="icon is-small"><i class="fa fa-pencil-square-o"></i></span> Forms</a></li>            <li><a href="/bulma-admin-dashboard-template/ui-elements.html"><span class="icon is-small"><i class="fa fa-desktop"></i></span> UI Elements</a></li>            <li><a href="/bulma-admin-dashboard-template/tables.html"><span class="icon is-small"><i class="fa fa-table"></i></span> Tables</a></li>            <li><a href="/bulma-admin-dashboard-template/presentations.html"><span class="icon is-small"><i class="fa fa-bar-chart"></i></span> Presentations</a></li>          </ul>        </nav>    </aside>    <main class="column is-7">      <nav class="breadcrumb is-small" aria-label="breadcrumbs">        <ul>          <li><a href="#">Home</a></li>          <li class="is-active"><a href="#" aria-current="page">Map</a></li>        </ul>      </nav>      <div id="map">        </div>    </main>    <div class="column is-1 tile submissions">      <table class="table">        <thead>          <tr>            <th><abbr title="First Name">F.Name</abbr></th>            <th><abbr title="Last Name">L.Name</abbr></th>            <th><abbr title="Surveying User">S.User</abbr></th>            <th>Time</th>          </tr>        </thead>        <tbody>          <tr>            <td>A</td>            <td>B</td>            <td>C</td>            <td>D</td>          </tr>        </tbody>      </table>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'LandingComponent', 'selector': 'app-landing'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
+        var COMPONENT_TEMPLATE = '<div><div class=\'wrapper\'>  <div class="columns is-fullheight">    <aside class="column is-2 aside" style=\'margin:5px\'>        <nav class="menu">          <p class="menu-label">            Map Tools          </p>          <ul class="menu-list">            <li><a href="/">Assets</a></li>            <li><a href="/">Community Member</a></li>          </ul>        </nav>    </aside>    <main class="column is-7">      <nav class="breadcrumb is-small" aria-label="breadcrumbs">        <ul>          <li><a href="#">Home</a></li>          <li class="is-active"><a href="#" aria-current="page">Map</a></li>        </ul>      </nav>      <div id="map">        </div>    </main>    <div class="column is-1 tile submissions">      <table class="table">        <thead>          <tr>            <th><abbr title="First Name">F.Name</abbr></th>            <th><abbr title="Last Name">L.Name</abbr></th>            <th><abbr title="Surveying User">S.User</abbr></th>            <th>Time</th>          </tr>        </thead>        <tbody>          <tr>            <td>A</td>            <td>B</td>            <td>C</td>            <td>D</td>          </tr>        </tbody>      </table>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyAsideComponent', 'selector': 'app-my-aside'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MapComponent'};
 </script>
@@ -356,7 +388,9 @@ export class MapComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

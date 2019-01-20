@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -85,13 +82,13 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/LandingComponent.html">src/app/landing/landing.component.ts</a>
+                <a href="./components/MyAsideComponent.html">src/app/my-aside/my-aside.component.ts</a>
             </td>
             <td>
                 component
             </td>
             <td>
-                LandingComponent
+                MyAsideComponent
             </td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
@@ -111,7 +108,7 @@
             </td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/3)</span>
+                <span class="coverage-count">(0/7)</span>
             </td>
         </tr>
         <tr class="low">
@@ -141,9 +138,9 @@
             <td>
                 FirstPageComponent
             </td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/8)</span>
+            <td align="right" data-sort="12">
+                <span class="coverage-percent">12 %</span>
+                <span class="coverage-count">(1/8)</span>
             </td>
         </tr>
         <tr class="low">
@@ -175,7 +172,7 @@
             </td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/22)</span>
+                <span class="coverage-count">(0/24)</span>
             </td>
         </tr>
         <tr class="low">
@@ -239,7 +236,7 @@
             </td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/3)</span>
+                <span class="coverage-count">(0/6)</span>
             </td>
         </tr>
         <tr class="low">
@@ -256,6 +253,70 @@
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
                 <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/User.html">src/app/providers/auth/auth.service.ts</a>
+            </td>
+            <td>
+                class
+            </td>
+            <td>
+                User
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthService.html">src/app/providers/auth/auth.service.ts</a>
+            </td>
+            <td>
+                injectable
+            </td>
+            <td>
+                AuthService
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/DataExportService.html">src/app/providers/data-export/data-export.service.ts</a>
+            </td>
+            <td>
+                injectable
+            </td>
+            <td>
+                DataExportService
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/NavbarService.html">src/app/providers/navbar/navbar.service.ts</a>
+            </td>
+            <td>
+                injectable
+            </td>
+            <td>
+                NavbarService
+            </td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
             </td>
         </tr>
         <tr class="low">
@@ -417,7 +478,9 @@
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <script src="./js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 
