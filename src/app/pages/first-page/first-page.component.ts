@@ -13,6 +13,8 @@ import { async } from 'q';
 })
 export class FirstPageComponent implements OnInit {
   dictsToExport = []
+
+  public forms = ['EvalMedical','EnvForm','Vitals'];
   organization = this.auth.currentUser().organization
 
   constructor(private query:QueryService, 
@@ -27,7 +29,7 @@ export class FirstPageComponent implements OnInit {
 
   async ngOnInit() {
     await this.auth.authenticated()
-    await this.testSetup();
+    await this.testSetup('EvalMedical');
   }
 
   /**
@@ -188,15 +190,14 @@ export class FirstPageComponent implements OnInit {
   }
    */
 
-  testSetup(){
-    this.data.setup(this.organization,'EnvForm').then((results)=>{
+  async testSetup(form:string){
+    await this.data.setup(this.organization,form).then((results)=>{
+    //this.data.setup(this.organization,'EvalMedical').then((results)=>{
+    //this.data.setup(this.organization,'EnvForm').then((results)=>{
+    //this.data.setup(this.organization,'Vitals').then((results)=>{
       this.dictsToExport = results
     })
-    /*
-    this.data.setup(this.organization,'EnvForm').then((results)=>{
-      console.log(results)
-      this.dictsToExport = results;
-    }) */
+   
     
   }
 

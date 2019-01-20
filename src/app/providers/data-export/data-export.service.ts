@@ -18,11 +18,22 @@ export class DataExportService {
         //console.log(demographicObject)
 
         if (model == 'Vitals'){
-
+          this.setupVitalsQuery(demographicObject).then(results=>[
+            final_array.push(results)
+          ])
         }
 
         else if (model == 'EnvForm'){
           this.setupQuery(demographicObject).then(results=>[
+            final_array.push(results)
+          ])
+          //console.log(array)
+          //final_array.push(array)
+          
+        }
+
+        else if (model == 'EvalMedical'){
+          this.setupEvalMedicalQuery(demographicObject).then(results=>[
             final_array.push(results)
           ])
           //console.log(array)
@@ -117,6 +128,108 @@ export class DataExportService {
             conditionOfRoof: null,
             organizationWhoOwnsData: null
               
+        };
+      }
+      return object_to_export
+    })
+    
+  }
+
+  private async setupVitalsQuery(demographicObject){
+    var object_to_export = {}
+
+    /*
+    height: null,
+    weight: null,
+    bmi: null,
+    temp: null,
+    pulse: null,
+    respRate:null,
+    bloodPressure: null,
+    bloodOxygen: null,
+    bloodSugar:null,
+    painLevels:null,
+    hemoglobinLevels:null */
+
+    return await this.query.exactlyOneQuery('Vitals','client',demographicObject).then((Vitals) =>{
+      if (Vitals){
+        object_to_export = {
+              firstName: Vitals.get('client').get('fname'),
+              lastName: Vitals.get('client').get('lname'),
+              dob: Vitals.get('client').get('dob'),
+              sex: Vitals.get('client').get('sex'),
+
+              height: Vitals.get('height'),
+              weight: Vitals.get('weight'),
+              bmi: Vitals.get('bmi'),
+              temp: Vitals.get('temp'),
+              pulse: Vitals.get('pulse'),
+              respRate: Vitals.get('respRate'),
+              hemoglobinLevels: Vitals.get('hemoglobinLevels'),
+              bloodPressure: Vitals.get('bloodPressure'),
+              bloodSugar: Vitals.get('bloodSugar'),
+              bloodOxygen: Vitals.get('bloodOxygen'),
+              painLevels: Vitals.get('painLevels')  
+        }
+      }
+      else {
+        object_to_export = {
+          //patient:{
+            firstName: demographicObject.get('fname'),
+            lastName: demographicObject.get('lname'),
+            dob: demographicObject.get('dob'),
+            sex: demographicObject.get('sex'),
+
+            height: 'Not Collected',
+            weight: 'Not Collected',
+            bmi: 'Not Collected',
+            temp: 'Not Collected',
+            pulse: 'Not Collected',
+            respRate: 'Not Collected',
+            hemoglobinLevels: 'Not Collected',
+            bloodPressure: 'Not Collected',
+            bloodSugar: 'Not Collected',
+            bloodOxygen: 'Not Collected',
+            painLevels: 'Not Collected'  
+              
+        };
+      }
+      return object_to_export
+    })
+    
+  }
+
+  private async setupEvalMedicalQuery(demographicObject){
+    var object_to_export = {}
+
+    /*
+    AssessmentandEvaluation: null,
+    planOfAction: null,
+    notes: null, */
+
+    return await this.query.exactlyOneQuery('EvaluationMedical','client',demographicObject).then((EvalMedical) =>{
+      if (EvalMedical){
+        object_to_export = {
+          firstName: EvalMedical.get('client').get('fname'),
+          lastName: EvalMedical.get('client').get('lname'),
+          dob: EvalMedical.get('client').get('dob'),
+          sex: EvalMedical.get('client').get('sex'),
+
+          AssessmentandEvaluation: EvalMedical.get('AssessmentandEvaluation'),
+          planOfAction: EvalMedical.get('planOfAction'),
+          notes: EvalMedical.get('notes') 
+        }
+      }
+      else {
+        object_to_export = {
+          firstName: demographicObject.get('fname'),
+          lastName: demographicObject.get('lname'),
+          dob: demographicObject.get('dob'),
+          sex: demographicObject.get('sex'),
+
+          AssessmentandEvaluation: null,
+          planOfAction: null,
+          notes: null 
         };
       }
       return object_to_export

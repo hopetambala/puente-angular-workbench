@@ -14,12 +14,27 @@
 <div class="wrapper">
   <div class="columns is-fullheight"> 
     <app-my-aside class='is-1'></app-my-aside>
-    <div>
-      <!--button mat-button color='primary' (click)='downloadCSV({ filename: "puente_export.csv" })'>Button to do Export</button>-->
-      <button mat-button color='primary' (click)='testDownload()'>Button to do Export</button>
-    </div>
+
+    <main class="column main" style='margin:10px'>
+        <nav class="breadcrumb is-small" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Dashboard</a></li>
+          </ul>
+        </nav>
+        <div>
+
+        <label>Tables: </label>
+        <select (change)="testSetup($event.target.value)">
+            <option *ngFor="let form of forms" value={{form}}>
+                {{form}}
+            </option>
+        </select>
+
+        <div>
+          <button mat-button color='primary' (click)='testDownload()'>Export!</button>
+        </div>
+      </div>
+    </main>
   </div>
 </div>
-    <!--button mat-button>Button to do something weird</button-->
-  <!--/mat-card-actions>
-</mat-card-->
