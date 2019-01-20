@@ -15,16 +15,17 @@ import { async } from '@angular/core/testing';
 export class MyNavComponent implements OnInit {
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
 
-  username = this.auth.currentUser().name;
+  username = ''
   constructor(
     private breakpointObserver: BreakpointObserver,
     public nav:NavbarService,
     public auth:AuthService) {
-
-        //this.username = String(this.auth.currentUser().name)
-      }
+      if (this.auth.currentUser().name !=null) {
+        this.username = this.auth.currentUser().name
+      };
+    }
         
     ngOnInit() {
-      this.auth.authenticated()
+      //this.auth.authenticated()
     }
   }
