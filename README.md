@@ -7,6 +7,9 @@
 ## About 
 This web application is meant to be the web platform used to manage data collected on the ionic mobile application [Puente Data Collection](https://puente-dr.com/data-collection/)
 
+## Screenshots
+![Home](/src/assets/screenshots/home.png) 
+
 ## Angular Framework
 
 Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google and by a community of individuals and corporations. Those powerful capabilities are brought to Angular because it provides mobile-friendly `HTML`, `JS`, and `CSS` components to developers.
