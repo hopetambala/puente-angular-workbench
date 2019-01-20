@@ -20,9 +20,9 @@ export class MyNavComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     public nav:NavbarService,
     public auth:AuthService) {
-      if (this.auth.currentUser().name !=null) {
-        this.username = this.auth.currentUser().name
-      };
+      //if (this.auth.currentUser().name !=null) {
+      //  this.username = this.auth.currentUser().name
+      //};
     }
         
     ngOnInit() {
