@@ -19,6 +19,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.5",
     "@angular/animations": "^6.0.0",
     "@angular/cdk": "^6.0.0",
     "@angular/cli": "^6.2.5",
@@ -42,8 +43,8 @@
     "path": "^0.12.7",
     "rxjs": "^6.0.0",
     "typescript": "~2.7.2",
-    "underscore": "^1.9.1",
     "uglify-es": "^3.2.2",
+    "underscore": "^1.9.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
