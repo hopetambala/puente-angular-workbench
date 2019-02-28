@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QueryCustomService } from '../../providers/query-custom/query-custom.service'
+
 declare let L;
 
 @Component({
@@ -6,16 +8,50 @@ declare let L;
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
+
+
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  title: string = 'My first AGM project';
+  lat: number = 18.9130926;
+  lng: number = -70.7095201;
+
+  markers: marker[] = []
+
+  constructor(private query:QueryCustomService) { }
 
   ngOnInit() {
-    const map = L.map('map').setView([51.505, -0.09], 13);
+    this.create_all_markers()
+    
+  }
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+  create_all_markers(){
+    this.query.retrieveAll_patientid_info_by_organization('Puente').then((results)=>{
+      for(let i=0;i<results.length;i++){
+        let result = results[i]
+       
+        
+        this.markers.push({
+          lat: result.get('latitude'),
+          lng: result.get('longitude'),
+          label: result.get('fname'),
+          draggable:true
+        }) 
+
+        //console.log(result)
+
+        //this.markers.push()
+      }
+    })
   }
 
 }
+
+// just an interface for type safety.
+interface marker {
+	lat: number;
+	lng: number;
+	label: string;
+	draggable: boolean;
+}
+
