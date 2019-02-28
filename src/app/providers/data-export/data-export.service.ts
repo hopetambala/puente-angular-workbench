@@ -223,9 +223,31 @@ export class DataExportService {
           dob: EvalMedical.get('client').get('dob'),
           sex: EvalMedical.get('client').get('sex'),
 
-          AssessmentandEvaluation: EvalMedical.get('AssessmentandEvaluation'),
+          chronic_condition_hypertension: EvalMedical.get('chronic_condition_hypertension'),
+          chronic_condition_diabetes: EvalMedical.get('chronic_condition_diabetes'),
+          chronic_condition_other: EvalMedical.get('chronic_condition_other'),
+
+          seen_doctor: EvalMedical.get('seen_doctor'),
+
+          received_treatment_notes: EvalMedical.get('received_treatment_notes'),//what did the doctor say
+          received_treatment_description: EvalMedical.get('received_treatment_description'), //status of health
+
+          part_of_body: EvalMedical.get('part_of_body'),
+          part_of_body_description: EvalMedical.get('part_of_body_description'),
+          duration: EvalMedical.get('duration'),
+          trauma_induced: EvalMedical.get('trauma_induced'),
+          condition_progression: EvalMedical.get('condition_progression'),
+          pain: EvalMedical.get('pain'),
+
+          //Assessment Section
+          notes: EvalMedical.get('notes'),
+          AssessmentandEvaluation: EvalMedical.get('AssessmentandEvaluation'), //general_health_recommendation
+          AssessmentandEvaluation_Surgical: EvalMedical.get('AssessmentandEvaluation_Surgical'),
+          AssessmentandEvaluation_Surgical_Guess: EvalMedical.get('AssessmentandEvaluation_Surgical_Guess'),
           planOfAction: EvalMedical.get('planOfAction'),
-          notes: EvalMedical.get('notes') 
+          immediate_follow_up:EvalMedical.get('immediate_follow_up'),
+
+          needsAssessmentandEvaluation:EvalMedical.get('needsAssessmentandEvaluation')
         }
       }
       else {
@@ -235,9 +257,31 @@ export class DataExportService {
           dob: demographicObject.get('dob'),
           sex: demographicObject.get('sex'),
 
-          AssessmentandEvaluation: null,
-          planOfAction: null,
-          notes: null 
+          chronic_condition_hypertension:null,
+          chronic_condition_diabetes:null,
+          chronic_condition_other:null,
+
+          seen_doctor:null,
+
+          received_treatment_notes:null,//what did the doctor say
+          received_treatment_description:null, //status of health
+
+          part_of_body:null,
+          part_of_body_description:null,
+          duration:null,
+          trauma_induced:null,
+          condition_progression:null,
+          pain:null,
+
+          //Assessment Section
+          notes:null,
+          AssessmentandEvaluation: null, //general_health_recommendation
+          AssessmentandEvaluation_Surgical: null,
+          AssessmentandEvaluation_Surgical_Guess:null,
+          planOfAction:null, 
+          immediate_follow_up:null,
+
+          needsAssessmentandEvaluation:null
         };
       }
       return object_to_export
