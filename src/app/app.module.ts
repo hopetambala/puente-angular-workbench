@@ -4,6 +4,9 @@ import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AgmCoreModule } from '@agm/core';
+
+
 //Providers
 import { AuthService } from '../app/providers/auth/auth.service';
 
@@ -56,6 +59,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBl0jjRObjh2orfjqFc02nZ9uO0AyB06Sg'
+    }),
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
