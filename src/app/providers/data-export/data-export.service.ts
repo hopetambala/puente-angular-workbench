@@ -9,7 +9,15 @@ export class DataExportService {
 
   constructor(private query: QueryService) { }
 
-  
+  /**
+    * @example
+    * Returns an array of results based on organization and backend model
+    * setup("Puente",'EvalMedical')
+    *
+    * @param {string} organization  Organization of the User
+    * @param {string} model  Backend model Trying to be retrieved
+    * @returns ONE array object results of query
+  */
   async setup(organization:string,model:string) {
     var final_array = []
     this.query.genericQuery('SurveyData',organization).then((patientResults) => {
