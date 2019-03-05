@@ -76,7 +76,8 @@ export class DataExportService {
               dataCollector: environmentalHealthResults.get('client').get('surveyingUser'),
               latitude: environmentalHealthResults.get('client').get('latitude'),
               longitude: environmentalHealthResults.get('client').get('longitude'),
-
+              ____:"___",
+              ___:"___",
               yearsLivedinthecommunity: environmentalHealthResults.get('yearsLivedinthecommunity'),
               yearsLivedinThisHouse: environmentalHealthResults.get('yearsLivedinThisHouse'),
               medicalproblemswheredoyougo: environmentalHealthResults.get('medicalproblemswheredoyougo'),
@@ -93,7 +94,10 @@ export class DataExportService {
               trashLocation: environmentalHealthResults.get('wheretrashleftbetweenpickups'),
               conditionOfFloor: environmentalHealthResults.get('conditionoFloorinyourhouse'),
               conditionOfRoof: environmentalHealthResults.get('conditionoRoofinyourhouse'),
-              organizationWhoOwnsData: environmentalHealthResults.get('client').get('surveyingOrganization')
+              organizationWhoOwnsData: environmentalHealthResults.get('client').get('surveyingOrganization'),
+
+              dateCreatedEnvHlth: environmentalHealthResults.createdAt,
+              dateUpdatedEnvHlth: environmentalHealthResults.updatedAt
             
         }
       }
@@ -117,24 +121,28 @@ export class DataExportService {
             dataCollector: demographicObject.get('surveyingUser'),
             latitude: demographicObject.get('latitude'),
             longitude: demographicObject.get('longitude'),
-
-            yearsLivedinthecommunity: null,
-            yearsLivedinThisHouse: null,
-            medicalproblemswheredoyougo: null,
-            dentalproblemswheredoyougo: null,
-            numberofIndividualsLivingintheHouse:null,
-            numberofChildrenLivinginHouseUndertheAgeof5:null,
-            biggestproblemofcommunity:null,
-            houseownership:null,
-            latrineAccess: null,
-            waterAccess: null,
-            typeOfWaterDrank:null,
-            clinicAccess: null,
-            trashPickUpFrequency: null,
-            trashLocation: null,
-            conditionOfFloor: null,
-            conditionOfRoof: null,
-            organizationWhoOwnsData: null
+            ____:"___",
+            ___:"___",
+            yearsLivedinthecommunity: 'Not Collected',
+            yearsLivedinThisHouse: 'Not Collected',
+            medicalproblemswheredoyougo: 'Not Collected',
+            dentalproblemswheredoyougo: 'Not Collected',
+            numberofIndividualsLivingintheHouse:'Not Collected',
+            numberofChildrenLivinginHouseUndertheAgeof5:'Not Collected',
+            biggestproblemofcommunity:'Not Collected',
+            houseownership:'Not Collected',
+            latrineAccess: 'Not Collected',
+            waterAccess: 'Not Collected',
+            typeOfWaterDrank:'Not Collected',
+            clinicAccess: 'Not Collected',
+            trashPickUpFrequency: 'Not Collected',
+            trashLocation: 'Not Collected',
+            conditionOfFloor: 'Not Collected',
+            conditionOfRoof: 'Not Collected',
+            organizationWhoOwnsData: 'Not Collected',
+            
+            dateCreatedEnvHlth: 'Not Collected',
+            dateUpdatedEnvHlth: 'Not Collected'
               
         };
       }
@@ -146,27 +154,28 @@ export class DataExportService {
   private async setupVitalsQuery(demographicObject){
     var object_to_export = {}
 
-    /*
-    height: null,
-    weight: null,
-    bmi: null,
-    temp: null,
-    pulse: null,
-    respRate:null,
-    bloodPressure: null,
-    bloodOxygen: null,
-    bloodSugar:null,
-    painLevels:null,
-    hemoglobinLevels:null */
-
     return await this.query.exactlyOneQuery('Vitals','client',demographicObject).then((Vitals) =>{
       if (Vitals){
         object_to_export = {
-              firstName: Vitals.get('client').get('fname'),
-              lastName: Vitals.get('client').get('lname'),
-              dob: Vitals.get('client').get('dob'),
-              sex: Vitals.get('client').get('sex'),
-
+              firstName: demographicObject.get('fname'),
+              lastName: demographicObject.get('lname'),
+              dob: demographicObject.get('dob'),
+              sex: demographicObject.get('sex'),
+              marriageStatus: demographicObject.get('marriageStatus'),
+              educationLevel: demographicObject.get('educationLevel'),
+              occupation: demographicObject.get('occupation'),
+              communityName: demographicObject.get('communityname'),
+              city: demographicObject.get('city'),
+              province: demographicObject.get('province'),
+              insuranceNumber: demographicObject.get('insuranceNumber'),
+              insuranceProvider: demographicObject.get('insuranceProvider'),
+              clinicProvider: demographicObject.get('clinicProvider'),
+              cedulaNumber: demographicObject.get('cedulaNumber'),
+              dataCollector: demographicObject.get('surveyingUser'),
+              latitude: demographicObject.get('latitude'),
+              longitude: demographicObject.get('longitude'),
+              ____:"___",
+              ___:"___",
               height: Vitals.get('height'),
               weight: Vitals.get('weight'),
               bmi: Vitals.get('bmi'),
@@ -177,7 +186,10 @@ export class DataExportService {
               bloodPressure: Vitals.get('bloodPressure'),
               bloodSugar: Vitals.get('bloodSugar'),
               bloodOxygen: Vitals.get('bloodOxygen'),
-              painLevels: Vitals.get('painLevels')  
+              painLevels: Vitals.get('painLevels'),
+
+              dateCreatedVitals: Vitals.createdAt,
+              dateUpdatedVitals: Vitals.updatedAt
         }
       }
       else {
@@ -187,7 +199,21 @@ export class DataExportService {
             lastName: demographicObject.get('lname'),
             dob: demographicObject.get('dob'),
             sex: demographicObject.get('sex'),
-
+            marriageStatus: demographicObject.get('marriageStatus'),
+            educationLevel: demographicObject.get('educationLevel'),
+            occupation: demographicObject.get('occupation'),
+            communityName: demographicObject.get('communityname'),
+            city: demographicObject.get('city'),
+            province: demographicObject.get('province'),
+            insuranceNumber: demographicObject.get('insuranceNumber'),
+            insuranceProvider: demographicObject.get('insuranceProvider'),
+            clinicProvider: demographicObject.get('clinicProvider'),
+            cedulaNumber: demographicObject.get('cedulaNumber'),
+            dataCollector: demographicObject.get('surveyingUser'),
+            latitude: demographicObject.get('latitude'),
+            longitude: demographicObject.get('longitude'),
+            ____:"___",
+            ___:"___",
             height: 'Not Collected',
             weight: 'Not Collected',
             bmi: 'Not Collected',
@@ -198,7 +224,10 @@ export class DataExportService {
             bloodPressure: 'Not Collected',
             bloodSugar: 'Not Collected',
             bloodOxygen: 'Not Collected',
-            painLevels: 'Not Collected'  
+            painLevels: 'Not Collected',
+
+            dateCreatedVitals: 'Not Collected',
+            dateUpdatedVitals: 'Not Collected'
               
         };
       }
@@ -218,11 +247,25 @@ export class DataExportService {
     return await this.query.exactlyOneQuery('EvaluationMedical','client',demographicObject).then((EvalMedical) =>{
       if (EvalMedical){
         object_to_export = {
-          firstName: EvalMedical.get('client').get('fname'),
-          lastName: EvalMedical.get('client').get('lname'),
-          dob: EvalMedical.get('client').get('dob'),
-          sex: EvalMedical.get('client').get('sex'),
-
+          firstName: demographicObject.get('fname'),
+          lastName: demographicObject.get('lname'),
+          dob: demographicObject.get('dob'),
+          sex: demographicObject.get('sex'),
+          marriageStatus: demographicObject.get('marriageStatus'),
+          educationLevel: demographicObject.get('educationLevel'),
+          occupation: demographicObject.get('occupation'),
+          communityName: demographicObject.get('communityname'),
+          city: demographicObject.get('city'),
+          province: demographicObject.get('province'),
+          insuranceNumber: demographicObject.get('insuranceNumber'),
+          insuranceProvider: demographicObject.get('insuranceProvider'),
+          clinicProvider: demographicObject.get('clinicProvider'),
+          cedulaNumber: demographicObject.get('cedulaNumber'),
+          dataCollector: demographicObject.get('surveyingUser'),
+          latitude: demographicObject.get('latitude'),
+          longitude: demographicObject.get('longitude'),
+          ____:"___",
+          ___:"___",
           chronic_condition_hypertension: EvalMedical.get('chronic_condition_hypertension'),
           chronic_condition_diabetes: EvalMedical.get('chronic_condition_diabetes'),
           chronic_condition_other: EvalMedical.get('chronic_condition_other'),
@@ -247,7 +290,11 @@ export class DataExportService {
           planOfAction: EvalMedical.get('planOfAction'),
           immediate_follow_up:EvalMedical.get('immediate_follow_up'),
 
-          needsAssessmentandEvaluation:EvalMedical.get('needsAssessmentandEvaluation')
+          needsAssessmentandEvaluation:EvalMedical.get('needsAssessmentandEvaluation'),
+
+          dateCreatedEvalMedical: EvalMedical.createdAt,
+          dateUpdatedEvalMedical: EvalMedical.updatedAt
+          
         }
       }
       else {
@@ -256,32 +303,48 @@ export class DataExportService {
           lastName: demographicObject.get('lname'),
           dob: demographicObject.get('dob'),
           sex: demographicObject.get('sex'),
+          marriageStatus: demographicObject.get('marriageStatus'),
+          educationLevel: demographicObject.get('educationLevel'),
+          occupation: demographicObject.get('occupation'),
+          communityName: demographicObject.get('communityname'),
+          city: demographicObject.get('city'),
+          province: demographicObject.get('province'),
+          insuranceNumber: demographicObject.get('insuranceNumber'),
+          insuranceProvider: demographicObject.get('insuranceProvider'),
+          clinicProvider: demographicObject.get('clinicProvider'),
+          cedulaNumber: demographicObject.get('cedulaNumber'),
+          dataCollector: demographicObject.get('surveyingUser'),
+          latitude: demographicObject.get('latitude'),
+          longitude: demographicObject.get('longitude'),
+          ____:"___",
+          ___:"___",
+          chronic_condition_hypertension:"Not Collected",
+          chronic_condition_diabetes:"Not Collected",
+          chronic_condition_other:"Not Collected",
 
-          chronic_condition_hypertension:null,
-          chronic_condition_diabetes:null,
-          chronic_condition_other:null,
+          seen_doctor:"Not Collected",
 
-          seen_doctor:null,
+          received_treatment_notes:"Not Collected",//what did the doctor say
+          received_treatment_description:"Not Collected", //status of health
 
-          received_treatment_notes:null,//what did the doctor say
-          received_treatment_description:null, //status of health
-
-          part_of_body:null,
-          part_of_body_description:null,
-          duration:null,
-          trauma_induced:null,
-          condition_progression:null,
-          pain:null,
+          part_of_body:"Not Collected",
+          part_of_body_description:"Not Collected",
+          duration:"Not Collected",
+          trauma_induced:"Not Collected",
+          condition_progression:"Not Collected",
+          pain:"Not Collected",
 
           //Assessment Section
           notes:null,
-          AssessmentandEvaluation: null, //general_health_recommendation
-          AssessmentandEvaluation_Surgical: null,
-          AssessmentandEvaluation_Surgical_Guess:null,
-          planOfAction:null, 
-          immediate_follow_up:null,
+          AssessmentandEvaluation: "Not Collected", //general_health_recommendation
+          AssessmentandEvaluation_Surgical: "Not Collected",
+          AssessmentandEvaluation_Surgical_Guess:"Not Collected",
+          planOfAction:"Not Collected", 
+          immediate_follow_up:"Not Collected",
+          needsAssessmentandEvaluation:"Not Collected",
 
-          needsAssessmentandEvaluation:null
+          dateCreatedEvalMedical: "Not Collected",
+          dateUpdatedEvalMedical: "Not Collected"
         };
       }
       return object_to_export
