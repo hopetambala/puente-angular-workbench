@@ -80,9 +80,6 @@ export class HomeComponent implements OnInit {
     public helper:ProcessorsService,
     public auth:AuthService,
     private nav:NavbarService) {
-
-      
-
         this.auth.authenticated();
 
         this.username = this.auth.currentUser().name
@@ -179,6 +176,7 @@ export class HomeComponent implements OnInit {
         Ages
       */
       let ages = _.map(results, function(num){ return moment().diff(num.get('dob'),'years' )}); //maps ages to an array
+      console.log(ages)
       let agesCount = _.countBy(ages, function(num) {
         if(num<5){
           return 'lessThan5'
