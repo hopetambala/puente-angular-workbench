@@ -365,7 +365,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/pages/home/home.component.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/pages/home/home.component.ts:101</a></div>
                             </td>
                         </tr>
 
@@ -436,7 +436,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/pages/home/home.component.ts:108</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/pages/home/home.component.ts:105</a></div>
                             </td>
                         </tr>
 
@@ -507,7 +507,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="217" class="link-to-prism">src/app/pages/home/home.component.ts:217</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="215" class="link-to-prism">src/app/pages/home/home.component.ts:215</a></div>
                             </td>
                         </tr>
 
@@ -574,7 +574,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/app/pages/home/home.component.ts:122</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/pages/home/home.component.ts:119</a></div>
                             </td>
                         </tr>
 
@@ -612,7 +612,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/pages/home/home.component.ts:112</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/pages/home/home.component.ts:109</a></div>
                             </td>
                         </tr>
 
@@ -650,7 +650,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/app/pages/home/home.component.ts:115</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/pages/home/home.component.ts:112</a></div>
                             </td>
                         </tr>
 
@@ -1401,9 +1401,6 @@ export class HomeComponent implements OnInit {
     public helper:ProcessorsService,
     public auth:AuthService,
     private nav:NavbarService) {
-
-      
-
         this.auth.authenticated();
 
         this.username &#x3D; this.auth.currentUser().name
@@ -1500,6 +1497,7 @@ export class HomeComponent implements OnInit {
         Ages
       */
       let ages &#x3D; _.map(results, function(num){ return moment().diff(num.get(&#x27;dob&#x27;),&#x27;years&#x27; )}); //maps ages to an array
+      console.log(ages)
       let agesCount &#x3D; _.countBy(ages, function(num) {
         if(num&lt;5){
           return &#x27;lessThan5&#x27;

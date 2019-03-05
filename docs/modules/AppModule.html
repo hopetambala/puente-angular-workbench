@@ -333,6 +333,9 @@ import { ChartsModule } from &#x27;ng2-charts&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 
+import { AgmCoreModule } from &#x27;@agm/core&#x27;;
+
+
 //Providers
 import { AuthService } from &#x27;../app/providers/auth/auth.service&#x27;;
 
@@ -385,6 +388,9 @@ const appRoutes: Routes &#x3D; [
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    AgmCoreModule.forRoot({
+      apiKey: &#x27;AIzaSyBl0jjRObjh2orfjqFc02nZ9uO0AyB06Sg&#x27;
+    }),
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,

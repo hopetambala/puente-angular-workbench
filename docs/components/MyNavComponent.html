@@ -274,7 +274,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/my-nav/my-nav.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/my-nav/my-nav.component.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -421,13 +421,19 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <code>username:     <code></code>
+                        <code>username:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.auth.currentUser().name</code>
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
                         </td>
                     </tr>
                         <tr>
@@ -462,17 +468,18 @@ import { async } from &#x27;@angular/core/testing&#x27;;
 export class MyNavComponent implements OnInit {
   isHandset: Observable&lt;BreakpointState&gt; &#x3D; this.breakpointObserver.observe(Breakpoints.Handset);
 
-  username &#x3D; this.auth.currentUser().name;
+  username &#x3D; &#x27;&#x27;
   constructor(
     private breakpointObserver: BreakpointObserver,
     public nav:NavbarService,
     public auth:AuthService) {
-
-        //this.username &#x3D; String(this.auth.currentUser().name)
-      }
+      //if (this.auth.currentUser().name !&#x3D;null) {
+      //  this.username &#x3D; this.auth.currentUser().name
+      //};
+    }
         
     ngOnInit() {
-      this.auth.authenticated()
+      //this.auth.authenticated()
     }
   }
 </code></pre>
@@ -488,7 +495,7 @@ export class MyNavComponent implements OnInit {
           &lt;img class&#x3D;&quot;navbar-brand-logo is--brand resize&quot; src&#x3D;&quot;assets/brand/PUENTE_ICON.png&quot; alt&#x3D;&quot;Puente&quot;&gt;
         &lt;/a&gt;
         &lt;!--a class&#x3D;&quot;navbar-item is-tab is-hidden-mobile&quot;&gt;Assess&lt;/a--&gt;
-        &lt;a class&#x3D;&quot;navbar-item is-tab&quot; routerLink&#x3D;&quot;/map&quot;&gt;Explore&lt;/a&gt;
+        &lt;a class&#x3D;&quot;navbar-item is-tab&quot; routerLink&#x3D;&quot;/map&quot;&gt;Explore Map&lt;/a&gt;
         
         &lt;!--button class&#x3D;&quot;button navbar-burger&quot; data-target&#x3D;&quot;navMenu&quot;&gt;
           &lt;span&gt;&lt;/span&gt;
@@ -501,7 +508,7 @@ export class MyNavComponent implements OnInit {
 
       &lt;div class&#x3D;&quot;navbar-menu navbar-end&quot; id&#x3D;&quot;navMenu&quot;&gt;
         &lt;a class&#x3D;&quot;navbar-item is-tab is-hidden-tablet&quot; routerLink&#x3D;&quot;/home&quot;&gt;Home&lt;/a&gt;
-        &lt;a class&#x3D;&quot;navbar-item is-tab is-hidden-tablet&quot; routerLink&#x3D;&quot;/map&quot;&gt;Explore&lt;/a&gt;
+        &lt;a class&#x3D;&quot;navbar-item is-tab is-hidden-tablet&quot; routerLink&#x3D;&quot;/map&quot;&gt;Explore Map&lt;/a&gt;
         &lt;a class&#x3D;&quot;navbar-item nav-tag&quot;&gt;              
           &lt;span class&#x3D;&quot;icon is-small&quot;&gt;
             &lt;i class&#x3D;&quot;fa fa-envelope-o&quot;&gt;&lt;/i&gt;
@@ -513,7 +520,7 @@ export class MyNavComponent implements OnInit {
             &lt;figure class&#x3D;&quot;image is-32x32&quot; style&#x3D;&quot;margin-right:.5em;&quot;&gt;
               &lt;img src&#x3D;&quot;https://avatars1.githubusercontent.com/u/7221389?v&#x3D;4&amp;s&#x3D;32&quot;&gt;
             &lt;/figure&gt;
-            {{username}}
+            &lt;!--{{username}}--&gt;
           &lt;/a&gt;
         
           &lt;div class&#x3D;&quot;navbar-dropdown is-right&quot;&gt;              
@@ -533,6 +540,7 @@ export class MyNavComponent implements OnInit {
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
+      
     &lt;/nav&gt;
   &lt;/div&gt;
 &lt;/header&gt;
@@ -588,7 +596,7 @@ a{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><header class="hero is-dark theme-background" *ngIf="nav.visible">  <div class="hero-head">    <nav class="navbar" role="navigation" aria-label="main navigation">      <div class="navbar-brand">                <a class="navbar-item is--brand" routerLink="/home">          <img class="navbar-brand-logo is--brand resize" src="assets/brand/PUENTE_ICON.png" alt="Puente">        </a>        <!--a class="navbar-item is-tab is-hidden-mobile">Assess</a-->        <a class="navbar-item is-tab" routerLink="/map">Explore</a>                <!--button class="button navbar-burger" data-target="navMenu">          <span></span>          <span></span>          <span></span>        </button>-->      </div>      <div class="navbar-menu navbar-end" id="navMenu">        <a class="navbar-item is-tab is-hidden-tablet" routerLink="/home">Home</a>        <a class="navbar-item is-tab is-hidden-tablet" routerLink="/map">Explore</a>        <a class="navbar-item nav-tag">                        <span class="icon is-small">            <i class="fa fa-envelope-o"></i>          </span>          <span class="tag is-primary tag-notif">6</span>        </a>          <div class="navbar-item has-dropdown is-hoverable">          <a class="navbar-link">                          <figure class="image is-32x32" style="margin-right:.5em;">              <img src="https://avatars1.githubusercontent.com/u/7221389?v=4&s=32">            </figure>            {{username}}          </a>                  <div class="navbar-dropdown is-right">                            <a class="navbar-item">                <span class="icon is-small">                  <i class="fa fa-user-o"></i>                </span>                Profile              </a>              <hr class="navbar-divider">              <a class="navbar-item" routerLink="/sign-in">                <span class="icon is-small">                  <i class="fa fa-power-off"></i>                </span>                Logout              </a>          </div>        </div>      </div>    </nav>  </div></header><router-outlet></router-outlet></div>'
+        var COMPONENT_TEMPLATE = '<div><header class="hero is-dark theme-background" *ngIf="nav.visible">  <div class="hero-head">    <nav class="navbar" role="navigation" aria-label="main navigation">      <div class="navbar-brand">                <a class="navbar-item is--brand" routerLink="/home">          <img class="navbar-brand-logo is--brand resize" src="assets/brand/PUENTE_ICON.png" alt="Puente">        </a>        <!--a class="navbar-item is-tab is-hidden-mobile">Assess</a-->        <a class="navbar-item is-tab" routerLink="/map">Explore Map</a>                <!--button class="button navbar-burger" data-target="navMenu">          <span></span>          <span></span>          <span></span>        </button>-->      </div>      <div class="navbar-menu navbar-end" id="navMenu">        <a class="navbar-item is-tab is-hidden-tablet" routerLink="/home">Home</a>        <a class="navbar-item is-tab is-hidden-tablet" routerLink="/map">Explore Map</a>        <a class="navbar-item nav-tag">                        <span class="icon is-small">            <i class="fa fa-envelope-o"></i>          </span>          <span class="tag is-primary tag-notif">6</span>        </a>          <div class="navbar-item has-dropdown is-hoverable">          <a class="navbar-link">                          <figure class="image is-32x32" style="margin-right:.5em;">              <img src="https://avatars1.githubusercontent.com/u/7221389?v=4&s=32">            </figure>            <!--{{username}}-->          </a>                  <div class="navbar-dropdown is-right">                            <a class="navbar-item">                <span class="icon is-small">                  <i class="fa fa-user-o"></i>                </span>                Profile              </a>              <hr class="navbar-divider">              <a class="navbar-item" routerLink="/sign-in">                <span class="icon is-small">                  <i class="fa fa-power-off"></i>                </span>                Logout              </a>          </div>        </div>      </div>          </nav>  </div></header><router-outlet></router-outlet></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyAsideComponent', 'selector': 'app-my-aside'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MyNavComponent'};

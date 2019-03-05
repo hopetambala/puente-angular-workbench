@@ -292,7 +292,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -330,7 +330,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="204" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:204</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -370,146 +370,13 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="193" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:193</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/first-page/first-page.component.ts:40</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>async setup() {
-   return this.query.genericQuery(&#39;SurveyData&#39;,this.organization).then((patientResults) =&gt; {
-     for (var i = 0; i &lt; patientResults.length; i++){
-       let demographicObject = patientResults[i];
-       console.log(demographicObject)</p>
-<div><pre class="line-numbers"><code class="language-none">   this.setupQuery(demographicObject)
- }</code></pre></div><p>   });
-}</p>
-<p>async setupQuery(demographicObject){
-   await this.query.exactlyOneQuery(&#39;HistoryEnvironmentalHealth&#39;,&#39;client&#39;,demographicObject).then((environmentalHealthResults) =&gt;{
-     if (environmentalHealthResults){
-         this.dictsToExport.push({
-             firstName: environmentalHealthResults.get(&#39;client&#39;).get(&#39;fname&#39;),
-             lastName: environmentalHealthResults.get(&#39;client&#39;).get(&#39;lname&#39;),
-             dob: environmentalHealthResults.get(&#39;client&#39;).get(&#39;dob&#39;),
-             sex: environmentalHealthResults.get(&#39;client&#39;).get(&#39;sex&#39;),
-             marriageStatus: environmentalHealthResults.get(&#39;client&#39;).get(&#39;marriageStatus&#39;),
-             educationLevel: environmentalHealthResults.get(&#39;client&#39;).get(&#39;educationLevel&#39;),
-             occupation: environmentalHealthResults.get(&#39;client&#39;).get(&#39;occupation&#39;),
-             communityName: environmentalHealthResults.get(&#39;client&#39;).get(&#39;communityname&#39;),
-             city: environmentalHealthResults.get(&#39;client&#39;).get(&#39;city&#39;),
-             province: environmentalHealthResults.get(&#39;client&#39;).get(&#39;province&#39;),
-             insuranceNumber: environmentalHealthResults.get(&#39;client&#39;).get(&#39;insuranceNumber&#39;),
-             insuranceProvider: environmentalHealthResults.get(&#39;client&#39;).get(&#39;insuranceProvider&#39;),
-             clinicProvider: environmentalHealthResults.get(&#39;client&#39;).get(&#39;clinicProvider&#39;),
-             cedulaNumber: environmentalHealthResults.get(&#39;client&#39;).get(&#39;cedulaNumber&#39;),
-             dataCollector: environmentalHealthResults.get(&#39;client&#39;).get(&#39;surveyingUser&#39;),
-             latitude: environmentalHealthResults.get(&#39;client&#39;).get(&#39;latitude&#39;),
-             longitude: environmentalHealthResults.get(&#39;client&#39;).get(&#39;longitude&#39;),</p>
-<div><pre class="line-numbers"><code class="language-none">         yearsLivedinthecommunity: environmentalHealthResults.get(&#39;yearsLivedinthecommunity&#39;),
-         yearsLivedinThisHouse: environmentalHealthResults.get(&#39;yearsLivedinThisHouse&#39;),
-         medicalproblemswheredoyougo: environmentalHealthResults.get(&#39;medicalproblemswheredoyougo&#39;),
-         dentalproblemswheredoyougo: environmentalHealthResults.get(&#39;dentalproblemswheredoyougo&#39;),
-         numberofIndividualsLivingintheHouse: environmentalHealthResults.get(&#39;numberofIndividualsLivingintheHouse&#39;),
-         numberofChildrenLivinginHouseUndertheAgeof5: environmentalHealthResults.get(&#39;numberofChildrenLivinginHouseUndertheAgeof5&#39;),
-         biggestproblemofcommunity: environmentalHealthResults.get(&#39;biggestproblemofcommunity&#39;).replace(/,/g, &#39;-&#39;),
-         houseownership: environmentalHealthResults.get(&#39;houseownership&#39;),
-         latrineAccess: environmentalHealthResults.get(&#39;latrineAccess&#39;),
-         waterAccess: environmentalHealthResults.get(&#39;waterAccess&#39;),
-         typeOfWaterDrank: environmentalHealthResults.get(&#39;typeofWaterdoyoudrink&#39;),
-         clinicAccess: environmentalHealthResults.get(&#39;clinicAccess&#39;),
-         trashPickUpFrequency: environmentalHealthResults.get(&#39;timesperweektrashcollected&#39;),
-         trashLocation: environmentalHealthResults.get(&#39;wheretrashleftbetweenpickups&#39;),
-         conditionOfFloor: environmentalHealthResults.get(&#39;conditionoFloorinyourhouse&#39;),
-         conditionOfRoof: environmentalHealthResults.get(&#39;conditionoRoofinyourhouse&#39;),
-         organizationWhoOwnsData: environmentalHealthResults.get(&#39;client&#39;).get(&#39;surveyingOrganization&#39;)
-
-   })
- }
- else {
-   this.dictsToExport.push({
-     //patient:{
-       firstName: demographicObject.get(&#39;fname&#39;),
-       lastName: demographicObject.get(&#39;lname&#39;),
-       dob: demographicObject.get(&#39;dob&#39;),
-       sex: demographicObject.get(&#39;sex&#39;),
-       marriageStatus: demographicObject.get(&#39;marriageStatus&#39;),
-       educationLevel: demographicObject.get(&#39;educationLevel&#39;),
-       occupation: demographicObject.get(&#39;occupation&#39;),
-       communityName: demographicObject.get(&#39;communityname&#39;),
-       city: demographicObject.get(&#39;city&#39;),
-       province: demographicObject.get(&#39;province&#39;),
-       insuranceNumber: demographicObject.get(&#39;insuranceNumber&#39;),
-       insuranceProvider: demographicObject.get(&#39;insuranceProvider&#39;),
-       clinicProvider: demographicObject.get(&#39;clinicProvider&#39;),
-       cedulaNumber: demographicObject.get(&#39;cedulaNumber&#39;),
-       dataCollector: demographicObject.get(&#39;surveyingUser&#39;),
-       latitude: demographicObject.get(&#39;latitude&#39;),
-       longitude: demographicObject.get(&#39;longitude&#39;),
-
-       yearsLivedinthecommunity: null,
-       yearsLivedinThisHouse: null,
-       medicalproblemswheredoyougo: null,
-       dentalproblemswheredoyougo: null,
-       numberofIndividualsLivingintheHouse:null,
-       numberofChildrenLivinginHouseUndertheAgeof5:null,
-       biggestproblemofcommunity:null,
-       houseownership:null,
-       latrineAccess: null,
-       waterAccess: null,
-       typeOfWaterDrank:null,
-       clinicAccess: null,
-       trashPickUpFrequency: null,
-       trashLocation: null,
-       conditionOfFloor: null,
-       conditionOfRoof: null,
-       organizationWhoOwnsData: null
-
-   });
- }</code></pre></div><p>   })
-}</p>
-<p>async getAllObjects() {
-   await this.setup();
-   console.log(this.dictsToExport)
-}</p>
-<p>convertArrayOfObjectsToCSV(args) {<br>   var result, ctr, keys, columnDelimiter, lineDelimiter, data;</p>
-<p>   data = args.data || null;
-   if (data == null || !data.length) {
-       return null;
-   }</p>
-<p>   columnDelimiter = args.columnDelimiter || &#39;,&#39;;
-   //columnDelimiter = args.columnDelimiter || &#39;\t&#39;;
-   lineDelimiter = args.lineDelimiter || &#39;\n&#39;;</p>
-<p>   keys = Object.keys(data[0]);</p>
-<p>   result = &#39;&#39;;
-   result += keys.join(columnDelimiter);
-   result += lineDelimiter;</p>
-<p>   data.forEach(function(item) {
-       ctr = 0;
-       keys.forEach(function(key) {
-           if (ctr &gt; 0) result += columnDelimiter;</p>
-<div><pre class="line-numbers"><code class="language-none">       result += item[key];
-       ctr++;
-   });
-   result += lineDelimiter;</code></pre></div><p>   });</p>
-<p>   return result;
-}</p>
-<p>async downloadCSV(args) {<br>   var data, filename, link;
-   var csv = await this.convertArrayOfObjectsToCSV({
-       data: await this.dictsToExport
-   });
-   if (csv == null) return;</p>
-<p>   filename = args.filename || &#39;export.csv&#39;;</p>
-<p>   if (!csv.match(/^data:text/csv/i)) {
-       csv = &#39;data:text/csv;charset=utf-8,&#39; + csv;
-   }
-   data = encodeURI(csv);</p>
-<p>   link = document.createElement(&#39;a&#39;);
-   link.setAttribute(&#39;href&#39;, data);
-   link.setAttribute(&#39;download&#39;, filename);
-   link.click();
-}</p>
-</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -538,13 +405,19 @@
                                     </table>
                             </div>
                             <div>
+                                    <b>Example :</b>
+                                        <div>
+                                            <pre class="line-numbers"><code class="language-html">Returns an array of objects of the desired backend
+testSetup(&amp;#39;EvalMedical&amp;#39;)</code></pre>
+                                        </div>
                             </div>
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                             </div>
                                 <div class="io-description">
-                                    
+                                    <p>array of objects</p>
+
                                 </div>
                     </td>
                 </tr>
@@ -699,9 +572,6 @@ export class FirstPageComponent implements OnInit {
     private nav:NavbarService,
     private data:DataExportService) { 
     this.nav.show();
-    //this.getAllObjects()
-
-    
   }
 
   async ngOnInit() {
@@ -710,170 +580,20 @@ export class FirstPageComponent implements OnInit {
   }
 
   /**
-    
- 
-  async setup() {
-    return this.query.genericQuery(&#x27;SurveyData&#x27;,this.organization).then((patientResults) &#x3D;&gt; {
-      for (var i &#x3D; 0; i &lt; patientResults.length; i++){
-        let demographicObject &#x3D; patientResults[i];
-        console.log(demographicObject)
-        
-        this.setupQuery(demographicObject)
-      }
-    });
-  }
-
-  async setupQuery(demographicObject){
-    await this.query.exactlyOneQuery(&#x27;HistoryEnvironmentalHealth&#x27;,&#x27;client&#x27;,demographicObject).then((environmentalHealthResults) &#x3D;&gt;{
-      if (environmentalHealthResults){
-          this.dictsToExport.push({
-              firstName: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;fname&#x27;),
-              lastName: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;lname&#x27;),
-              dob: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;dob&#x27;),
-              sex: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;sex&#x27;),
-              marriageStatus: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;marriageStatus&#x27;),
-              educationLevel: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;educationLevel&#x27;),
-              occupation: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;occupation&#x27;),
-              communityName: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;communityname&#x27;),
-              city: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;city&#x27;),
-              province: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;province&#x27;),
-              insuranceNumber: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;insuranceNumber&#x27;),
-              insuranceProvider: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;insuranceProvider&#x27;),
-              clinicProvider: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;clinicProvider&#x27;),
-              cedulaNumber: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;cedulaNumber&#x27;),
-              dataCollector: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;surveyingUser&#x27;),
-              latitude: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;latitude&#x27;),
-              longitude: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;longitude&#x27;),
-
-              yearsLivedinthecommunity: environmentalHealthResults.get(&#x27;yearsLivedinthecommunity&#x27;),
-              yearsLivedinThisHouse: environmentalHealthResults.get(&#x27;yearsLivedinThisHouse&#x27;),
-              medicalproblemswheredoyougo: environmentalHealthResults.get(&#x27;medicalproblemswheredoyougo&#x27;),
-              dentalproblemswheredoyougo: environmentalHealthResults.get(&#x27;dentalproblemswheredoyougo&#x27;),
-              numberofIndividualsLivingintheHouse: environmentalHealthResults.get(&#x27;numberofIndividualsLivingintheHouse&#x27;),
-              numberofChildrenLivinginHouseUndertheAgeof5: environmentalHealthResults.get(&#x27;numberofChildrenLivinginHouseUndertheAgeof5&#x27;),
-              biggestproblemofcommunity: environmentalHealthResults.get(&#x27;biggestproblemofcommunity&#x27;).replace(/,/g, &#x27;-&#x27;),
-              houseownership: environmentalHealthResults.get(&#x27;houseownership&#x27;),
-              latrineAccess: environmentalHealthResults.get(&#x27;latrineAccess&#x27;),
-              waterAccess: environmentalHealthResults.get(&#x27;waterAccess&#x27;),
-              typeOfWaterDrank: environmentalHealthResults.get(&#x27;typeofWaterdoyoudrink&#x27;),
-              clinicAccess: environmentalHealthResults.get(&#x27;clinicAccess&#x27;),
-              trashPickUpFrequency: environmentalHealthResults.get(&#x27;timesperweektrashcollected&#x27;),
-              trashLocation: environmentalHealthResults.get(&#x27;wheretrashleftbetweenpickups&#x27;),
-              conditionOfFloor: environmentalHealthResults.get(&#x27;conditionoFloorinyourhouse&#x27;),
-              conditionOfRoof: environmentalHealthResults.get(&#x27;conditionoRoofinyourhouse&#x27;),
-              organizationWhoOwnsData: environmentalHealthResults.get(&#x27;client&#x27;).get(&#x27;surveyingOrganization&#x27;)
-            
-        })
-      }
-      else {
-        this.dictsToExport.push({
-          //patient:{
-            firstName: demographicObject.get(&#x27;fname&#x27;),
-            lastName: demographicObject.get(&#x27;lname&#x27;),
-            dob: demographicObject.get(&#x27;dob&#x27;),
-            sex: demographicObject.get(&#x27;sex&#x27;),
-            marriageStatus: demographicObject.get(&#x27;marriageStatus&#x27;),
-            educationLevel: demographicObject.get(&#x27;educationLevel&#x27;),
-            occupation: demographicObject.get(&#x27;occupation&#x27;),
-            communityName: demographicObject.get(&#x27;communityname&#x27;),
-            city: demographicObject.get(&#x27;city&#x27;),
-            province: demographicObject.get(&#x27;province&#x27;),
-            insuranceNumber: demographicObject.get(&#x27;insuranceNumber&#x27;),
-            insuranceProvider: demographicObject.get(&#x27;insuranceProvider&#x27;),
-            clinicProvider: demographicObject.get(&#x27;clinicProvider&#x27;),
-            cedulaNumber: demographicObject.get(&#x27;cedulaNumber&#x27;),
-            dataCollector: demographicObject.get(&#x27;surveyingUser&#x27;),
-            latitude: demographicObject.get(&#x27;latitude&#x27;),
-            longitude: demographicObject.get(&#x27;longitude&#x27;),
-
-            yearsLivedinthecommunity: null,
-            yearsLivedinThisHouse: null,
-            medicalproblemswheredoyougo: null,
-            dentalproblemswheredoyougo: null,
-            numberofIndividualsLivingintheHouse:null,
-            numberofChildrenLivinginHouseUndertheAgeof5:null,
-            biggestproblemofcommunity:null,
-            houseownership:null,
-            latrineAccess: null,
-            waterAccess: null,
-            typeOfWaterDrank:null,
-            clinicAccess: null,
-            trashPickUpFrequency: null,
-            trashLocation: null,
-            conditionOfFloor: null,
-            conditionOfRoof: null,
-            organizationWhoOwnsData: null
-              
-        });
-      }
-    })
-  }
-
-  async getAllObjects() {
-    await this.setup();
-    console.log(this.dictsToExport)
-  }
-  
-  convertArrayOfObjectsToCSV(args) {  
-    var result, ctr, keys, columnDelimiter, lineDelimiter, data;
-
-    data &#x3D; args.data || null;
-    if (data &#x3D;&#x3D; null || !data.length) {
-        return null;
-    }
-
-    columnDelimiter &#x3D; args.columnDelimiter || &#x27;,&#x27;;
-    //columnDelimiter &#x3D; args.columnDelimiter || &#x27;\t&#x27;;
-    lineDelimiter &#x3D; args.lineDelimiter || &#x27;\n&#x27;;
-
-    keys &#x3D; Object.keys(data[0]);
-
-    result &#x3D; &#x27;&#x27;;
-    result +&#x3D; keys.join(columnDelimiter);
-    result +&#x3D; lineDelimiter;
-
-    data.forEach(function(item) {
-        ctr &#x3D; 0;
-        keys.forEach(function(key) {
-            if (ctr &gt; 0) result +&#x3D; columnDelimiter;
-
-            result +&#x3D; item[key];
-            ctr++;
-        });
-        result +&#x3D; lineDelimiter;
-    });
-
-    return result;
-  }
-
-  async downloadCSV(args) {  
-    var data, filename, link;
-    var csv &#x3D; await this.convertArrayOfObjectsToCSV({
-        data: await this.dictsToExport
-    });
-    if (csv &#x3D;&#x3D; null) return;
-
-    filename &#x3D; args.filename || &#x27;export.csv&#x27;;
-
-    if (!csv.match(/^data:text\/csv/i)) {
-        csv &#x3D; &#x27;data:text/csv;charset&#x3D;utf-8,&#x27; + csv;
-    }
-    data &#x3D; encodeURI(csv);
-
-    link &#x3D; document.createElement(&#x27;a&#x27;);
-    link.setAttribute(&#x27;href&#x27;, data);
-    link.setAttribute(&#x27;download&#x27;, filename);
-    link.click();
-  }
-   */
-
+    * @example
+    * Returns an array of objects of the desired backend
+    * testSetup(&#x27;EvalMedical&#x27;)
+    *
+    * @param {string} Backend Model  
+    * @returns array of objects
+  */
   async testSetup(form:string){
     await this.data.setup(this.organization,form).then((results)&#x3D;&gt;{
     //this.data.setup(this.organization,&#x27;EvalMedical&#x27;).then((results)&#x3D;&gt;{
     //this.data.setup(this.organization,&#x27;EnvForm&#x27;).then((results)&#x3D;&gt;{
     //this.data.setup(this.organization,&#x27;Vitals&#x27;).then((results)&#x3D;&gt;{
       this.dictsToExport &#x3D; results
-    })
+  })
    
     
   }

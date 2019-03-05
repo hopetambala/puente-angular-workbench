@@ -121,6 +121,29 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#lat">lat</a>
+                            </li>
+                            <li>
+                                <a href="#lng">lng</a>
+                            </li>
+                            <li>
+                                <a href="#markers">markers</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -130,6 +153,9 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#create_all_markers">create_all_markers</a>
+                            </li>
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
@@ -151,15 +177,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(query: <a href="../injectables/QueryCustomService.html">QueryCustomService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/pages/map/map.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/map/map.component.ts:19</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>query</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/QueryCustomService.html" target="_self" >QueryCustomService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -173,6 +229,44 @@
         <h3 id="methods">
             Methods
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="create_all_markers"></a>
+                        <span class="name">
+                            <b>
+                            create_all_markers
+                            </b>
+                            <a href="#create_all_markers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>create_all_markers()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/map/map.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -195,7 +289,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/map/map.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/map/map.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -213,12 +307,176 @@
         </table>
 </section>
 
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lat"></a>
+                        <span class="name">
+                            <b>
+                            lat
+                            </b>
+                            <a href="#lat"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>lat:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>18.9130926</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/map/map.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lng"></a>
+                        <span class="name">
+                            <b>
+                            lng
+                            </b>
+                            <a href="#lng"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>lng:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>-70.7095201</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/map/map.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="markers"></a>
+                        <span class="name">
+                            <b>
+                            markers
+                            </b>
+                            <a href="#markers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>markers:     <code><a href="../interfaces/marker.html" target="_self" >marker[]</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/marker.html" target="_self" >marker[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/map/map.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <span class="name">
+                            <b>
+                            title
+                            </b>
+                            <a href="#title"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>title:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;My first AGM project&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/map/map.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { QueryCustomService } from &#x27;../../providers/query-custom/query-custom.service&#x27;
+
 declare let L;
 
 @Component({
@@ -226,19 +484,53 @@ declare let L;
   templateUrl: &#x27;./map.component.html&#x27;,
   styleUrls: [&#x27;./map.component.scss&#x27;]
 })
+
+
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  title: string &#x3D; &#x27;My first AGM project&#x27;;
+  lat: number &#x3D; 18.9130926;
+  lng: number &#x3D; -70.7095201;
+
+  markers: marker[] &#x3D; []
+
+  constructor(private query:QueryCustomService) { }
 
   ngOnInit() {
-    const map &#x3D; L.map(&#x27;map&#x27;).setView([51.505, -0.09], 13);
+    this.create_all_markers()
+    
+  }
 
-    L.tileLayer(&#x27;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#x27;, {
-        attribution: &#x27;© &lt;a href&#x3D;&quot;https://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors&#x27;
-    }).addTo(map);
+  create_all_markers(){
+    this.query.retrieveAll_patientid_info_by_organization(&#x27;Puente&#x27;).then((results)&#x3D;&gt;{
+      for(let i&#x3D;0;i&lt;results.length;i++){
+        let result &#x3D; results[i]
+       
+        
+        this.markers.push({
+          lat: result.get(&#x27;latitude&#x27;),
+          lng: result.get(&#x27;longitude&#x27;),
+          label: result.get(&#x27;fname&#x27;),
+          draggable:true
+        }) 
+
+        //console.log(result)
+
+        //this.markers.push()
+      }
+    })
   }
 
 }
+
+// just an interface for type safety.
+interface marker {
+	lat: number;
+	lng: number;
+	label: string;
+	draggable: boolean;
+}
+
 </code></pre>
     </div>
 
@@ -264,9 +556,25 @@ export class MapComponent implements OnInit {
         &lt;/ul&gt;
       &lt;/nav&gt;
 
-      &lt;div id&#x3D;&quot;map&quot;&gt;
-  
-      &lt;/div&gt;
+      &lt;!-- this creates a google map on the page with the given lat/lng from --&gt;
+      &lt;!-- the component as the initial center of the map: --&gt;
+      &lt;agm-map [latitude]&#x3D;&quot;lat&quot; [longitude]&#x3D;&quot;lng&quot;&gt;
+        &lt;agm-marker [latitude]&#x3D;&quot;lat&quot; [longitude]&#x3D;&quot;lng&quot;&gt;&lt;/agm-marker&gt;
+
+        &lt;agm-marker 
+            *ngFor&#x3D;&quot;let m of markers&quot;
+            [latitude]&#x3D;&quot;m.lat&quot;
+            [longitude]&#x3D;&quot;m.lng&quot;
+            [label]&#x3D;&quot;m.label&quot;
+            [markerDraggable]&#x3D;&quot;m.draggable&quot;&gt;
+            
+          &lt;!--agm-info-window&gt;
+            &lt;strong&gt;InfoWindow content&lt;/strong&gt;
+          &lt;/agm-info-window--&gt;
+          
+        &lt;/agm-marker&gt;
+
+      &lt;/agm-map&gt;
     &lt;/main&gt;
     &lt;div class&#x3D;&quot;column is-1 tile submissions&quot;&gt;
       &lt;table class&#x3D;&quot;table&quot;&gt;
@@ -318,7 +626,11 @@ main{
     //padding: 1em 2em 1em 1em;
     padding-left:0px;
     padding-right: 0px;
-}</code></pre>
+}
+
+agm-map {
+    height: 768px;
+  }</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -346,7 +658,7 @@ main{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class=\'wrapper\'>  <div class="columns is-fullheight">    <aside class="column is-2 aside" style=\'margin:5px\'>        <nav class="menu">          <p class="menu-label">            Map Tools          </p>          <ul class="menu-list">            <li><a href="/">Assets</a></li>            <li><a href="/">Community Member</a></li>          </ul>        </nav>    </aside>    <main class="column is-7">      <nav class="breadcrumb is-small" aria-label="breadcrumbs">        <ul>          <li><a href="#">Home</a></li>          <li class="is-active"><a href="#" aria-current="page">Map</a></li>        </ul>      </nav>      <div id="map">        </div>    </main>    <div class="column is-1 tile submissions">      <table class="table">        <thead>          <tr>            <th><abbr title="First Name">F.Name</abbr></th>            <th><abbr title="Last Name">L.Name</abbr></th>            <th><abbr title="Surveying User">S.User</abbr></th>            <th>Time</th>          </tr>        </thead>        <tbody>          <tr>            <td>A</td>            <td>B</td>            <td>C</td>            <td>D</td>          </tr>        </tbody>      </table>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class=\'wrapper\'>  <div class="columns is-fullheight">    <aside class="column is-2 aside" style=\'margin:5px\'>        <nav class="menu">          <p class="menu-label">            Map Tools          </p>          <ul class="menu-list">            <li><a href="/">Assets</a></li>            <li><a href="/">Community Member</a></li>          </ul>        </nav>    </aside>    <main class="column is-7">      <nav class="breadcrumb is-small" aria-label="breadcrumbs">        <ul>          <li><a href="#">Home</a></li>          <li class="is-active"><a href="#" aria-current="page">Map</a></li>        </ul>      </nav>      <!-- this creates a google map on the page with the given lat/lng from -->      <!-- the component as the initial center of the map: -->      <agm-map [latitude]="lat" [longitude]="lng">        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>        <agm-marker             *ngFor="let m of markers"            [latitude]="m.lat"            [longitude]="m.lng"            [label]="m.label"            [markerDraggable]="m.draggable">                      <!--agm-info-window>            <strong>InfoWindow content</strong>          </agm-info-window-->                  </agm-marker>      </agm-map>    </main>    <div class="column is-1 tile submissions">      <table class="table">        <thead>          <tr>            <th><abbr title="First Name">F.Name</abbr></th>            <th><abbr title="Last Name">L.Name</abbr></th>            <th><abbr title="Surveying User">S.User</abbr></th>            <th>Time</th>          </tr>        </thead>        <tbody>          <tr>            <td>A</td>            <td>B</td>            <td>C</td>            <td>D</td>          </tr>        </tbody>      </table>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommunityAnalysisComponent', 'selector': 'app-communityAnalysis'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeEnvComponent', 'selector': 'app-home-env'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MyAsideComponent', 'selector': 'app-my-aside'},{'name': 'MyNavComponent', 'selector': 'my-nav'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubmissionsComponent', 'selector': 'app-submissions'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MapComponent'};
