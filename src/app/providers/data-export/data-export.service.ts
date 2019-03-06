@@ -23,20 +23,23 @@ export class DataExportService {
     this.query.genericQuery('SurveyData',organization).then((patientResults) => {
       for (var i = 0; i < patientResults.length; i++){
         let demographicObject = patientResults[i];
-        //console.log(demographicObject)
 
-        if (model == 'Vitals'){
+        if (model == 'PatientID'){
+          this.setupPatientID(demographicObject).then(results =>[
+            final_array.push(results)
+          ])
+        }
+
+        else if (model == 'Vitals'){
           this.setupVitalsQuery(demographicObject).then(results=>[
             final_array.push(results)
           ])
         }
 
         else if (model == 'EnvForm'){
-          this.setupQuery(demographicObject).then(results=>[
+          this.setupEnvQuery(demographicObject).then(results=>[
             final_array.push(results)
           ])
-          //console.log(array)
-          //final_array.push(array)
           
         }
 
@@ -44,8 +47,6 @@ export class DataExportService {
           this.setupEvalMedicalQuery(demographicObject).then(results=>[
             final_array.push(results)
           ])
-          //console.log(array)
-          //final_array.push(array)
           
         }
       }
@@ -53,7 +54,35 @@ export class DataExportService {
     return final_array
   }
 
-  private async setupQuery(demographicObject){
+  private async setupPatientID(demographicObject){
+
+    var object_to_export = {
+      firstName: demographicObject.get('fname'),
+      lastName: demographicObject.get('lname'),
+      nickname: demographicObject.get('nickname'),
+      dob: demographicObject.get('dob'),
+      sex: demographicObject.get('sex').replace(/,/g, '-'),
+      telephoneNumber: demographicObject.get('telephoneNumber'),
+      marriageStatus: demographicObject.get('marriageStatus'),
+      educationLevel: demographicObject.get('educationLevel'),
+      occupation: demographicObject.get('occupation').replace(/,/g, '-'),
+      communityName: demographicObject.get('communityname').replace(/,/g, '-'),
+      city: demographicObject.get('city').replace(/,/g, '-'),
+      province: demographicObject.get('province'),
+      insuranceNumber: demographicObject.get('insuranceNumber'),
+      insuranceProvider: demographicObject.get('insuranceProvider'),
+      clinicProvider: demographicObject.get('clinicProvider'),
+      cedulaNumber: demographicObject.get('cedulaNumber'),
+      dataCollector: demographicObject.get('surveyingUser'),
+      latitude: demographicObject.get('latitude'),
+      longitude: demographicObject.get('longitude'),
+      dateCreated: demographicObject.createdAt,
+      dateUpdated:demographicObject.updatedAt
+    }
+    return await object_to_export  
+  }
+
+  private async setupEnvQuery(demographicObject){
     var object_to_export = {}
 
     return await this.query.exactlyOneQuery('HistoryEnvironmentalHealth','client',demographicObject).then((environmentalHealthResults) =>{

@@ -14,7 +14,7 @@ import { async } from 'q';
 export class FirstPageComponent implements OnInit {
   dictsToExport = []
 
-  public forms = ['EvalMedical','EnvForm','Vitals'];
+  public forms = ['PatientID','EvalMedical','EnvForm','Vitals'];
   organization = this.auth.currentUser().organization
 
   constructor(private query:QueryService, 
@@ -26,7 +26,7 @@ export class FirstPageComponent implements OnInit {
 
   async ngOnInit() {
     await this.auth.authenticated()
-    await this.testSetup('EvalMedical');
+    await this.testSetup('PatientID');
   }
 
   /**
