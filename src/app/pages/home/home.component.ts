@@ -1,9 +1,12 @@
 import { Component,OnInit,AfterViewInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { NavbarService } from '../../providers/navbar/navbar.service';
 import { QueryCustomService} from '../../providers/query-custom/query-custom.service';
 import { QueryService } from '../../providers/query/query.service';
 import { AuthService } from '../../providers/auth/auth.service';
+import { RestService } from '../../providers/rest/rest.service';
+
 
 import { _ } from 'underscore'
 
@@ -20,6 +23,7 @@ declare var Chart;
 export class HomeComponent implements OnInit {
   username:string
   organization:string
+  serverData: JSON;
   dashboardData = {
     number_of_residents:0,
     number_of_residents_male:0,
@@ -53,6 +57,8 @@ export class HomeComponent implements OnInit {
     educationLevelArray:null,
   }
 
+  members:any;
+
   /*
     Barchart 
   */
@@ -79,7 +85,8 @@ export class HomeComponent implements OnInit {
     public query:QueryService,
     public helper:ProcessorsService,
     public auth:AuthService,
-    private nav:NavbarService) {
+    private nav:NavbarService,
+    private rest: RestService) {
         this.auth.authenticated();
 
         this.username = this.auth.currentUser().name
@@ -111,6 +118,7 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit() {
     this.nav.show();
+    this.getMembers();
   }
 
   ///////////////////////////////
@@ -247,6 +255,14 @@ export class HomeComponent implements OnInit {
     }, {});
     
     return [Object.values(m.Male),Object.values(m.Female)] //returns an array of objects of education counts versus female/male
+  }
+
+  getMembers() {
+    this.rest.getAllMembers().subscribe(data => {
+      this.members = data as JSON;
+      this.members = this.members.records;
+      console.log(this.members)
+    });
   }
       
     
